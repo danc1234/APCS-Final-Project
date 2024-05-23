@@ -1,10 +1,10 @@
 # Work Log
 
-## GROUP MEMBER 1
+## Daniel Choe
 
-### date x
+### 5/22
 
-info
+added every class needed for now and initialized most of the classes and made basic methods for the class
 
 ### date y
 
