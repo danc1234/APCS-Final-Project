@@ -8,6 +8,7 @@ public class Bloons{
   private boolean regrow;
   private boolean iced;
   private boolean glued;
+
   
   // Constructor
   public Bloons (int level, double velocity, float locationX, float locationY, boolean camoflauge, boolean regenerate) {
@@ -33,6 +34,9 @@ public class Bloons{
   }
   public float getY() {
     return y; 
+  }
+  public PVector getDirection {
+     
   }
   
   // Methods
