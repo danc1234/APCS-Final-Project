@@ -6,9 +6,10 @@
 
 added every class needed for now and initialized most of the classes and made basic methods for the class
 
-### date y
+### 5/23
 
-info
+added a movement system for the balloon. It follows the path of the image by going towards each tile of the array I made for the map.
+Added methods in the Bloon and Map class to achieve this
 
 
 ## Daniel Chen
