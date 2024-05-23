@@ -35,5 +35,26 @@ public class Monkey{
   public float getY() {
     return y; 
   }
+  
+  // Methods
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
 }

@@ -34,15 +34,25 @@ public class Bloons{
   }
   public float getY() {
     return y; 
-  }
+  }/*
   public PVector getDirection {
      
-  }
+  }*/
   
   // Methods
   public void changeSpeed(int popper) {
     speed = popper;
   }
+  public void addLayers() {
+    if (regrow) {
+      layers++; 
+    }
+  }
+  public void popLayers() {
+    layers--; 
+  }
+  
+  
   
   
 }
