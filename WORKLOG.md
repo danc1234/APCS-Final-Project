@@ -1,23 +1,23 @@
 # Work Log
 
-## GROUP MEMBER 1
+## Daniel Choe
 
-### date x
+### 5/22
 
-info
+added every class needed for now and initialized most of the classes and made basic methods for the class
 
 ### date y
 
 info
 
 
-## GROUP MEMBER 2
+## Daniel Chen
 
 ### 5/22/2024
 
 Added the fields to the Bloons, Boss, Darts, and SpecialBloons classes. Also added constructors to the Bloons, Boss, and SpecialBloons classes.
 Finally, added accessors and mutator methods when applicable. 
 
-### date y
+### 5/23/2024
 
 info
