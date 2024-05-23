@@ -22,23 +22,26 @@ public class Bloons{
   }
   
   // Accessors
-  public int getLayers() {
-    return layers;
-  }
   public boolean getCamo() {
     return camo; 
   }
-  public float getX() {
+  public float getX(){
     return x;
   }
-  public float getY() {
-    return y; 
+  public float getY(){
+  return y;
   }
-  
-  // Methods
-  public void changeSpeed(int popper) {
-    speed = popper;
+  public void popLayers(int pop){
+    layers -= pop;
   }
-  
-  
+  public int getLayers(){
+    return layers;
+  }
+  public void changeSpeed(double speedFactor){
+    speed += speedFactor;
+  }
+  public void addLayers(){
+    layers++;
+  }
+
 }
