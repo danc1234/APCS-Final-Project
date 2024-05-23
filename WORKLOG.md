@@ -13,9 +13,10 @@ info
 
 ## GROUP MEMBER 2
 
-### date x
+### 5/22/2024
 
-info
+Added the fields to the Bloons, Boss, Darts, and SpecialBloons classes. Also added constructors to the Bloons, Boss, and SpecialBloons classes.
+Finally, added accessors and mutator methods when applicable. 
 
 ### date y
 
