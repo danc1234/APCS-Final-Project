@@ -4,8 +4,8 @@ public class Boss extends Bloons{
   int stage;
   
   // Constructor
-  public Boss (int level, double velocity, float locationX, float locationY, int healthy, int area) {
-    super(level, velocity, locationX, locationY, false, false); 
+  public Boss (int level, double velocity, float locationX, float locationY, int healthy, int area, Map map) {
+    super(level, velocity, locationX, locationY, false, false, map); 
     health = healthy;
     stage = area;
   }
