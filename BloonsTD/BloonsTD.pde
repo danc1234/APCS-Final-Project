@@ -11,7 +11,6 @@ void setup(){
 void draw(){
   //setup();
   //text("" + mouseX + ", " + mouseY, 10, 10);
-  clear();
   image(x.getMap(),0,0);
   if(balloon.getDraw()){
   balloon.drawBloon();

@@ -86,4 +86,7 @@ public class Bloons{
   public boolean getDraw(){
     return drawable;
   }
+  public void changeDraw(boolean x){
+  drawable = x;
+  }
 }
