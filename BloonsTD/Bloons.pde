@@ -51,10 +51,13 @@ public class Bloons{
   }
   public void drawBloon(){
     circle(x, y, 20);
+    PImage balloon = loadImage("RedBloon.png");
+    balloon.resize(80, 80);
+    image(balloon, x-40, y-40);
   }
   public void changeCoord(){
-    x += getDirection().x;
-    y += getDirection().y;
+    x += getDirection().x*speed;
+    y += getDirection().y*speed;
   }
   public void onTile(){
     if(tilecount == 0){
@@ -80,6 +83,6 @@ public class Bloons{
      return direction;
   }
   public boolean getDraw(){
-  return drawable;
-}
+    return drawable;
+  }
 }
