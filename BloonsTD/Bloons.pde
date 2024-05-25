@@ -75,7 +75,6 @@ public class Bloons{
     image(balloon, x-35, y-35);
   }
   public void changeCoord(){
-    System.out.println(getDirection());
     x += getDirection().x*speed;
     y += getDirection().y*speed;
   }

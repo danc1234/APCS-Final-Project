@@ -36,12 +36,62 @@ public class Boss extends Bloons{
       balloon.resize(70, 70);
       image(balloon, this.getX()-35, this.getY()-35);
     } else {
-      if (health > 900) {
-        
-      } else if (health > 200) {
-        
+      PVector direction = this.getDirection();
+      float[] move = direction.array();
+      if (health <= 200) {
+        if (Math.round(move[0]) == 1 && Math.round(move[1]) == 0) {
+          balloon = loadImage("BalloonIMages/MoabRight.png");
+          balloon.resize(132, 86);
+        } 
+        if (Math.round(move[0]) == 0 && Math.round(move[1]) == -1) {
+          balloon = loadImage("BalloonIMages/MoabUp.png");
+          balloon.resize(86, 132);
+        } 
+        if (Math.round(move[0]) == -1 && Math.round(move[1]) == 0) {
+          balloon = loadImage("BalloonIMages/MoabLeft.png");
+          balloon.resize(132, 86);
+        } 
+        if (Math.round(move[0]) == 0 && Math.round(move[1]) == 1) {
+          balloon = loadImage("BalloonIMages/MoabDown.png");
+          balloon.resize(86, 132);
+        } 
+        image(balloon, this.getX()-45, this.getY()-45);
+      } else if (health <= 900) {
+        if (Math.round(move[0]) == 1 && Math.round(move[1]) == 0) {
+          balloon = loadImage("BalloonIMages/BFBRight.png");
+          balloon.resize(202, 142);
+        } 
+        if (Math.round(move[0]) == 0 && Math.round(move[1]) == -1) {
+          balloon = loadImage("BalloonIMages/BFBUp.png");
+          balloon.resize(142, 202);
+        } 
+        if (Math.round(move[0]) == -1 && Math.round(move[1]) == 0) {
+          balloon = loadImage("BalloonIMages/BFBLeft.png");
+          balloon.resize(202, 142);
+        } 
+        if (Math.round(move[0]) == 0 && Math.round(move[1]) == 1) {
+          balloon = loadImage("BalloonIMages/BFBDown.png");
+          balloon.resize(142, 202);
+        }
+        image(balloon, this.getX()-70, this.getY()-70);
       } else {
-        
+        if (Math.round(move[0]) == 1 && Math.round(move[1]) == 0) {
+          balloon = loadImage("BalloonIMages/ZOMGRight.png");
+          balloon.resize(222, 141);
+        } 
+        if (Math.round(move[0]) == 0 && Math.round(move[1]) == -1) {
+          balloon = loadImage("BalloonIMages/ZOMGUp.png");
+          balloon.resize(141, 222);
+        } 
+        if (Math.round(move[0]) == -1 && Math.round(move[1]) == 0) {
+          balloon = loadImage("BalloonIMages/ZOMGLeft.png");
+          balloon.resize(222, 141);
+        } 
+        if (Math.round(move[0]) == 0 && Math.round(move[1]) == 1) {
+          balloon = loadImage("BalloonIMages/ZOMGDown.png");
+          balloon.resize(141, 222);
+        }         
+        image(balloon, this.getX()-70, this.getY()-70);
       }
     }
   }
