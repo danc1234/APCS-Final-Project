@@ -52,7 +52,6 @@ public class Bloons{
     layers++;
   }
   public void drawBloon(){
-    System.out.println(layers);
     circle(x, y, 20);
     if (layers == 1) {
       balloon = loadImage("BalloonImages/RedBloon.png");
@@ -69,9 +68,11 @@ public class Bloons{
     if (layers == 5) {
       balloon = loadImage("BalloonImages/PinkBloon.png");
     }    
+    if (layers == 8) {
+      balloon = loadImage("BalloonImages/RainbowBloon.png");
+    }
     balloon.resize(70, 70);
     image(balloon, x-35, y-35);
-
   }
   public void changeCoord(){
     x += getDirection().x*speed;
