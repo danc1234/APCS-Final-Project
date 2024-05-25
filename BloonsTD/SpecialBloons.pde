@@ -14,8 +14,6 @@ public class SpecialBloons extends Bloons{
   }
   
   public void drawBloon() {
-    System.out.println(this.getLayers());
-    System.out.println(imunFreeze);
     circle(this.getX(), this.getY(), 10);
     if ((this.getLayers() == 7) && (imunExplosion) && (imunFreeze)) {
       balloon = loadImage("BalloonImages/ZebraBloon.png"); 

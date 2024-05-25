@@ -75,6 +75,7 @@ public class Bloons{
     image(balloon, x-35, y-35);
   }
   public void changeCoord(){
+    System.out.println(getDirection());
     x += getDirection().x*speed;
     y += getDirection().y*speed;
   }
@@ -87,14 +88,6 @@ public class Bloons{
       if (map.tileCount > tilecount){
         tile = map.getTiles().removeFirst();
         tilecount++;
-       //Edit start
-       /*
-        speed-=0.5;
-        if (speed % 1 == 0) {
-          layers--;
-        }*/
-        
-        // Edit end
       }
       else{
         drawable = false;
