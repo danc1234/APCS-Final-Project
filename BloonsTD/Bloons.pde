@@ -52,7 +52,7 @@ public class Bloons{
     layers++;
   }
   public void drawBloon(){
-    circle(x, y, 20);
+    circle(x, y, 10);
     if (layers == 1) {
       balloon = loadImage("BalloonImages/RedBloon.png");
     }
@@ -66,7 +66,7 @@ public class Bloons{
       balloon = loadImage("BalloonImages/YellowBloon.png");
     }    
     if (layers == 5) {
-      balloon = loadImage("BalloonImages/PinkBloon.png");
+      balloon = loadImage("RegrowthBloons/LeadBloon.png");
     }    
     if (layers == 8) {
       balloon = loadImage("BalloonImages/RainbowBloon.png");
