@@ -52,9 +52,9 @@ public class Bloons{
   }
   public void drawBloon(){
     circle(x, y, 20);
-    PImage balloon = loadImage("RedBloon.png");
-    balloon.resize(80, 80);
-    image(balloon, x-40, y-40);
+    PImage balloon = loadImage("BalloonImages/PinkBloon.png");
+    balloon.resize(70, 70);
+    image(balloon, x-35, y-35);
   }
   public void changeCoord(){
     x += getDirection().x*speed;
