@@ -51,8 +51,24 @@ public class Bloons{
     layers++;
   }
   public void drawBloon(){
+    System.out.println(layers);
     circle(x, y, 20);
-    PImage balloon = loadImage("BalloonImages/PinkBloon.png");
+    PImage balloon = loadImage("BalloonImages/RedBloon.png");; 
+    if (layers == 1) {
+      balloon = loadImage("BalloonImages/RedBloon.png");
+    }
+    if (layers == 2) {
+      balloon = loadImage("BalloonImages/BlueBloon.png");
+    }   
+    if (layers == 3) {
+      balloon = loadImage("BalloonImages/GreenBloon.png");
+    }
+    if (layers == 4) {
+      balloon = loadImage("BalloonImages/YellowBloon.png");
+    }    
+    if (layers == 5) {
+      balloon = loadImage("BalloonImages/PinkBloon.png");
+    }    
     balloon.resize(70, 70);
     image(balloon, x-35, y-35);
   }
@@ -62,18 +78,24 @@ public class Bloons{
   }
   public void onTile(){
     if(tilecount == 0){
-    tile = map.getTiles().removeFirst();
-    tilecount++;
-    }
-  if(x > tile.getX() - 2 && x < tile.getX() + 2 && y > tile.getY() - 2 && y < tile.getY() + 2){
-    if (map.tileCount > tilecount){
       tile = map.getTiles().removeFirst();
       tilecount++;
     }
-    else{
-      drawable = false;
+    if(x > tile.getX() - 2 && x < tile.getX() + 2 && y > tile.getY() - 2 && y < tile.getY() + 2){
+      if (map.tileCount > tilecount){
+        tile = map.getTiles().removeFirst();
+        tilecount++;
+        //Edit start
+        speed-=0.5;
+        if (speed % 1 == 0) {
+          layers--;
+        }
+        // Edit end
+      }
+      else{
+        drawable = false;
+      }
     }
-  }
   }
   public PVector getDirection(){
      onTile();
