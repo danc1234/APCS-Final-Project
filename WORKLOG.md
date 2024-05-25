@@ -21,7 +21,7 @@ Finally, added accessors and mutator methods when applicable.
 
 ### 5/23/2024
 
-Added the fields, constructor, and accessor methods to the monkey class. Also figured out how to make the sprites of the bloons. I can model the later sprites off of the red blood. 
+Added the fields, constructor, and accessor methods to the monkey class. Also figured out how to make the sprites of the bloons. I can model the later sprites off of the red bloon. 
 
 ### 5/24/2024
 
