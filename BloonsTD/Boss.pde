@@ -5,7 +5,7 @@ public class Boss extends Bloons{
   PImage balloon;
   
   // Constructor
-  public Boss (int level, double velocity, float locationX, float locationY, int healthy, int area, Map map) {
+  public Boss (int level, double velocity, float locationX, float locationY, int healthy, int area, Map maps) {
     super(level, velocity, locationX, locationY, false, false, map); 
     health = healthy;
     stage = area;

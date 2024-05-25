@@ -66,7 +66,7 @@ public class Bloons{
       balloon = loadImage("BalloonImages/YellowBloon.png");
     }    
     if (layers == 5) {
-      balloon = loadImage("RegrowthBloons/LeadBloon.png");
+      balloon = loadImage("BalloonImages/PinkBloon.png");
     }    
     if (layers == 8) {
       balloon = loadImage("BalloonImages/RainbowBloon.png");
