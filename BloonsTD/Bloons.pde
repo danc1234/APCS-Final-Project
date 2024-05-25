@@ -12,6 +12,7 @@ public class Bloons{
   private boolean regrow;
   private boolean iced;
   private boolean glued;
+  private PImage balloon;
 
   
   // Constructor
@@ -53,7 +54,6 @@ public class Bloons{
   public void drawBloon(){
     System.out.println(layers);
     circle(x, y, 20);
-    PImage balloon = loadImage("BalloonImages/RedBloon.png");; 
     if (layers == 1) {
       balloon = loadImage("BalloonImages/RedBloon.png");
     }
@@ -71,6 +71,7 @@ public class Bloons{
     }    
     balloon.resize(70, 70);
     image(balloon, x-35, y-35);
+
   }
   public void changeCoord(){
     x += getDirection().x*speed;
@@ -85,11 +86,13 @@ public class Bloons{
       if (map.tileCount > tilecount){
         tile = map.getTiles().removeFirst();
         tilecount++;
-        //Edit start
+       //Edit start
+       /*
         speed-=0.5;
         if (speed % 1 == 0) {
           layers--;
-        }
+        }*/
+        
         // Edit end
       }
       else{
