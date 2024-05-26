@@ -5,8 +5,8 @@ public class Boss extends Bloons{
   PImage balloon;
   
   // Constructor
-  public Boss (int level, double velocity, float locationX, float locationY, int healthy, int area, Map maps) {
-    super(level, velocity, locationX, locationY, false, false, maps); 
+  public Boss (int level, double velocity, float locationX, float locationY, int healthy, int area, Map maps, boolean camo, boolean regenerate) {
+    super(level, velocity, locationX, locationY, camo, regenerate, maps); 
     health = healthy;
     stage = area;
   }
@@ -28,15 +28,55 @@ public class Boss extends Bloons{
     circle(this.getX(), this.getY(), 10);
     if (this.getLayers() == 9) {     
       if (health <= 2.5)  {
-        balloon = loadImage("BalloonImages/CeramicDamage4.png"); 
+        if (this.getCamo() && this.getRegrow()) {
+          balloon = loadImage("CamoRegrowth/CeramicRegrowCamoDamage4.png"); 
+        } else if (this.getCamo()) {
+          balloon = loadImage("CamoBloons/CeramicCamoDamage4.png"); 
+        } else if (this.getRegrow()) {
+          balloon = loadImage("RegrowthBloons/CeramicRegrowDamage4.png"); 
+        } else {
+          balloon = loadImage("BalloonImages/CeramicDamage4.png");
+        }
       } else if (health <= 5) {
-        balloon = loadImage("BalloonImages/CeramicDamage3.png");
+        if (this.getCamo() && this.getRegrow()) {
+          balloon = loadImage("CamoRegrowth/CeramicRegrowCamoDamage3.png"); 
+        } else if (this.getCamo()) {
+          balloon = loadImage("CamoBloons/CeramicCamoDamage3.png"); 
+        } else if (this.getRegrow()) {
+          balloon = loadImage("RegrowthBloons/CeramicRegrowDamage3.png"); 
+        } else {
+          balloon = loadImage("BalloonImages/CeramicDamage3.png");
+        }
       } else if (health <= 7.5) {
-        balloon = loadImage("BalloonImages/CeramicDamage2.png"); 
+        if (this.getCamo() && this.getRegrow()) {
+          balloon = loadImage("CamoRegrowth/CeramicRegrowCamoDamage2.png"); 
+        } else if (this.getCamo()) {
+          balloon = loadImage("CamoBloons/CeramicCamoDamage2.png"); 
+        } else if (this.getRegrow()) {
+          balloon = loadImage("RegrowthBloons/CeramicRegrowDamage2.png"); 
+        } else {
+          balloon = loadImage("BalloonImages/CeramicDamage2.png");
+        }
       } else if (health < 10) {
-        balloon = loadImage("BalloonImages/CeramicDamage1.png");
+        if (this.getCamo() && this.getRegrow()) {
+          balloon = loadImage("CamoRegrowth/CeramicRegrowCamoDamage1.png"); 
+        } else if (this.getCamo()) {
+          balloon = loadImage("CamoBloons/CeramicCamoDamage1.png"); 
+        } else if (this.getRegrow()) {
+          balloon = loadImage("RegrowthBloons/CeramicRegrowDamage1.png"); 
+        } else {
+          balloon = loadImage("BalloonImages/CeramicDamage1.png");
+        }
       } else {
-        balloon = loadImage("BalloonIMages/CeramicBloon.png"); 
+        if (this.getCamo() && this.getRegrow()) {
+          balloon = loadImage("CamoRegrowth/CeramicBloon.png"); 
+        } else if (this.getCamo()) {
+          balloon = loadImage("CamoBloons/CeramicBloon.png"); 
+        } else if (this.getRegrow()) {
+          balloon = loadImage("RegrowthBloons/CeramicBloon.png"); 
+        } else {
+          balloon = loadImage("BalloonImages/CeramicBloon.png");
+        }
       }
       balloon.resize(70, 70);
       image(balloon, this.getX()-35, this.getY()-35);
