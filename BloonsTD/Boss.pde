@@ -19,6 +19,11 @@ public class Boss extends Bloons{
     return stage; 
   }
   
+  
+  
+  
+  
+  
   public void drawBloon() {
     circle(this.getX(), this.getY(), 10);
     if (this.getLayers() == 9) {     
@@ -95,6 +100,4 @@ public class Boss extends Bloons{
       }
     }
   }
-  
-  
 }

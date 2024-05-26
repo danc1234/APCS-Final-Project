@@ -6,7 +6,7 @@ void setup() {
   size(823, 530);
   x = new Map("Map.png");
   image(x.getMap(), 0, 0);
-  balloon = new Bloons(5, 3, 4.0, 227.0, true, false, x);s
+  balloon = new Boss(7, (double) 3, 4.0, 227.0, 901, 50, x);
 }
 void draw() {
   //setup();

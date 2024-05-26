@@ -33,6 +33,9 @@ public class Bloons{
   public boolean getCamo() {
     return camo; 
   }
+  public boolean getRegrow() {
+    return regrow; 
+  }
   public float getX(){
     return x;
   }
@@ -50,29 +53,6 @@ public class Bloons{
   }
   public void addLayers(){
     layers++;
-  }
-  public void drawBloon(){
-    circle(x, y, 10);
-    if (layers == 1) {
-      balloon = loadImage("BalloonImages/RedBloon.png");
-    }
-    if (layers == 2) {
-      balloon = loadImage("BalloonImages/BlueBloon.png");
-    }   
-    if (layers == 3) {
-      balloon = loadImage("BalloonImages/GreenBloon.png");
-    }
-    if (layers == 4) {
-      balloon = loadImage("BalloonImages/YellowBloon.png");
-    }    
-    if (layers == 5) {
-      balloon = loadImage("BalloonImages/PinkBloon.png");
-    }    
-    if (layers == 8) {
-      balloon = loadImage("BalloonImages/RainbowBloon.png");
-    }
-    balloon.resize(70, 70);
-    image(balloon, x-35, y-35);
   }
   public void changeCoord(){
     x += getDirection().x*speed;
@@ -106,5 +86,77 @@ public class Bloons{
   }
   public void changeDraw(boolean x){
   drawable = x;
+  }
+  
+  public void drawBloon(){
+    circle(x, y, 10);
+    if (layers == 1) {
+      if (camo && regrow) {
+        balloon = loadImage("CamoRegrowth/RedBloon.png"); 
+      } else if (camo) {
+        balloon = loadImage("CamoBloons/RedBloon.png"); 
+      } else if (regrow) {
+        balloon = loadImage("RegrowthBloons/RedBloon.png"); 
+      } else {
+        balloon = loadImage("BalloonImages/RedBloon.png");
+      }
+    }
+    if (layers == 2) {
+      if (camo && regrow) {
+        balloon = loadImage("CamoRegrowth/BlueBloon.png"); 
+      } else if (camo) {
+        balloon = loadImage("CamoBloons/BlueBloon.png"); 
+      } else if (regrow) {
+        balloon = loadImage("RegrowthBloons/BlueBloon.png"); 
+      } else {
+        balloon = loadImage("BalloonImages/BlueBloon.png");
+      }
+    }   
+    if (layers == 3) {
+      if (camo && regrow) {
+        balloon = loadImage("CamoRegrowth/GreenBloon.png"); 
+      } else if (camo) {
+        balloon = loadImage("CamoBloons/GreenBloon.png"); 
+      } else if (regrow) {
+        balloon = loadImage("RegrowthBloons/GreenBloon.png"); 
+      } else {
+        balloon = loadImage("BalloonImages/GreenBloon.png");
+      }
+    }
+    if (layers == 4) {
+      if (camo && regrow) {
+        balloon = loadImage("CamoRegrowth/YellowBloon.png"); 
+      } else if (camo) {
+        balloon = loadImage("CamoBloons/YellowBloon.png"); 
+      } else if (regrow) {
+        balloon = loadImage("RegrowthBloons/YellowBloon.png"); 
+      } else {
+        balloon = loadImage("BalloonImages/YellowBloon.png");
+      }
+    }    
+    if (layers == 5) {
+      if (camo && regrow) {
+        balloon = loadImage("CamoRegrowth/PinkBloon.png"); 
+      } else if (camo) {
+        balloon = loadImage("CamoBloons/PinkBloon.png"); 
+      } else if (regrow) {
+        balloon = loadImage("RegrowthBloons/PinkBloon.png"); 
+      } else {
+        balloon = loadImage("BalloonImages/PinkBloon.png");
+      }
+    }    
+    if (layers == 8) {
+      if (camo && regrow) {
+        balloon = loadImage("CamoRegrowth/RainbowBloon.png"); 
+      } else if (camo) {
+        balloon = loadImage("CamoBloons/RainbowBloon.png"); 
+      } else if (regrow) {
+        balloon = loadImage("RegrowthBloons/RainbowBloon.png"); 
+      } else {
+        balloon = loadImage("BalloonImages/RainbowBloon.png");
+      }
+    }
+    balloon.resize(70, 70);
+    image(balloon, x-35, y-35);
   }
 }
