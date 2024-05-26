@@ -12,6 +12,7 @@ public class Bloons{
   private boolean regrow;
   private boolean iced;
   private boolean glued;
+  private PImage balloon;
 
   
   // Constructor
@@ -32,6 +33,9 @@ public class Bloons{
   public boolean getCamo() {
     return camo; 
   }
+  public boolean getRegrow() {
+    return regrow; 
+  }
   public float getX(){
     return x;
   }
@@ -50,30 +54,24 @@ public class Bloons{
   public void addLayers(){
     layers++;
   }
-  public void drawBloon(){
-    circle(x, y, 20);
-    PImage balloon = loadImage("RedBloon.png");
-    balloon.resize(80, 80);
-    image(balloon, x-40, y-40);
-  }
   public void changeCoord(){
     x += getDirection().x*speed;
     y += getDirection().y*speed;
   }
   public void onTile(){
     if(tilecount == 0){
-    tile = map.getTiles().removeFirst();
-    tilecount++;
-    }
-  if(x > tile.getX() - 2 && x < tile.getX() + 2 && y > tile.getY() - 2 && y < tile.getY() + 2){
-    if (map.tileCount > tilecount){
       tile = map.getTiles().removeFirst();
       tilecount++;
     }
-    else{
-      drawable = false;
+    if(x > tile.getX() - 2 && x < tile.getX() + 2 && y > tile.getY() - 2 && y < tile.getY() + 2){
+      if (map.tileCount > tilecount){
+        tile = map.getTiles().removeFirst();
+        tilecount++;
+      }
+      else{
+        drawable = false;
+      }
     }
-  }
   }
   public PVector getDirection(){
      onTile();
@@ -88,5 +86,77 @@ public class Bloons{
   }
   public void changeDraw(boolean x){
   drawable = x;
+  }
+  
+  public void drawBloon(){
+    circle(x, y, 10);
+    if (layers == 1) {
+      if (this.getCamo() && regrow) {
+        balloon = loadImage("CamoRegrowth/RedBloon.png"); 
+      } else if (this.getCamo()) {
+        balloon = loadImage("CamoBloons/RedBloon.png"); 
+      } else if (this.getRegrow()) {
+        balloon = loadImage("RegrowthBloons/RedBloon.png"); 
+      } else {
+        balloon = loadImage("BalloonImages/RedBloon.png");
+      }
+    }
+    if (layers == 2) {
+      if (this.getCamo() && regrow) {
+        balloon = loadImage("CamoRegrowth/BlueBloon.png"); 
+      } else if (this.getCamo()) {
+        balloon = loadImage("CamoBloons/BlueBloon.png"); 
+      } else if (this.getRegrow()) {
+        balloon = loadImage("RegrowthBloons/BlueBloon.png"); 
+      } else {
+        balloon = loadImage("BalloonImages/BlueBloon.png");
+      }
+    }   
+    if (layers == 3) {
+      if (this.getCamo() && regrow) {
+        balloon = loadImage("CamoRegrowth/GreenBloon.png"); 
+      } else if (this.getCamo()) {
+        balloon = loadImage("CamoBloons/GreenBloon.png"); 
+      } else if (this.getRegrow()) {
+        balloon = loadImage("RegrowthBloons/GreenBloon.png"); 
+      } else {
+        balloon = loadImage("BalloonImages/GreenBloon.png");
+      }
+    }
+    if (layers == 4) {
+      if (this.getCamo() && this.getRegrow()) {
+        balloon = loadImage("CamoRegrowth/YellowBloon.png"); 
+      } else if (this.getCamo()) {
+        balloon = loadImage("CamoBloons/YellowBloon.png"); 
+      } else if (this.getRegrow()) {
+        balloon = loadImage("RegrowthBloons/YellowBloon.png"); 
+      } else {
+        balloon = loadImage("BalloonImages/YellowBloon.png");
+      }
+    }    
+    if (layers == 5) {
+      if (this.getCamo() && this.getRegrow()) {
+        balloon = loadImage("CamoRegrowth/PinkBloon.png"); 
+      } else if (this.getCamo()) {
+        balloon = loadImage("CamoBloons/PinkBloon.png"); 
+      } else if (this.getRegrow()) {
+        balloon = loadImage("RegrowthBloons/PinkBloon.png"); 
+      } else {
+        balloon = loadImage("BalloonImages/PinkBloon.png");
+      }
+    }    
+    if (layers == 8) {
+      if (this.getCamo() && this.getRegrow()) {
+        balloon = loadImage("CamoRegrowth/RainbowBloon.png"); 
+      } else if (this.getCamo()) {
+        balloon = loadImage("CamoBloons/RainbowBloon.png"); 
+      } else if (this.getRegrow()) {
+        balloon = loadImage("RegrowthBloons/RainbowBloon.png"); 
+      } else {
+        balloon = loadImage("BalloonImages/RainbowBloon.png");
+      }
+    }
+    balloon.resize(70, 70);
+    image(balloon, x-35, y-35);
   }
 }
