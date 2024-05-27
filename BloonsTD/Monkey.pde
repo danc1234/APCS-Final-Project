@@ -37,7 +37,9 @@ public class Monkey{
   }
   
   // Methods
- 
+ public void drawMonkey(){
+   circle(x, y, 60);
+ }
   
   
   
