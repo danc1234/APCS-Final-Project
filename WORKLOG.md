@@ -11,6 +11,14 @@ added every class needed for now and initialized most of the classes and made ba
 added a movement system for the balloon. It follows the path of the image by going towards each tile of the array I made for the map.
 Added methods in the Bloon and Map class to achieve this
 
+### 5/24
+
+Added the dart class. Has all the methods to pop the balloon. Going to implement monkey throwing darts soon
+
+### 5/27
+
+Added a draw monkey method with no sprite yet. Added an array for the balloon so that I can implement that into rounds
+
 
 ## Daniel Chen
 
