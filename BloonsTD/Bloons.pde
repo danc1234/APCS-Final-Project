@@ -57,6 +57,9 @@ public class Bloons{
   public void changeCoord(){
     x += getDirection().x*speed;
     y += getDirection().y*speed;
+    if ((x == 369) && (y == 520)) {
+      BloonsTD.setLives(1);
+    }
   }
   public void onTile(){
     if(tilecount == 0){
