@@ -40,7 +40,7 @@ void draw() {
   text("Wave "+waves+" out of \n85", 825, 90);
   if (lives == 0) {
     int time = millis();
-    if (time > barrier + 1000) {
+    if (time > barrier + 700) {
       fill(#FF0000);
       rect(205.75, 225, 411.5, 100); 
       fill(0);
@@ -53,7 +53,7 @@ void draw() {
 public void setLives(int damage) {
   if (lives - damage <= 0) {
     lives = 0; 
-    barrier = millis()+1000;
+    barrier = millis();
   } else {
     lives -= damage; 
   }
