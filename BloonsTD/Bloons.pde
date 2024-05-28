@@ -93,7 +93,7 @@ public class Bloons{
     y += getDirection().y*speed;
     if ((x == 369) && (y == 520)) {
       setLives(this.getDamage());
-      BloonsTD.modifyBloonList();
+      modifyBloonList();
     }
   }
   public void onTile(){
