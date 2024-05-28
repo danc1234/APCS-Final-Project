@@ -1,6 +1,6 @@
 public class Rounds {
+
   public void addWaves(ArrayList<ArrayList<Bloons>> balloon) {
-    x = new Map("Map.png");
     ArrayList<Bloons> a = new ArrayList<Bloons>();
       for (int i = 0; i < 19; i++) {
         a.add(new Bloons(1, 1, 3.0, 227.0, false, false, x));

@@ -57,7 +57,7 @@ public class Bloons{
       damage = 16656; 
     } 
   }
-  
+
   // Accessors
   public boolean getCamo() {
     return camo; 
