@@ -159,4 +159,8 @@ public class Bloons{
     balloon.resize(70, 70);
     image(balloon, x-35, y-35);
   }
+  
+  public boolean inRange(Monkey monkeys){
+    return (dist(monkeys.getX(), monkeys.getY(), x, y) < monkeys.getRange());
+  }
 }

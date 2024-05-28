@@ -20,6 +20,9 @@ public class Dart{
   public float getY() {
     return y; 
   }
+  public void drawDart(){
+    circle(5, x, y);
+  }
   public boolean nearBloon(Bloons x, int damage){
   if(getX() > x.getX() - 3 &&  getX() < x.getX() + 3 && getY() > x.getY() - 3 &&  getY() < x.getY() + 3){
     x.popLayers(damage);
