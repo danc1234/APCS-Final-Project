@@ -12,23 +12,25 @@ void setup() {
   rect(823, 0, 130, 120);
   x = new Map("Map.png");
   image(x.getMap(), 0, 0);
-  balloon.add(new Boss(9, (double) 4.5, 3.0, 227.0, 901, 50, x, false, false));
   fill(0);
   textSize(30);
   text("Lives: "+lives, 825, 30);
   text("Cash: "+cash, 825, 60);
   textSize(20);
   text("Wave "+waves+" out of \n85", 825, 90);
+  addWaves(
 }
 void draw() {
   //setup();
   //text("" + mouseX + ", " + mouseY, 10, 10);
   image(x.getMap(), 0, 0);
   for (int i = 0; i < balloon.size(); i++) {
-    if (balloon.get(i).getDraw()) {
-      balloon.get(i).drawBloon();
+    for (int j = 0; j < balloon.get(i).size(); j++) {
+      if (balloon.get(i).get(j).getDraw()) {
+        balloon.get(i).get(j).drawBloon();
+      }
+      balloon.get(i).get(j).changeCoord();
     }
-    balloon.get(i).changeCoord();
   }
   fill(255);
   rect(823, 0, 130, 120);
@@ -63,60 +65,4 @@ public void advanceWaves() {
 }
 public void modifyBloonList() {
   balloon.remove(0); 
-}
-
-public void addWaves() {
-  ArrayList<Bloons> a = new ArrayList<Bloons>();
-    for (int i = 0; i < 19; i++) {
-      a.add(new Bloons(1, 1, 3.0, 227.0, false, false, x));
-    }
-  ArrayList<Bloons> b = new ArrayList<Bloons>();
-    for (int i = 0; i < 35; i++) {
-      b.add(new Bloons(1, 1, 3.0, 227.0, false, false, x));
-    }
-  ArrayList<Bloons> c = new ArrayList<Bloons>();
-    for (int i = 0; i < 5; i++) {
-      b.add(new Bloons(2, 1.9, 3.0, 227.0, false, false, x));
-    }
-    for (int i = 0; i < 25; i++) {
-      b.add(new Bloons(1, 1, 3.0, 227.0, false, false, x));
-    }
-  ArrayList<Bloons> c = new ArrayList<Bloons>();
-    for (int i = 0; i < 18; i++) {
-      c.add(new Bloons(2, 1.9, 3.0, 227.0, false, false, x));
-    }
-    for (int i = 0; i < 35; i++) {
-      c.add(new Bloons(1, 1, 3.0, 227.0, false, false, x));
-    }
-  ArrayList<Bloons> d = new ArrayList<Bloons>();
-  ArrayList<Bloons> e = new ArrayList<Bloons>();
-  ArrayList<Bloons> f = new ArrayList<Bloons>();
-  ArrayList<Bloons> g = new ArrayList<Bloons>();
-  ArrayList<Bloons> h = new ArrayList<Bloons>();
-  ArrayList<Bloons> i = new ArrayList<Bloons>();
-  ArrayList<Bloons> j = new ArrayList<Bloons>();
-  ArrayList<Bloons> k = new ArrayList<Bloons>();
-  ArrayList<Bloons> l = new ArrayList<Bloons>();
-  ArrayList<Bloons> m = new ArrayList<Bloons>();
-  ArrayList<Bloons> n = new ArrayList<Bloons>();
-  ArrayList<Bloons> o = new ArrayList<Bloons>();
-  ArrayList<Bloons> p = new ArrayList<Bloons>();
-  ArrayList<Bloons> q = new ArrayList<Bloons>();
-  ArrayList<Bloons> r = new ArrayList<Bloons>();
-  ArrayList<Bloons> s = new ArrayList<Bloons>();
-  ArrayList<Bloons> t = new ArrayList<Bloons>();
-  ArrayList<Bloons> u = new ArrayList<Bloons>();
-  ArrayList<Bloons> v = new ArrayList<Bloons>();
-  ArrayList<Bloons> x = new ArrayList<Bloons>();
-  ArrayList<Bloons> y = new ArrayList<Bloons>();
-  ArrayList<Bloons> z = new ArrayList<Bloons>();
-  ArrayList<Bloons> aa = new ArrayList<Bloons>();
-  ArrayList<Bloons> ab = new ArrayList<Bloons>();
-  ArrayList<Bloons> ac = new ArrayList<Bloons>();
-  ArrayList<Bloons> ad = new ArrayList<Bloons>();
-  ArrayList<Bloons> ae = new ArrayList<Bloons>();
-  ArrayList<Bloons> af = new ArrayList<Bloons>();
-  ArrayList<Bloons> ag = new ArrayList<Bloons>();
-  
-  
 }
