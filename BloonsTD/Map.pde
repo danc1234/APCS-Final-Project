@@ -25,6 +25,7 @@ public class Map{
   return map;
   }
   public LinkedList<Tile> getTiles(){
+    System.out.println(tiles.toString());
   return tiles;
   }
 }

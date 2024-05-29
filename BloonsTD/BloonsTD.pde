@@ -6,12 +6,16 @@ private int waves=1;
 private int barrier;
 
 //hi;
+Bloons tester1;
+Bloons tester2;
 //private ArrayList<ArrayList<Bloons>> balloon = new ArrayList<ArrayList<Bloons>>();
 private ArrayList<Bloons> balloon = new ArrayList<Bloons>();
 void setup() {
   size(953, 530);
   rect(823, 0, 130, 120);
   x = new Map("Map.png");
+// Bloons tester1 = new Bloons(1, 4.5, 3.0, 227.0, false, false, x);
+ //Bloons tester2 = new Bloons(1, 4.5, 3.0, 227.0, false, false, x);
   image(x.getMap(), 0, 0);
   fill(0);
   textSize(30);
@@ -19,18 +23,22 @@ void setup() {
   text("Cash: "+cash, 825, 60);
   textSize(20);
   text("Wave "+waves+" out of \n85", 825, 90);
-  addWaves();
+  for (int i = 0; i < balloon.size(); i++) {
+    System.out.println(balloon.toString());
+  }
 }
 void draw() {
   //setup();
   //text("" + mouseX + ", " + mouseY, 10, 10);
   image(x.getMap(), 0, 0);
-  for (Bloons b : balloon) {
-    if (b.getDraw()) {
-      b.drawBloon();
-    }
-    b.changeCoord();
+  if(tester1.getDraw()){
+    tester1.drawBloon();
   }
+  tester1.changeCoord();
+  if(tester2.getDraw()){
+    tester2.drawBloon();
+  }
+  tester2.changeCoord();
   fill(255);
   rect(823, 0, 130, 120);
   fill(0);
@@ -64,11 +72,4 @@ public void advanceWaves() {
 }
 public void modifyBloonList() {
   balloon.remove(0); 
-}
-
-public void addWaves() {
-  for (int i = 0; i < 19; i++) {
-     Map y = new Map("Map.png");
-     balloon.add(new Bloons(1, 1, 4.5, 227.0, false, false, y));
-  }  
 }
