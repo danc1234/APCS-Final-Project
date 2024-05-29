@@ -20,9 +20,6 @@ void setup() {
   textSize(20);
   text("Wave "+waves+" out of \n85", 825, 90);
   addWaves();
-  for (int i = 0; i < balloon.size(); i++) {
-    System.out.println(balloon.toString());
-  }
 }
 void draw() {
   //setup();
