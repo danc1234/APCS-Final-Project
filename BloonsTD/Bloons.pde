@@ -89,6 +89,7 @@ public class Bloons{
   }
   
   public void drawBloon(){
+    if(drawable){
     circle(x, y, 10);
     if (layers == 1) {
       if (this.getCamo() && regrow) {
@@ -158,9 +159,10 @@ public class Bloons{
     }
     balloon.resize(70, 70);
     image(balloon, x-35, y-35);
+    }
   }
   
-  public boolean inRange(Monkey monkeys){
-    return (dist(monkeys.getX(), monkeys.getY(), x, y) < monkeys.getRange());
+  public boolean inRange(float xc, float yc, int range){
+    return (dist(xc, yc, x, y) < range);
   }
 }
