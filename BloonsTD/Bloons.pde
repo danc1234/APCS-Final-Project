@@ -77,6 +77,9 @@ public class Bloons{
   public int getDamage(){
     return damage; 
   }
+  public boolean getDraw(){
+    return drawable;
+  }
   
   // Methods
   public void popLayers(int pop){
@@ -108,6 +111,7 @@ public class Bloons{
       }
       else{
         drawable = false;
+        modifyBloonList();
       }
     }
   }
@@ -118,9 +122,6 @@ public class Bloons{
      PVector direction = new PVector(x - getX(), y - getY());
      direction.normalize();
      return direction;
-  }
-  public boolean getDraw(){
-    return drawable;
   }
   public void changeDraw(boolean x){
   drawable = x;
