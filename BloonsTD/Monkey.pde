@@ -13,9 +13,10 @@ public class Monkey{
   private Dart darts;
   private Bloons bloon;
   private boolean isdart = false;
+  private PImage sprite;
   
   // Constructor
-  public Monkey(int money, int area, int attack, int placement, int load, float placeX, float placeY, boolean landed, boolean watered, boolean camo) {
+  public Monkey(String image, int money, int area, int attack, int placement, int load, float placeX, float placeY, boolean landed, boolean watered, boolean camo) {
     cost = money;
     range = area;
     damage = attack;
@@ -26,6 +27,8 @@ public class Monkey{
     land = landed;
     water = watered;
     seeCamo = camo;
+    sprite = loadImage(image);
+    image(sprite, x, y);
   }
   
   // Accessors 
