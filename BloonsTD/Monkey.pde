@@ -74,7 +74,7 @@ public class Monkey{
     }
     if(index < balloon.size()){
       if(!isdart){
-      darts = new Dart(1,10,x,y);
+      darts = new Dart(1,7,x,y);
       isdart = true;
       }
     }

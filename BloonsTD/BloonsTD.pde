@@ -9,17 +9,10 @@ PImage map;
 Monkey monkeys;
 int timer = 60;
 void setup() {
-<<<<<<< HEAD
+  frameRate(50);
   size(823, 530);
   map = loadImage("Map.png");
   image(map, 0, 0);
-  balloon.add(new Bloons(5, (double)3, 4.5, 227.0, false, false, new Map("Map.png")));
-=======
-  frameRate(100);
-  size(823, 530);
-  map = loadImage("Map.png");
-  image(map, 0, 0);
->>>>>>> 5e4af1075810d2959ea66cb7a739f876c0e72c66
   monkeys = new Monkey(0,200,1,0,0,70,140, false, false, false);
 }
 void draw() {
