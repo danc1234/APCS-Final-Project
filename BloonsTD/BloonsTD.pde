@@ -7,6 +7,7 @@ PImage map;
 Monkey monkeys;
 int timer = 0;
 void setup() {
+  frameRate(1);
   size(823, 530);
   map = loadImage("Map.png");
   image(map, 0, 0);
@@ -19,8 +20,6 @@ void draw() {
   //text("" + mouseX + ", " + mouseY, 10, 10);
   image(map, 0, 0);  
   for(int x = 0; x < balloon.size(); x++){
-    int a = 0;
-    while(a < 15){a++};
     if (balloon.get(x).getDraw()) {
       balloon.get(x).drawBloon();
     }
