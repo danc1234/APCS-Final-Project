@@ -13,6 +13,7 @@ public class Monkey{
   private Dart darts;
   private Bloons bloon;
   private boolean isdart = false;
+  private PImage sprite;
   
   // Constructor
   public Monkey(int money, int area, int attack, int placement, int load, float placeX, float placeY, boolean landed, boolean watered, boolean camo) {
@@ -46,7 +47,7 @@ public class Monkey{
 }
   // Methods
  public void drawMonkey(){
-   circle(x, y, 60);
+   circle(x, y, 10);
    if(darts != null){
      darts.changeCoord(bloon);
      darts.drawDart();
