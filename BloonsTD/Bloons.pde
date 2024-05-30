@@ -85,7 +85,7 @@ public class Bloons{
     return drawable;
   }
   public void changeDraw(boolean x){
-  drawable = x;
+    drawable = x;
   }
   
   public void drawBloon(){
@@ -149,17 +149,6 @@ public class Bloons{
         balloon = loadImage("BalloonImages/PinkBloon.png");
       }
     }    
-    if (layers == 8) {
-      if (this.getCamo() && this.getRegrow()) {
-        balloon = loadImage("CamoRegrowth/RainbowBloon.png"); 
-      } else if (this.getCamo()) {
-        balloon = loadImage("CamoBloons/RainbowBloon.png"); 
-      } else if (this.getRegrow()) {
-        balloon = loadImage("RegrowthBloons/RainbowBloon.png"); 
-      } else {
-        balloon = loadImage("BalloonImages/RainbowBloon.png");
-      }
-    }
     balloon.resize(70, 70);
     image(balloon, x-35, y-35);
     }
