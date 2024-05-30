@@ -89,6 +89,9 @@ public class Bloons{
   }
   
   public void drawBloon(){
+    if(layers <= 0){
+      drawable = false;
+    }
     if(drawable){
     circle(x, y, 10);
     if (layers == 1) {

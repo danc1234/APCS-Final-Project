@@ -31,10 +31,6 @@ public class Dart{
   }
   public boolean nearBloon(Bloons p, int damage){
   if(x > p.getX() - 10 &&  x < p.getX() + 10 && y > p.getY() - 10 &&  y < p.getY() + 10){
-    test = true;
-    p.popLayers(damage);
-    drawable = false;
-    p.changeDraw(false);
     return true;
   }
   return false;

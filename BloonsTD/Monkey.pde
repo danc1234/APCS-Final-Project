@@ -50,9 +50,10 @@ public class Monkey{
    if(darts != null){
      darts.changeCoord(bloon);
      darts.drawDart();
-     if(darts.nearBloon(bloon, 3)){
+     if(darts.nearBloon(bloon, damage)){
+       bloon.popLayers(damage);
        darts = null;
-     isdart = false;
+       isdart = false;
      }
    }
  }
@@ -71,8 +72,8 @@ public class Monkey{
     index++;
     }
     if(index < balloon.size()){
-      if(isdart == false){
-      darts = new Dart(1,50,x,y);
+      if(!isdart){
+      darts = new Dart(1,10,x,y);
       isdart = true;
       }
     }
