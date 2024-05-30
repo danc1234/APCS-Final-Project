@@ -5,7 +5,6 @@ public class Bloons{
   private Map map;
   private Tile tile;
   private int layers;
-  private int damage;
   private double speed;
   private float x;
   private float y;
@@ -28,36 +27,8 @@ public class Bloons{
     glued = false;
     map = maps;
     tilecount = 0;
-    damageDeclarer();
   }
-  public void damageDeclarer() {
-    if (layers == 1) {
-      damage = 1;
-    } else if (layers == 2) {
-      damage = 2; 
-    } else if (layers == 3) {
-      damage = 3; 
-    } else if (layers == 4) {
-      damage = 4; 
-    } else if (layers == 5) {
-      damage = 5; 
-    } else if (layers == 6) {
-      damage = 11; 
-    } else if (layers == 7) {
-      damage = 23; 
-    } else if (layers == 8) {
-      damage = 47;
-    } else if (layers == 9) {
-      damage = 104; 
-    } else if (layers == 10) {
-      damage = 616; 
-    } else if (layers == 11) {
-      damage = 3164; 
-    } else if (layers == 12) {
-      damage = 16656; 
-    } 
-  }
-
+  
   // Accessors
   public boolean getCamo() {
     return camo; 
@@ -69,21 +40,13 @@ public class Bloons{
     return x;
   }
   public float getY(){
-    return y;
+  return y;
+  }
+  public void popLayers(int pop){
+    layers -= pop;
   }
   public int getLayers(){
     return layers;
-  }
-  public int getDamage(){
-    return damage; 
-  }
-  public boolean getDraw(){
-    return drawable;
-  }
-  
-  // Methods
-  public void popLayers(int pop){
-    layers -= pop;
   }
   public void changeSpeed(double speedFactor){
     speed += speedFactor;
@@ -94,10 +57,6 @@ public class Bloons{
   public void changeCoord(){
     x += getDirection().x*speed;
     y += getDirection().y*speed;
-    if ((x == 369) && (y == 520)) {
-      setLives(this.getDamage());
-      modifyBloonList();
-    }
   }
   public void onTile(){
     if(tilecount == 0){
@@ -111,7 +70,6 @@ public class Bloons{
       }
       else{
         drawable = false;
-        modifyBloonList();
       }
     }
   }
@@ -123,11 +81,18 @@ public class Bloons{
      direction.normalize();
      return direction;
   }
+  public boolean getDraw(){
+    return drawable;
+  }
   public void changeDraw(boolean x){
   drawable = x;
   }
   
   public void drawBloon(){
+    if(layers <= 0){
+      drawable = false;
+    }
+    if(drawable){
     circle(x, y, 10);
     if (layers == 1) {
       if (this.getCamo() && regrow) {
@@ -184,18 +149,12 @@ public class Bloons{
         balloon = loadImage("BalloonImages/PinkBloon.png");
       }
     }    
-    if (layers == 8) {
-      if (this.getCamo() && this.getRegrow()) {
-        balloon = loadImage("CamoRegrowth/RainbowBloon.png"); 
-      } else if (this.getCamo()) {
-        balloon = loadImage("CamoBloons/RainbowBloon.png"); 
-      } else if (this.getRegrow()) {
-        balloon = loadImage("RegrowthBloons/RainbowBloon.png"); 
-      } else {
-        balloon = loadImage("BalloonImages/RainbowBloon.png");
-      }
-    }
     balloon.resize(70, 70);
     image(balloon, x-35, y-35);
+    }
+  }
+  
+  public boolean inRange(float xc, float yc, int range){
+    return (dist(xc, yc, x, y) < range);
   }
 }

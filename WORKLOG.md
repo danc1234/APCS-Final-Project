@@ -11,6 +11,23 @@ added every class needed for now and initialized most of the classes and made ba
 added a movement system for the balloon. It follows the path of the image by going towards each tile of the array I made for the map.
 Added methods in the Bloon and Map class to achieve this
 
+### 5/24
+
+Added the dart class. Has all the methods to pop the balloon. Going to implement monkey throwing darts soon
+
+### 5/27
+
+Added a draw monkey method with no sprite yet. Added an array for the balloon so that I can implement that into rounds
+
+### 5/28
+
+Worked on popping bloon and throwing dart method. Did not finish due to some bugs.
+
+### 5/29
+
+Finished popping bloon and throwing dart method. Tested with only one bloon. need to test with more than one.
+
+
 
 ## Daniel Chen
 
@@ -29,4 +46,4 @@ Added the sprites for the bloon class, special bloon class and boss class. Imple
 
 ### 5/25/2024
 
-Added the images for all possible bloon types. Also figured out how to make the sprites of the Moab/Boss Class move using PVectors represented as an array. 
+Added the images for all possible bloon types. Also figured out how to make the sprites of the Moab/Boss Class move using PVectors represented as an array. drawBloon() functions are all done. 

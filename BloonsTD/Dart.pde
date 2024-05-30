@@ -5,6 +5,7 @@ public class Dart{
   double speed;
   float x;
   float y;
+  boolean test = false;
   
   public Dart(int biggy, double IAmSpeed, float floatX, float floatY) {
     size = biggy;
@@ -20,23 +21,28 @@ public class Dart{
   public float getY() {
     return y; 
   }
-  public boolean nearBloon(Bloons x, int damage){
-  if(getX() > x.getX() - 3 &&  getX() < x.getX() + 3 && getY() > x.getY() - 3 &&  getY() < x.getY() + 3){
-    x.popLayers(damage);
-    drawable = false;
-    x.changeDraw(false);
+  public void drawDart(){
+    if(test){
+    text("a", 60, 100);
+    }
+    if(drawable){
+    circle(x, y,5);
+    }
+  }
+  public boolean nearBloon(Bloons p, int damage){
+  if(x > p.getX() - 10 &&  x < p.getX() + 10 && y > p.getY() - 10 &&  y < p.getY() + 10){
     return true;
   }
   return false;
   }
     public void changeCoord(Bloons p){
-    x += getDirection(p).x*speed;
-    y += getDirection(p).y*speed;
+    x += getDirection(p).x * speed;
+    y += getDirection(p).y * speed;
   }
   public PVector getDirection(Bloons p){
-     float x = p.getX();
-     float y = p.getY();
-     PVector direction = new PVector(x - getX(), y - getY());
+     float m = p.getX();
+     float l = p.getY();
+     PVector direction = new PVector(m-x, l-y);
      direction.normalize();
      return direction;
   }

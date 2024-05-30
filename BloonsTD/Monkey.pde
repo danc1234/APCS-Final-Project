@@ -10,11 +10,14 @@ public class Monkey{
   private boolean land;
   private boolean water;
   private boolean seeCamo;
+  private Dart darts;
+  private Bloons bloon;
+  private boolean isdart = false;
   
   // Constructor
   public Monkey(int money, int area, int attack, int placement, int load, float placeX, float placeY, boolean landed, boolean watered, boolean camo) {
     cost = money;
-    area = range;
+    range = area;
     damage = attack;
     placementRadius = placement;
     reload = load;
@@ -26,6 +29,9 @@ public class Monkey{
   }
   
   // Accessors 
+  public Dart getDart(){
+    return darts;
+  }
   public int getCost() {
     return cost;
   }
@@ -35,9 +41,44 @@ public class Monkey{
   public float getY() {
     return y; 
   }
-  
+  public int getRange(){
+  return range;
+}
   // Methods
-  
+ public void drawMonkey(){
+   circle(x, y, 60);
+   if(darts != null){
+     darts.changeCoord(bloon);
+     darts.drawDart();
+     if(darts.nearBloon(bloon, damage)){
+       bloon.popLayers(damage);
+       darts = null;
+       isdart = false;
+     }
+   }
+ }
+
+ public void throwDart(ArrayList<Bloons> balloon){
+    int index = 0;
+    while(true){
+    if(index >= balloon.size()){
+    break;
+    }
+    if(balloon.get(index).inRange(x,y, range)){
+      bloon = balloon.get(index);
+      text("a", 50, 100);
+      break;
+    } 
+    index++;
+    }
+    if(index < balloon.size()){
+      if(!isdart){
+      darts = new Dart(1,10,x,y);
+      isdart = true;
+      }
+    }
+ }
+ 
   
   
   
