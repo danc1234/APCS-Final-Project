@@ -42,6 +42,10 @@ public class Bloons{
   public float getY(){
   return y;
   }
+  public void setXY(float xc, float yc){
+    x = xc;
+    y = yc;
+  }
   public void popLayers(int pop){
     layers -= pop;
   }
