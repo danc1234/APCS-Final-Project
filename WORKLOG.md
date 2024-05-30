@@ -27,6 +27,10 @@ Worked on popping bloon and throwing dart method. Did not finish due to some bug
 
 Finished popping bloon and throwing dart method. Tested with only one bloon. need to test with more than one.
 
+### 5/30
+
+Added a countdown so that the balloons are spaced out instead of clumped together.
+
 
 
 ## Daniel Chen
