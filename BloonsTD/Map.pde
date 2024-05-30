@@ -3,7 +3,6 @@ public class Map{
   public int tileCount = 0;
   private LinkedList<Tile> tiles = new LinkedList<Tile>();
   public Map(String name){
-    map = loadImage(name);
     if(name.equals("Map.png")){
     tiles.add(new Tile(4,227));
     tiles.add(new Tile(405, 227));
@@ -22,10 +21,9 @@ public class Map{
     }
   }
   public PImage getMap(){
-  return map;
+    return map;
   }
   public LinkedList<Tile> getTiles(){
-    System.out.println(tiles.toString());
-  return tiles;
+    return tiles;
   }
 }
