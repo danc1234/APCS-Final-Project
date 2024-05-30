@@ -19,6 +19,15 @@ Added the dart class. Has all the methods to pop the balloon. Going to implement
 
 Added a draw monkey method with no sprite yet. Added an array for the balloon so that I can implement that into rounds
 
+### 5/28
+
+Worked on popping bloon and throwing dart method. Did not finish due to some bugs.
+
+### 5/29
+
+Finished popping bloon and throwing dart method. Tested with only one bloon. need to test with more than one.
+
+
 
 ## Daniel Chen
 
