@@ -48,7 +48,8 @@ public class Monkey{
 }
   // Methods
  public void drawMonkey(){
-   circle(x, y, 60);
+   circle(x, y, 10);
+   image(sprite, x-30, y-7);
    if(darts != null){
      darts.changeCoord(bloon);
      darts.drawDart();

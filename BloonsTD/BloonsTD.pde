@@ -14,7 +14,7 @@ void setup() {
   image(map, 0, 0);
   balloon.add(new Bloons(5, (double)3, 4.5, 227.0, false, false, new Map("Map.png")));
   frameRate(100);
-  monkeys = new Monkey("Monkeys/DartMonkey.jpeg",0,200,1,0,0,70,140, false, false, false);
+  monkeys = new Monkey("Monkeys/DartMonkey.png",0,200,1,0,0,70,140, false, false, false);
 }
 void draw() {
   
