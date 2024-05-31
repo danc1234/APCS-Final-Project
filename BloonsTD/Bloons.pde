@@ -4,6 +4,7 @@ public class Bloons{
   private int tilecount;
   private Map map;
   private Tile tile;
+  private int damage;
   private int layers;
   private double speed;
   private float x;
@@ -27,6 +28,35 @@ public class Bloons{
     glued = false;
     map = maps;
     tilecount = 0;
+    damageDeclarer();
+  }
+  
+    public void damageDeclarer() {
+    if (layers == 1) {
+      damage = 1;
+    } else if (layers == 2) {
+      damage = 2; 
+    } else if (layers == 3) {
+      damage = 3; 
+    } else if (layers == 4) {
+      damage = 4; 
+    } else if (layers == 5) {
+      damage = 5; 
+    } else if (layers == 6) {
+      damage = 11; 
+    } else if (layers == 7) {
+      damage = 23; 
+    } else if (layers == 8) {
+      damage = 47;
+    } else if (layers == 9) {
+      damage = 104; 
+    } else if (layers == 10) {
+      damage = 616; 
+    } else if (layers == 11) {
+      damage = 3164; 
+    } else if (layers == 12) {
+      damage = 16656; 
+    } 
   }
   
   // Accessors
