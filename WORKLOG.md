@@ -63,3 +63,7 @@ Worked on making multiple waves of bloons. Did not finish due to bugs and Null E
 ### 5/29/2024
 
 Was able to make a slightly working wave. Also, modified the drawBloon functions to make popping easier. 
+
+### 5/30/2024
+
+Found a .svg to .png converter to make images from the BTD wiki easier to use. Added a new parameter to the Monkey constructor specifying which image to use. 
