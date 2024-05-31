@@ -5,8 +5,8 @@ public class Boss extends Bloons{
   PImage balloon;
   
   // Constructor
-  public Boss (int level, double velocity, float locationX, float locationY, int healthy, int area, Map maps, boolean camo, boolean regenerate) {
-    super(level, velocity, locationX, locationY, camo, regenerate, maps); 
+  public Boss (int level, float locationX, float locationY, int healthy, int area, Map maps, boolean camo, boolean regenerate) {
+    super(level, locationX, locationY, camo, regenerate, maps); 
     health = healthy;
     stage = area;
   }
@@ -26,6 +26,8 @@ public class Boss extends Bloons{
   
   public void drawBloon() {
     circle(this.getX(), this.getY(), 10);
+    damageDeclarer();
+    speedDeclarer();
     if (this.getLayers() == 9) {     
       if (health <= 2.5)  {
         if (this.getCamo() && this.getRegrow()) {
