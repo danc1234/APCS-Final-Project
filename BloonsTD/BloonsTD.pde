@@ -17,8 +17,8 @@ void setup() {
   rect(823, 0, 130, 120);
   map = loadImage("Map.png");
   image(map, 0, 0);
-  frameRate(100);
-  monkeys = new Monkey("Monkeys/DartMonkey.png",0,200,1,0,0,70,140, false, false, false);
+  frameRate(120);
+  monkeys = new Monkey("Monkeys/DartMonkey.png",0,50,1,0,0,70,140, false, false, false);
   fill(0);
   textSize(30);
   text("Lives: "+lives, 825, 30);
@@ -27,17 +27,15 @@ void setup() {
   text("Wave "+waves+" out of \n85", 825, 90);
 }
 void draw() {
-  
   //setup();
   //text("" + mouseX + ", " + mouseY, 10, 10);
   if(countdown == 0){
     Bloons temp = rounds.getBloon();
     if(temp != null){
-    balloon.add(temp);
+      balloon.add(temp);
     }
     countdown = 5;
   }
-
   image(map, 0, 0);  
   for(int x = 0; x < balloon.size(); x++){
     if (balloon.get(x).getDraw()) {
@@ -77,14 +75,13 @@ public void setLives(int damage) {
     lives = 0; 
     barrier = millis()+1000;
   } else {
-    System.out.println(lives);
-    System.out.println(damage);
     lives -= damage; 
-    fill(255);
-    rect(823, 0, 130, 120);
-    fill(0);
-    textSize(30);
-    text("Lives: "+lives, 825, 30);
+    System.out.println("This is the damage: "+damage);
   }
-  println("called");
+  fill(255);
+  rect(823, 0, 130, 120);
+  fill(0);
+  textSize(30);
+  text("Lives: "+lives, 825, 30);
+  balloon.remove(0);
 }

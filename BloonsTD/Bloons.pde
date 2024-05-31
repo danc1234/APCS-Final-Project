@@ -89,7 +89,8 @@ public class Bloons{
   public void changeCoord(){
     x += getDirection().x*speed;
     y += getDirection().y*speed;
-    if ((x == 369) && (y == 520)) {
+    if (((int) x == 369) && ((int) y == 523)) {
+      System.out.println("I am called");
       setLives(this.getDamage());
     }
   }
