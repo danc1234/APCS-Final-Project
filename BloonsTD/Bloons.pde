@@ -5,6 +5,7 @@ public class Bloons{
   private Map map;
   private Tile tile;
   private int layers;
+  private int damage;
   private double speed;
   private float x;
   private float y;
@@ -15,8 +16,8 @@ public class Bloons{
   private PImage balloon;
 
   
-  // Constructor
-  public Bloons (int level, double velocity, float locationX, float locationY, boolean camoflauge, boolean regenerate, Map maps) {
+    // Constructor
+   public Bloons (int level, double velocity, float locationX, float locationY, boolean camoflauge, boolean regenerate, Map maps) {
     layers = level;
     speed = velocity;
     x = locationX;
@@ -27,6 +28,34 @@ public class Bloons{
     glued = false;
     map = maps;
     tilecount = 0;
+    damageDeclarer();
+  }
+  public void damageDeclarer() {
+    if (layers == 1) {
+      damage = 1;
+    } else if (layers == 2) {
+      damage = 2; 
+    } else if (layers == 3) {
+      damage = 3; 
+    } else if (layers == 4) {
+      damage = 4; 
+    } else if (layers == 5) {
+      damage = 5; 
+    } else if (layers == 6) {
+      damage = 11; 
+    } else if (layers == 7) {
+      damage = 23; 
+    } else if (layers == 8) {
+      damage = 47;
+    } else if (layers == 9) {
+      damage = 104; 
+    } else if (layers == 10) {
+      damage = 616; 
+    } else if (layers == 11) {
+      damage = 3164; 
+    } else if (layers == 12) {
+      damage = 16656; 
+    } 
   }
   
   // Accessors
@@ -40,7 +69,10 @@ public class Bloons{
     return x;
   }
   public float getY(){
-  return y;
+    return y;
+  }
+  public int getDamage(){
+    return damage; 
   }
   public void popLayers(int pop){
     layers -= pop;
@@ -57,6 +89,9 @@ public class Bloons{
   public void changeCoord(){
     x += getDirection().x*speed;
     y += getDirection().y*speed;
+    if ((x == 369) && (y == 520)) {
+      setLives(this.getDamage());
+    }
   }
   public void onTile(){
     if(tilecount == 0){
