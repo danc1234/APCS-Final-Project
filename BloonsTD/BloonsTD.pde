@@ -17,6 +17,7 @@ void setup() {
   monkeys = new Monkey("Monkeys/DartMonkey.jpeg",0,200,1,0,0,70,140, false, false, false);
 }
 void draw() {
+  
   //setup();
   //text("" + mouseX + ", " + mouseY, 10, 10);
   if(countdown == 0){

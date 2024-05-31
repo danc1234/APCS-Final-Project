@@ -28,7 +28,6 @@ public class Monkey{
     water = watered;
     seeCamo = camo;
     sprite = loadImage(image);
-    image(sprite, x, y);
   }
   
   // Accessors 
