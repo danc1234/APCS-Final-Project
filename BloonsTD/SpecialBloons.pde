@@ -14,6 +14,9 @@ public class SpecialBloons extends Bloons{
     speedDeclarer();
     damageDeclarer();
   }
+  public SpecialBloons(int level, float locationX, float locationY, boolean camoflauge, boolean regenerate, Map maps){
+    super(level, locationX, locationY, camoflauge, regenerate, maps); 
+  }
   
   public void speedDeclarer() {
     if ((this.getLayers() == 7) && (imunSharp)) {

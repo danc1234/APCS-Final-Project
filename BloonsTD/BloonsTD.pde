@@ -19,8 +19,7 @@ void setup() {
   rect(823, 0, 130, 120);
   map = loadImage("Map.png");
   image(map, 0, 0);
-  frameRate(100);
-  monkeys = new Monkey("Monkeys/DartMonkey.png",0,10,1,0,0,70,140, false, false, false);
+  monkeys = new Monkey("Monkeys/DartMonkey.png",0,90,1,0,0,70,140, false, false, false);
   fill(0);
   textSize(30);
   text("Lives: "+lives, 825, 30);
@@ -65,9 +64,6 @@ void draw() {
       } else {
         lives -= balloon.get(x).getDamage(); 
       }
-      fill(0);
-      textSize(30);
-      text("Lives: "+lives, 825, 30);
       balloon.remove(x);
     }
   }

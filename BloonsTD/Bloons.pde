@@ -65,6 +65,7 @@ public class Bloons{
     return drawable;
   }  
  
+  // Methods
   public void popLayers(int pop){
     layers -= pop;
   }

@@ -1,4 +1,4 @@
-public class Boss extends Bloons{
+public class Boss extends SpecialBloons{
   // Fields
   int health;
   int stage;

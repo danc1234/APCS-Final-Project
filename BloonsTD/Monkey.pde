@@ -7,6 +7,7 @@ public class Monkey{
   private int reload;
   private float x;
   private float y;
+  private float direction;
   private boolean land;
   private boolean water;
   private boolean seeCamo;
@@ -44,14 +45,12 @@ public class Monkey{
     return y; 
   }
   public int getRange(){
-  return range;
-}
+    return range;
+  }
   // Methods
  public void drawMonkey(){
    circle(x, y, 10);
-   rotate(10);
-   //translate(-5, -5);
-   image(sprite, x-30, y-7);
+   image(sprite, x-30, y-7); 
    if(darts != null){
      darts.changeCoord(bloon);
      darts.drawDart();
@@ -67,11 +66,11 @@ public class Monkey{
     int index = 0;
     while(true){
     if(index >= balloon.size()){
-    break;
+      break;
     }
     if(balloon.get(index).inRange(x,y, range)){
       bloon = balloon.get(index);
-      text("a", 50, 100);
+      //text("a", 50, 100);
       break;
     } 
     index++;

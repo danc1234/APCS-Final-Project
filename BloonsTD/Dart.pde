@@ -6,6 +6,7 @@ public class Dart{
   float x;
   float y;
   boolean test = false;
+  float angle;
   
   public Dart(int biggy, double IAmSpeed, float floatX, float floatY) {
     size = biggy;
@@ -21,6 +22,10 @@ public class Dart{
   public float getY() {
     return y; 
   }
+  public float getAngle(){
+    return angle; 
+  }
+  
   public void drawDart(){
     if(test){
     text("a", 60, 100);
@@ -35,7 +40,7 @@ public class Dart{
   }
   return false;
   }
-    public void changeCoord(Bloons p){
+  public void changeCoord(Bloons p){
     x += getDirection(p).x * speed;
     y += getDirection(p).y * speed;
   }
@@ -44,6 +49,7 @@ public class Dart{
      float l = p.getY();
      PVector direction = new PVector(m-x, l-y);
      direction.normalize();
+     angle = direction.heading();
      return direction;
   }
 }
