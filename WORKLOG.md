@@ -67,3 +67,7 @@ Was able to make a slightly working wave. Also, modified the drawBloon functions
 ### 5/30/2024
 
 Found a .svg to .png converter to make images from the BTD wiki easier to use. Added a new parameter to the Monkey constructor specifying which image to use. 
+
+### 5/31/2024
+
+Restored the health system. Updated the constructors so that it uses the layers to determine some of the attributes of the bloon. 
