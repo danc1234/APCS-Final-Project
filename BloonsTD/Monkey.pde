@@ -16,6 +16,7 @@ public class Monkey{
   private boolean isdart = false;
   private PImage sprite;
   private String link;
+  private int reloadTimer = millis();
   
   // Constructor
   public Monkey(String image, int money, int attack, int placement, float placeX, float placeY) {
@@ -37,7 +38,7 @@ public class Monkey{
       land = true;
       water = false;
     } else if (link.equals("Monkeys/DartMonkey.png")) {
-      reload = 100; 
+      reload = 400; 
       range = 100;
       seeCamo = false;
       land = true;
@@ -64,6 +65,13 @@ public class Monkey{
   }
   public int getReload() {
     return reload; 
+  }
+  public int getReloadTimer() {
+    return reloadTimer; 
+  }
+  
+  public void resetTimer(int a) {
+     reloadTimer = a;
   }
   
   // Methods

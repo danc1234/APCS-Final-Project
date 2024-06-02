@@ -10,10 +10,9 @@ ArrayList<Bloons> balloon = new ArrayList<Bloons>();
 Round rounds = new Round();
 PImage map;
 Monkey monkeys;
-ArrayList<Monkey> towers;
+ArrayList<Monkey> towers = new ArrayList<Monkey>();
 int timer = 60;
 int countdown = 0;
-int reloadTimer = millis();
 Dart darts;
 
 void setup() {
@@ -21,8 +20,9 @@ void setup() {
   rect(823, 0, 130, 120);
   map = loadImage("Map.png");
   image(map, 0, 0);
-  monkeys = new Monkey("Monkeys/SuperMonkey.png", 0, 1, 0, 200, 280);
-  frameRate(120);
+  towers.add(new Monkey("Monkeys/DartMonkey.png", 0, 1, 0, 200, 190));
+  towers.add(new Monkey("Monkeys/SuperMonkey.png", 0, 1, 0, 200, 280));
+  frameRate(200);
   fill(0);
   textSize(30);
   text("Lives: "+lives, 825, 30);
@@ -41,16 +41,6 @@ void setup() {
 }
 
 void draw() {
-  //setup();
-  //text("" + mouseX + ", " + mouseY, 10, 10);
-  fill(255);
-  rect(823, 0, 130, 120);
-  fill(0);
-  textSize(30);
-  text("Lives: "+lives, 825, 30);
-  text("Cash: "+cash, 825, 60);
-  textSize(20);
-  text("Wave "+waves+" out of \n85", 825, 90);
   if(countdown == 0){
     Bloons temp = rounds.getBloon();
     if(temp != null){
@@ -65,11 +55,15 @@ void draw() {
     }
     balloon.get(x).changeCoord();
   }
-  monkeys.drawMonkey();
-  if (millis() > reloadTimer + monkeys.getReload()) {
-    monkeys.throwDart(balloon); 
-    reloadTimer = millis();
-  } 
+  for (int i = 0; i < towers.size(); i++) {
+    towers.get(i).drawMonkey();
+    
+    if (millis() > towers.get(i).getReloadTimer() + towers.get(i).getReload()) {
+      System.out.println(i);
+      towers.get(i).throwDart(balloon); 
+      towers.get(i).resetTimer(millis());
+    }     
+  }
   for(int x = 0; x < balloon.size(); x++){
     if(balloon.get(x).getLayers() <= 0){
       balloon.remove(x);
