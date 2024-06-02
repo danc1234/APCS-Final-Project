@@ -15,21 +15,36 @@ public class Monkey{
   private Bloons bloon;
   private boolean isdart = false;
   private PImage sprite;
+  private String link;
   
   // Constructor
-  public Monkey(String image, int money, int area, int attack, int placement, int load, float placeX, float placeY, boolean landed, boolean watered, boolean camo) {
+  public Monkey(String image, int money, int attack, int placement, float placeX, float placeY) {
     cost = money;
-    range = area;
     damage = attack;
     placementRadius = placement;
-    reload = load;
     x = placeX;
     y = placeY;
-    land = landed;
-    water = watered;
-    seeCamo = camo;
+    link = image;
     sprite = loadImage(image);
+    attributeDeclarer();
   }
+  
+  public void attributeDeclarer() {
+    if (link.equals("Monkeys/SuperMonkey.png")) {
+      reload = 0; 
+      range = 200;
+      seeCamo = false;
+      land = true;
+      water = false;
+    } else if (link.equals("Monkeys/DartMonkey.png")) {
+      reload = 100; 
+      range = 100;
+      seeCamo = false;
+      land = true;
+      water = false;
+    }
+  }
+
   
   // Accessors 
   public Dart getDart(){

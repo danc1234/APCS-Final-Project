@@ -10,6 +10,7 @@ ArrayList<Bloons> balloon = new ArrayList<Bloons>();
 Round rounds = new Round();
 PImage map;
 Monkey monkeys;
+ArrayList<Monkey> towers;
 int timer = 60;
 int countdown = 0;
 int reloadTimer = millis();
@@ -20,7 +21,7 @@ void setup() {
   rect(823, 0, 130, 120);
   map = loadImage("Map.png");
   image(map, 0, 0);
-  monkeys = new Monkey("Monkeys/SuperMonkey.png",0,300,1,0,0,70,140, false, false, false);
+  monkeys = new Monkey("Monkeys/SuperMonkey.png", 0, 1, 0, 200, 280);
   frameRate(120);
   fill(0);
   textSize(30);
@@ -28,7 +29,17 @@ void setup() {
   text("Cash: "+cash, 825, 60);
   textSize(20);
   text("Wave "+waves+" out of \n85", 825, 90);
+    fill(255);
+    rect(823, 120, 65, 70);
+    PImage dartMonkey = loadImage("Monkeys/DartMonkey.png");
+    dartMonkey.resize(60, 60);
+    image(dartMonkey, 826, 125);
+      fill(255);
+      rect(888, 120, 65, 70);
+      PImage superMonkey = loadImage("Monkeys/SuperMonkey.png");
+      image(superMonkey, 891, 125);
 }
+
 void draw() {
   //setup();
   //text("" + mouseX + ", " + mouseY, 10, 10);
