@@ -3,7 +3,7 @@ public class Round{
   int balloon = -1;
   Map x = new Map("Map.png");
   Bloons[] round1 = new Bloons[]{
-  new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png")),
+  new Boss(5, 4.6, 227.0, false, false, new Map("Map.png")),
   new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png")),
   new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png")),
   new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png")),

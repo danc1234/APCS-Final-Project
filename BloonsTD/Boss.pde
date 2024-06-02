@@ -18,7 +18,7 @@ public class Boss extends SpecialBloons{
   public int getStage() {
     return stage; 
   }
-  
+
   
   
   
