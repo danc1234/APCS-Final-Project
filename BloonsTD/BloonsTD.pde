@@ -22,8 +22,6 @@ void setup() {
   rect(823, 0, 130, 120);
   map = loadImage("Map.png");
   image(map, 0, 0);
-  towers.add(new Monkey("Monkeys/DartMonkey.png", 0, 1, 0, 200, 190));
-  towers.add(new Monkey("Monkeys/SuperMonkey.png", 0, 1, 0, 200, 280));
   frameRate(200);
   fill(0);
   textSize(30);
@@ -55,7 +53,7 @@ void draw() {
     if (balloon.get(x).getDraw()) {
       balloon.get(x).drawBloon();
     }
-    balloon.get(x).changeCoord();
+    balloon.get(x).changeCoord();  
   }
   for (int i = 0; i < towers.size(); i++) {
     towers.get(i).drawMonkey();
@@ -102,10 +100,13 @@ void mouseClicked() {
 }
 
 void mouseReleased() {
-  if (selectDart && mouseX<805) {
+  float red = red(map.get(mouseX, mouseY));
+  float green = green(map.get(mouseX, mouseY));
+  float blue = blue(map.get(mouseX, mouseY));
+  if (selectDart && mouseX<805 && (red < 100 || blue < 100 || green < 100)) {
     towers.add(new Monkey("Monkeys/DartMonkey.png", 0, 1, 0, mouseX-25, mouseY+2));
   } 
-  if (selectSuper && mouseX<785) {
+  if (selectSuper && mouseX<805 && (red < 100 || blue < 100 || green < 100)) {
     towers.add(new Monkey("Monkeys/SuperMonkey.png", 0, 1, 0, mouseX-25, mouseY+2));
   }
   selectDart = false;
