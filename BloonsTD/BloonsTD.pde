@@ -80,3 +80,7 @@ void draw() {
     }
   }  
 }
+
+public static void modifyCash(int stonks) {
+  cash+=stonks;
+}

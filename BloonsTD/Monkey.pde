@@ -63,6 +63,7 @@ public class Monkey{
      direction = darts.getAngle();
      if(darts.nearBloon(bloon, damage)){
        bloon.popLayers(damage);
+       BloonsTD.modifyCash(damage);
        darts = null;
        isdart = false;
      }
