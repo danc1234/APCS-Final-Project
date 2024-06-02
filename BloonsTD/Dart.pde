@@ -7,6 +7,7 @@ public class Dart{
   float y;
   boolean test = false;
   float angle = 0;
+  int noChange = 0;
   
   public Dart(int biggy, double IAmSpeed, float floatX, float floatY) {
     size = biggy;
@@ -49,7 +50,10 @@ public class Dart{
      float l = p.getY();
      PVector direction = new PVector(m-x, l-y);
      direction.normalize();
-     angle = direction.heading();
+     if (noChange < 1) {
+       angle = direction.heading();
+       noChange++; 
+     } 
      return direction;
   }
 }

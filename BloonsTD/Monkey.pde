@@ -5,9 +5,9 @@ public class Monkey{
   private int damage;
   private int placementRadius;
   private int reload;
+  private float direction = 0;
   private float x;
   private float y;
-  private float direction;
   private boolean land;
   private boolean water;
   private boolean seeCamo;
@@ -49,17 +49,18 @@ public class Monkey{
   }
   // Methods
  public void drawMonkey(){
-   circle(x, y, 10);
    pushMatrix();
    imageMode(CENTER);
-   translate(x,y);
-   rotate(radians(10));
+   translate(x+22,y-5);
+   System.out.println("This is degrees: "+degrees(direction));
+   rotate(radians(degrees(90+direction)));
    image(sprite,0,0);
    imageMode(CORNERS);
    popMatrix();
    if(darts != null){
      darts.changeCoord(bloon);
      darts.drawDart();
+     direction = darts.getAngle();
      if(darts.nearBloon(bloon, damage)){
        bloon.popLayers(damage);
        darts = null;
