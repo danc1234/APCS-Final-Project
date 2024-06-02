@@ -50,7 +50,13 @@ public class Monkey{
   // Methods
  public void drawMonkey(){
    circle(x, y, 10);
-   image(sprite, x-30, y-7); 
+   pushMatrix();
+   imageMode(CENTER);
+   translate(x,y);
+   rotate(radians(10));
+   image(sprite,0,0);
+   imageMode(CORNERS);
+   popMatrix();
    if(darts != null){
      darts.changeCoord(bloon);
      darts.drawDart();
