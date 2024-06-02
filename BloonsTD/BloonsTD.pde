@@ -20,7 +20,7 @@ void setup() {
   rect(823, 0, 130, 120);
   map = loadImage("Map.png");
   image(map, 0, 0);
-  monkeys = new Monkey("Monkeys/DartMonkey.png",0,500,1,0,500,70,140, false, false, false);
+  monkeys = new Monkey("Monkeys/SuperMonkey.png",0,300,1,0,0,70,140, false, false, false);
   frameRate(120);
   fill(0);
   textSize(30);
@@ -58,7 +58,7 @@ void draw() {
   if (millis() > reloadTimer + monkeys.getReload()) {
     monkeys.throwDart(balloon); 
     reloadTimer = millis();
-  }
+  } 
   for(int x = 0; x < balloon.size(); x++){
     if(balloon.get(x).getLayers() <= 0){
       balloon.remove(x);
