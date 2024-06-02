@@ -87,27 +87,23 @@ void draw() {
       textSize(40);
       text("HOW DARE YOU LET THE \n           BLOONS WIN!!!", 207, 265);
     }
-  }  
+  }    
+  if (select && mouseX<805) {
+    image(loadImage("Monkeys/DartMonkey.png"), mouseX-22, mouseY-15); 
+  }
 }
 
 void mouseClicked() {  
   if (((mouseX < 888) && (mouseX > 823)) && ((mouseY > 120) && (mouseY < 190))) {
     println("This is x: "+mouseX);
     println("This is y: "+mouseY);  
-   select = true;
+    select = true;
   }  
-}
-
-void mouseDragged() {
-  if (mousePressed && select) {
-    PImage cursor = loadImage("Monkeys/DartMonkey.png");
-    image(cursor, mouseX, mouseY); 
-  }
 }
 
 void mouseReleased() {
   if (select) {
-    towers.add(new Monkey("Monkeys/DartMonkey.png", 0, 1, 0, mouseX, mouseY));
+    towers.add(new Monkey("Monkeys/DartMonkey.png", 0, 1, 0, mouseX-25, mouseY+2));
     select = false;
   }
 }
