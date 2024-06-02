@@ -5,7 +5,8 @@ private static int lives=100;
 private static int cash=650;
 private static int waves=1;
 private static int barrier;
-private static boolean select;
+private static boolean selectDart;
+private static boolean selectSuper;
 
 ArrayList<Bloons> balloon = new ArrayList<Bloons>();
 Round rounds = new Round();
@@ -87,28 +88,38 @@ void draw() {
       textSize(40);
       text("HOW DARE YOU LET THE \n           BLOONS WIN!!!", 207, 265);
     }
-  }    
-  if (select && mouseX<805) {
-    image(loadImage("Monkeys/DartMonkey.png"), mouseX-22, mouseY-15); 
-  }
+  }   
+  selections();
 }
 
 void mouseClicked() {  
   if (((mouseX < 888) && (mouseX > 823)) && ((mouseY > 120) && (mouseY < 190))) {
-    println("This is x: "+mouseX);
-    println("This is y: "+mouseY);  
-    select = true;
-  }  
+    selectDart = true;
+  } 
+  if (((mouseX >= 888) && (mouseX < 953)) && ((mouseY > 120) && (mouseY < 190))) {
+    selectSuper = true;
+  }    
 }
 
 void mouseReleased() {
-  if (select) {
+  if (selectDart && mouseX<805) {
     towers.add(new Monkey("Monkeys/DartMonkey.png", 0, 1, 0, mouseX-25, mouseY+2));
-    select = false;
+  } 
+  if (selectSuper && mouseX<785) {
+    towers.add(new Monkey("Monkeys/SuperMonkey.png", 0, 1, 0, mouseX-25, mouseY+2));
   }
+  selectDart = false;
+  selectSuper = false;
 }
 
-
+void selections() {
+  if (selectDart && mouseX<805) {
+    image(loadImage("Monkeys/DartMonkey.png"), mouseX-22, mouseY-15); 
+  } 
+  if (selectSuper && mouseX<785) {
+    image(loadImage("Monkeys/SuperMonkey.png"), mouseX-22, mouseY-15); 
+  } 
+}
 
 
 
