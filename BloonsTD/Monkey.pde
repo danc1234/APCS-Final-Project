@@ -47,17 +47,20 @@ public class Monkey{
   public int getRange(){
     return range;
   }
+  public int getReload() {
+    return reload; 
+  }
+  
   // Methods
- public void drawMonkey(){
-   pushMatrix();
-   imageMode(CENTER);
-   translate(x+22,y-5);
-   System.out.println("This is degrees: "+degrees(direction));
-   rotate(radians(degrees(90+direction)));
-   image(sprite,0,0);
-   imageMode(CORNERS);
-   popMatrix();
-   if(darts != null){
+  public void drawMonkey(){
+    pushMatrix();
+    imageMode(CENTER);
+    translate(x+22,y-5);
+    rotate(radians(degrees(90+direction)));
+    image(sprite,0,0);
+    imageMode(CORNERS);
+    popMatrix();
+    if(darts != null){
      darts.changeCoord(bloon);
      darts.drawDart();
      direction = darts.getAngle();
@@ -67,7 +70,7 @@ public class Monkey{
        darts = null;
        isdart = false;
      }
-   }
+   }  
  }
 
  public void throwDart(ArrayList<Bloons> balloon){
@@ -85,8 +88,8 @@ public class Monkey{
     }
     if(index < balloon.size()){
       if(!isdart){
-      darts = new Dart(1,10,x,y);
-      isdart = true;
+        darts = new Dart(1,10,x,y);
+        isdart = true;
       }
     }
  }
