@@ -5,6 +5,7 @@ private static int lives=100;
 private static int cash=650;
 private static int waves=1;
 private static int barrier;
+private static boolean select;
 
 ArrayList<Bloons> balloon = new ArrayList<Bloons>();
 Round rounds = new Round();
@@ -59,7 +60,6 @@ void draw() {
     towers.get(i).drawMonkey();
     
     if (millis() > towers.get(i).getReloadTimer() + towers.get(i).getReload()) {
-      System.out.println(i);
       towers.get(i).throwDart(balloon); 
       towers.get(i).resetTimer(millis());
     }     
@@ -89,6 +89,32 @@ void draw() {
     }
   }  
 }
+
+void mouseClicked() {  
+  if (((mouseX < 888) && (mouseX > 823)) && ((mouseY > 120) && (mouseY < 190))) {
+    println("This is x: "+mouseX);
+    println("This is y: "+mouseY);  
+   select = true;
+  }  
+}
+
+void mouseDragged() {
+  if (mousePressed && select) {
+    PImage cursor = loadImage("Monkeys/DartMonkey.png");
+    image(cursor, mouseX, mouseY); 
+  }
+}
+
+void mouseReleased() {
+  if (select) {
+    towers.add(new Monkey("Monkeys/DartMonkey.png", 0, 1, 0, mouseX, mouseY));
+    select = false;
+  }
+}
+
+
+
+
 
 public static void modifyCash(int stonks) {
   cash+=stonks;

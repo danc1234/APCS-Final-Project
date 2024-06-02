@@ -69,6 +69,9 @@ public class Monkey{
   public int getReloadTimer() {
     return reloadTimer; 
   }
+  public PImage getSprite() {
+    return sprite;
+  }
   
   public void resetTimer(int a) {
      reloadTimer = a;
