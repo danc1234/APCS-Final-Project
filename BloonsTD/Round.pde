@@ -1,7 +1,14 @@
 public class Round{
   int round;
   int balloon = -1;
-  Bloons[] round1 = new Bloons[]{new Bloons(5, (double)3, 4.5, 227.0, false, false, new Map("Map.png")), new Bloons(5, (double)3, 4.5, 227.0, false, false, new Map("Map.png"))};
+  Map x = new Map("Map.png");
+  Bloons[] round1 = new Bloons[]{
+  new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png")),
+  new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png")),
+  new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png")),
+  new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png")),
+  new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png")),
+  new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png"))};
   public Round(){
     round = 1;
   }

@@ -5,15 +5,34 @@ public class SpecialBloons extends Bloons{
   private boolean imunMagic;
   private PImage balloon;
   
-  public SpecialBloons(int level, double velocity, float locationX, float locationY, boolean camoflauge, boolean regenerate, Map maps, boolean freeze, boolean explosion, boolean sharp, boolean magic){
-    super(level, velocity, locationX, locationY, camoflauge, regenerate, maps);
+  public SpecialBloons(int level, float locationX, float locationY, boolean camoflauge, boolean regenerate, Map maps, boolean freeze, boolean explosion, boolean sharp, boolean magic){
+    super(level, locationX, locationY, camoflauge, regenerate, maps);
     imunFreeze = freeze;
     imunExplosion = explosion;
     imunSharp = sharp;
     imunMagic = magic;
+    speedDeclarer();
+    damageDeclarer();
+  }
+  public SpecialBloons(int level, float locationX, float locationY, boolean camoflauge, boolean regenerate, Map maps){
+    super(level, locationX, locationY, camoflauge, regenerate, maps); 
   }
   
-  
+  public void speedDeclarer() {
+    if ((this.getLayers() == 7) && (imunSharp)) {
+      this.changeSpeed(1);
+    } else if ((this.getLayers() == 7) && (imunExplosion) && (imunFreeze)) {
+      this.changeSpeed(1.8);
+    } else if ((this.getLayers() == 6) && (imunFreeze)) {
+      this.changeSpeed(2);
+    } else if ((this.getLayers() == 6) && (imunMagic)) {
+      this.changeSpeed(3);
+    } else if ((this.getLayers() == 6) && (imunExplosion)) {
+      this.changeSpeed(1.8);
+    } else {
+      super.speedDeclarer(); 
+    }
+  }
   
   
   

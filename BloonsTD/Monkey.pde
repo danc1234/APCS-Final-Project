@@ -5,6 +5,7 @@ public class Monkey{
   private int damage;
   private int placementRadius;
   private int reload;
+  private float direction = 0;
   private float x;
   private float y;
   private boolean land;
@@ -14,20 +15,37 @@ public class Monkey{
   private Bloons bloon;
   private boolean isdart = false;
   private PImage sprite;
+  private String link;
+  private int reloadTimer = millis();
   
   // Constructor
-  public Monkey(int money, int area, int attack, int placement, int load, float placeX, float placeY, boolean landed, boolean watered, boolean camo) {
+  public Monkey(String image, int money, int attack, int placement, float placeX, float placeY) {
     cost = money;
-    range = area;
     damage = attack;
     placementRadius = placement;
-    reload = load;
     x = placeX;
     y = placeY;
-    land = landed;
-    water = watered;
-    seeCamo = camo;
+    link = image;
+    sprite = loadImage(image);
+    attributeDeclarer();
   }
+  
+  public void attributeDeclarer() {
+    if (link.equals("Monkeys/SuperMonkey.png")) {
+      reload = 0; 
+      range = 200;
+      seeCamo = false;
+      land = true;
+      water = false;
+    } else if (link.equals("Monkeys/DartMonkey.png")) {
+      reload = 400; 
+      range = 100;
+      seeCamo = false;
+      land = true;
+      water = false;
+    }
+  }
+
   
   // Accessors 
   public Dart getDart(){
@@ -43,60 +61,66 @@ public class Monkey{
     return y; 
   }
   public int getRange(){
-  return range;
-}
+    return range;
+  }
+  public int getReload() {
+    return reload; 
+  }
+  public int getReloadTimer() {
+    return reloadTimer; 
+  }
+  public PImage getSprite() {
+    return sprite;
+  }
+  
+  public void resetTimer(int a) {
+     reloadTimer = a;
+  }
+  
   // Methods
- public void drawMonkey(){
-   circle(x, y, 10);
-   if(darts != null){
+  public void drawMonkey(){
+    pushMatrix();
+    imageMode(CENTER);
+    translate(x+22,y-5);
+    rotate(radians(degrees(90+direction)));
+    image(sprite,0,0);
+    imageMode(CORNERS);
+    popMatrix();
+    if(darts != null){
      darts.changeCoord(bloon);
      darts.drawDart();
+     direction = darts.getAngle();
      if(darts.nearBloon(bloon, damage)){
        bloon.popLayers(damage);
+       modifyCash(damage);
        darts = null;
        isdart = false;
      }
-   }
+   }  
  }
 
  public void throwDart(ArrayList<Bloons> balloon){
     int index = 0;
     while(true){
     if(index >= balloon.size()){
-    break;
+      break;
     }
     if(balloon.get(index).inRange(x,y, range)){
       bloon = balloon.get(index);
-      text("a", 50, 100);
+      //text("a", 50, 100);
       break;
     } 
     index++;
     }
     if(index < balloon.size()){
       if(!isdart){
-      darts = new Dart(1,8,x,y);
-      isdart = true;
+        darts = new Dart(1,10,x,y);
+        isdart = true;
       }
     }
  }
  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
   
 
 }
