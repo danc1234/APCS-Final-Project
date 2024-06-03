@@ -35,7 +35,7 @@ public class Dart{
       circle(x, y,5);
     }
   }
-  public boolean nearBloon(Bloons p, int damage){
+  public boolean nearBloon(Bloons p){
     if(x > p.getX() - 10 &&  x < p.getX() + 10 && y > p.getY() - 10 &&  y < p.getY() + 10){
       return true;
     }
