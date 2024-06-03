@@ -95,6 +95,10 @@ public class Monkey {
       direction = darts.getAngle();
       if (darts.nearBloon(bloon)) {
         bloon.popLayers(damage);
+        if (bloon.getLayers()+1 == 6) {
+          ListModifer(new Bloons(5, bloon.getX()-1, bloon.getY()-1, false, false, new Map("Map.png")));
+          ListModifer(new Bloons(5, bloon.getX()+1, bloon.getY()-1, false, false, new Map("Map.png")));
+        }
         modifyCash(damage);
         darts = null;
         isdart = false;

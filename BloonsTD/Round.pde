@@ -3,12 +3,12 @@ public class Round {
   int balloon = -1;
   Map x = new Map("Map.png");
   Bloons[] round1 = new Bloons[]{
-    new SpecialBloons(6, 4.6, 227.0, false, false, new Map("Map.png"), true, false, false, false),
+    new SpecialBloons(6, 4.6, 227.0, false, false, new Map("Map.png"), false, true, false, false),
     new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png")),
     new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png")),
     new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png")),
-    new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png")),
-    new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png"))};
+    new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png"))
+  };
   public Round() {
     round = 1;
   }

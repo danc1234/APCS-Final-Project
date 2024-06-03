@@ -24,7 +24,7 @@ void setup() {
   rect(823, 0, 130, 120);
   map = loadImage("Map.png");
   image(map, 0, 0);
-  frameRate(200);
+  frameRate(120);
   fill(0);
   textSize(30);
   text("Lives: "+lives, 825, 30);
@@ -67,13 +67,9 @@ void draw() {
       countdown = 5;
     }
     for (int x = 0; x < balloon.size(); x++) {
-      if (balloon.get(x).getDraw()) {
-        balloon.get(x).drawBloon();
-      }
       balloon.get(x).changeCoord();
     }
     for (int i = 0; i < towers.size(); i++) {
-      towers.get(i).drawMonkey();
       if (millis() > towers.get(i).getReloadTimer() + towers.get(i).getReload()) {
         towers.get(i).throwDart(balloon);
         towers.get(i).resetTimer(millis());
@@ -149,8 +145,8 @@ void mouseReleased() {
   boolean notInRange = true;
   for (int i = 0; i < towers.size(); i++) {
     if (towers.get(i).inRange(mouseX, mouseY)) {
-      System.out.println("I am called");
       notInRange = false;
+      break;
     }
   }
   if (selectDart && mouseX<805 && (red < 100 || blue < 100 || green < 100) && notInRange && (cash-170>=0)) {
@@ -174,6 +170,10 @@ void selections() {
   }
 }
 
+public void ListModifer(Bloons a) {
+  balloon.add(a);
+  println("I am called");
+}
 
 
 public void modifyCash(int stonks) {
