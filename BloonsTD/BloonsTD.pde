@@ -11,10 +11,7 @@ private static boolean selectSuper;
 private PImage map;
 private ArrayList<Bloons> balloon = new ArrayList<Bloons>();
 private Round rounds = new Round();
-private Monkey monkeys;
 private ArrayList<Monkey> towers = new ArrayList<Monkey>();
-private Dart darts;
-private int timer = 60;
 private int countdown = 0;
 private boolean move = false;
 
