@@ -1,5 +1,6 @@
 public class Bloons{
   // Fields
+  private int tilenumber = 0;
   private boolean drawable = true;
   private int tilecount;
   private Map map;
@@ -81,12 +82,12 @@ public class Bloons{
   }
   public void onTile(){
     if(tilecount == 0){
-      tile = map.getTiles().removeFirst();
+      tile = map.getTiles().get(tilecount);
       tilecount++;
     }
     if(x > tile.getX() - 2 && x < tile.getX() + 2 && y > tile.getY() - 2 && y < tile.getY() + 2){
       if (map.tileCount > tilecount){
-        tile = map.getTiles().removeFirst();
+        tile = map.getTiles().get(tilecount);
         tilecount++;
       }
       else{
