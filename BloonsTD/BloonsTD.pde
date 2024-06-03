@@ -15,6 +15,8 @@ Monkey monkeys;
 ArrayList<Monkey> towers = new ArrayList<Monkey>();
 int timer = 60;
 int countdown = 0;
+int countdown2 = 10;
+boolean countdowning = false;
 Dart darts;
 
 void setup() {
@@ -38,15 +40,29 @@ void setup() {
       rect(888, 120, 65, 70);
       PImage superMonkey = loadImage("Monkeys/SuperMonkey.png");
       image(superMonkey, 891, 125);
+      rounds.makeRounds();
 }
 
 void draw() {
   if(countdown == 0){
     Bloons temp = rounds.getBloon();
     if(temp != null){
+      
       balloon.add(temp);
     }
-    countdown = 5;
+    else{
+      countdowning = true;
+      if(countdown2 <= 0){
+      rounds.nextRound();
+      System.out.println("im bad");
+      countdown2 = 10;
+      countdowning = false;
+      }
+    }
+    //else if(rounds.getWave() < 6){
+   //   rounds.makeRounds();
+    //}
+    countdown = 30;
   }
   image(map, 0, 0);  
   for(int x = 0; x < balloon.size(); x++){
@@ -85,6 +101,9 @@ void draw() {
     }
   }
   countdown--;
+  if(countdowning){
+  countdown2--;
+  }
   if (lives == 0) {
     int time = millis();
     if (time > barrier + 1000) {
@@ -96,6 +115,7 @@ void draw() {
     }
   }   
   selections();
+  waves = rounds.getWave();
 }
 
 void mouseClicked() {  
