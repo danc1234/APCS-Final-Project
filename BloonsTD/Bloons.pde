@@ -14,6 +14,8 @@ public class Bloons {
   private boolean iced;
   private boolean glued;
   private PImage balloon;
+  
+  private PImage redBalloon;
 
 
   // Constructor
@@ -28,6 +30,7 @@ public class Bloons {
     map = maps;
     tilecount = 0;
     attributeDeclarer();
+    redBalloon = loadImage("BalloonImages/RedBloon.png");
   }
   public boolean inRange(float xc, float yc, int range) {
     return (dist(xc, yc, x, y) < range);
@@ -114,7 +117,7 @@ public class Bloons {
         } else if (this.getRegrow()) {
           balloon = loadImage("RegrowthBloons/RedBloon.png");
         } else {
-          balloon = loadImage("BalloonImages/RedBloon.png");
+          balloon = redBalloon;
         }
       }
       if (layers == 2) {
