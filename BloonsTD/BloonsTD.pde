@@ -1,5 +1,4 @@
 import java.util.LinkedList;
-
 //hi oingo boingo;
 private static int lives=100;
 private static int cash=10000;
@@ -7,6 +6,7 @@ private static int waves=1;
 private static int barrier;
 private static boolean selectDart;
 private static boolean selectSuper;
+private static int round = 0;
 
 private PImage map;
 private ArrayList<Bloons> balloon = new ArrayList<Bloons>();
@@ -15,6 +15,9 @@ private ArrayList<Monkey> towers = new ArrayList<Monkey>();
 private int countdown = 0;
 private boolean move = false;
 
+public int getRound() {
+  return round;
+}
 
 void setup() {
   size(953, 530);
@@ -28,7 +31,7 @@ void setup() {
   textSize(25);
   text("Cash: "+cash, 825, 60);
   textSize(20);
-  text("Wave "+waves+" out of \n85", 825, 90);
+  text("Wave "+waves+" out of \n5", 825, 90);
   fill(255);
   rect(823, 120, 65, 70);
   PImage dartMonkey = loadImage("Monkeys/DartMonkey.png");
@@ -43,6 +46,11 @@ void setup() {
   fill(0);
   textSize(30);
   text("GO", 868, 480);
+  fill(255);
+  rect(823, 350, 130, 60);
+  textSize(30);
+  fill(0);
+  text("Continue", 830, 390);
 }
 
 void draw() {
@@ -57,11 +65,11 @@ void draw() {
   }
   if (move) {
     if (countdown == 0) {
-      Bloons temp = rounds.getBloon();
+      Bloons temp = rounds.getBloon(round);
       if (temp != null) {
         balloon.add(temp);
       }
-      countdown = 5;
+      countdown = 10;
     }
     for (int x = 0; x < balloon.size(); x++) {
       if (balloon.get(x).getDraw()) {
@@ -95,7 +103,7 @@ void draw() {
         textSize(25);
         text("Cash: "+cash, 825, 60);
         textSize(20);
-        text("Wave "+waves+" out of \n85", 825, 90);
+        text("Wave "+waves+" out of \n5", 825, 90);
       }
     }
     countdown--;
@@ -109,6 +117,16 @@ void draw() {
         text("HOW DARE YOU LET THE \n           BLOONS WIN!!!", 207, 265);
       }
     }
+  }
+  if (waves > 5 && lives > 0 && balloon.size() == 0) {
+    int time = millis();
+    if (time > barrier + 1000) {
+      fill(#90EE90);
+      rect(205.75, 225, 411.5, 100);
+      fill(0);
+      textSize(40);
+      text("Have your good share of \n               bananas!", 207, 265);
+    } 
   }
   selections();
 }
@@ -137,6 +155,22 @@ void mouseClicked() {
       move = true;
     }
   }
+  if (((mouseX < 953) && (mouseX > 823)) && ((mouseY > 350) && (mouseY < 410))) {
+    round++;
+    waves++;
+    if (waves <= 5) {
+      fill(255);
+      rect(823, 0, 130, 120);
+      fill(0);
+      textSize(30);
+      text("Lives: "+lives, 825, 30);
+      textSize(25);
+      text("Cash: "+cash, 825, 60);
+      textSize(20);
+      text("Wave "+waves+" out of \n5", 825, 90);
+    } 
+    rounds.restartBalloon();
+  }
 }
 
 void mouseReleased() {
@@ -146,7 +180,6 @@ void mouseReleased() {
   boolean notInRange = true;
   for (int i = 0; i < towers.size(); i++) {
     if (towers.get(i).inRange(mouseX, mouseY)) {
-      System.out.println("I am called");
       notInRange = false;
     }
   }
@@ -183,5 +216,5 @@ public void modifyCash(int stonks) {
   textSize(25);
   text("Cash: "+cash, 825, 60);
   textSize(20);
-  text("Wave "+waves+" out of \n85", 825, 90);
+  text("Wave "+waves+" out of \n5", 825, 90);
 }

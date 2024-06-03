@@ -2,24 +2,63 @@ public class Round {
   int round;
   int balloon = -1;
   Map x = new Map("Map.png");
-  Bloons[] round1 = new Bloons[]{
-    new SpecialBloons(6, 4.6, 227.0, false, false, new Map("Map.png"), true, false, false, false),
-    new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png")),
-    new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png")),
-    new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png")),
-    new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png")),
-    new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png"))};
+  Bloons[][] rounds = new Bloons[][]{{
+      new Bloons(1, 4.6, 227.0, false, false, new Map("Map.png")),
+      new Bloons(1, 4.6, 227.0, false, false, new Map("Map.png")),
+      new Bloons(1, 4.6, 227.0, false, false, new Map("Map.png")),
+      new Bloons(1, 4.6, 227.0, false, false, new Map("Map.png")),
+      new Bloons(1, 4.6, 227.0, false, false, new Map("Map.png"))},
+    {    new Bloons(1, 4.6, 227.0, false, false, new Map("Map.png")),
+      new Bloons(1, 4.6, 227.0, false, false, new Map("Map.png")),
+      new Bloons(2, 4.6, 227.0, false, false, new Map("Map.png")),
+      new Bloons(1, 4.6, 227.0, false, false, new Map("Map.png")),
+      new Bloons(1, 4.6, 227.0, false, false, new Map("Map.png")),
+      new Bloons(2, 4.6, 227.0, false, false, new Map("Map.png")),
+      new Bloons(1, 4.6, 227.0, false, false, new Map("Map.png")),
+      new Bloons(1, 4.6, 227.0, false, false, new Map("Map.png")),
+      new Bloons(2, 4.6, 227.0, false, false, new Map("Map.png")),
+      new Bloons(2, 4.6, 227.0, false, false, new Map("Map.png"))}, {
+      new Bloons(3, 4.6, 227.0, false, false, new Map("Map.png")),
+      new Bloons(3, 4.6, 227.0, false, false, new Map("Map.png")),
+      new Bloons(3, 4.6, 227.0, false, false, new Map("Map.png")),
+      new Bloons(3, 4.6, 227.0, false, false, new Map("Map.png")),
+      new Bloons(3, 4.6, 227.0, false, false, new Map("Map.png"))},
+    {
+      new Bloons(4, 4.6, 227.0, false, false, new Map("Map.png")),
+      new Bloons(4, 4.6, 227.0, false, false, new Map("Map.png")),
+      new Bloons(4, 4.6, 227.0, false, false, new Map("Map.png")),
+      new Bloons(4, 4.6, 227.0, false, false, new Map("Map.png")),
+      new Bloons(4, 4.6, 227.0, false, false, new Map("Map.png"))},
+    {
+      new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png")),
+      new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png")),
+      new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png")),
+      new Bloons(4, 4.6, 227.0, false, false, new Map("Map.png")),
+      new Bloons(4, 4.6, 227.0, false, false, new Map("Map.png")),
+      new Bloons(4, 4.6, 227.0, false, false, new Map("Map.png")),
+      new Bloons(4, 4.6, 227.0, false, false, new Map("Map.png")),
+      new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png")),
+      new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png")),
+      new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png"))}};
+
   public Round() {
-    round = 1;
+    round = 0;
   }
-  public Bloons[] getRound() {
-    return round1;
+  public void increaseRound() {
+    round++;
   }
-  public Bloons getBloon() {
+  public void restartBalloon() {
+    balloon = -1; 
+  }
+  public Bloons getBloon(int round) {
     balloon++;
-    if (balloon < round1.length) {
-      return round1[balloon];
+    if (round >= rounds.length) {
+      return null;
+    } else {
+      if ((balloon < rounds[round].length)) {
+        return rounds[round][balloon];
+      }
+      return null;
     }
-    return null;
   }
 }
