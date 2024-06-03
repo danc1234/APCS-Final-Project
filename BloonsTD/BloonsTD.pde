@@ -125,7 +125,7 @@ void draw() {
       rect(205.75, 225, 411.5, 100);
       fill(0);
       textSize(40);
-      text("Have your good share of \n               bananas!", 207, 265);
+      text("Have your good share of \n                bananas!", 207, 265);
     } 
   }
   selections();
