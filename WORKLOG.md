@@ -70,4 +70,8 @@ Found a .svg to .png converter to make images from the BTD wiki easier to use. A
 
 ### 5/31/2024
 
-Restored the health system. Updated the constructors so that it uses the layers to determine some of the attributes of the bloon. 
+Restored the health system. Updated the constructors so that it uses the layers to determine some of the attributes of the bloon.
+
+### 6/2/2024
+
+Made the money system, placing of Monkeys, and the stop/go button. Also made sprites for the SuperMonkey.
