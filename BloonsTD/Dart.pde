@@ -1,4 +1,4 @@
-public class Dart{
+public class Dart {
   private boolean drawable = true;
   // Fields
   int size;
@@ -8,52 +8,52 @@ public class Dart{
   boolean test = false;
   float angle = 0;
   int noChange = 0;
-  
+
   public Dart(int biggy, double IAmSpeed, float floatX, float floatY) {
     size = biggy;
     speed = IAmSpeed;
     x = floatX;
     y = floatY;
   }
-  
+
   // Accessors
   public float getX() {
-    return x; 
+    return x;
   }
   public float getY() {
-    return y; 
+    return y;
   }
-  public float getAngle(){
-    return angle; 
+  public float getAngle() {
+    return angle;
   }
-  
-  public void drawDart(){
-    if(test){
+
+  public void drawDart() {
+    if (test) {
       text("a", 60, 100);
     }
-    if(drawable){
-      circle(x, y,5);
+    if (drawable) {
+      circle(x, y, 5);
     }
   }
-  public boolean nearBloon(Bloons p){
-    if(x > p.getX() - 10 &&  x < p.getX() + 10 && y > p.getY() - 10 &&  y < p.getY() + 10){
+  public boolean nearBloon(Bloons p) {
+    if (x > p.getX() - 10 &&  x < p.getX() + 10 && y > p.getY() - 10 &&  y < p.getY() + 10) {
       return true;
     }
     return false;
   }
-  public void changeCoord(Bloons p){
+  public void changeCoord(Bloons p) {
     x += getDirection(p).x * speed;
     y += getDirection(p).y * speed;
   }
-  public PVector getDirection(Bloons p){
-     float m = p.getX();
-     float l = p.getY();
-     PVector direction = new PVector(m-x, l-y);
-     direction.normalize();
-     if (noChange < 1) {
-       angle = direction.heading();
-       noChange++; 
-     } 
-     return direction;
+  public PVector getDirection(Bloons p) {
+    float m = p.getX();
+    float l = p.getY();
+    PVector direction = new PVector(m-x, l-y);
+    direction.normalize();
+    if (noChange < 1) {
+      angle = direction.heading();
+      noChange++;
+    }
+    return direction;
   }
 }

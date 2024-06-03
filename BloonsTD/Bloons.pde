@@ -1,4 +1,4 @@
-public class Bloons{
+public class Bloons {
   // Fields
   private boolean drawable = true;
   private int tilecount;
@@ -15,8 +15,8 @@ public class Bloons{
   private boolean glued;
   private PImage balloon;
 
-  
-    // Constructor
+
+  // Constructor
   public Bloons (int level, float locationX, float locationY, boolean camoflauge, boolean regenerate, Map maps) {
     layers = level;
     x = locationX;
@@ -29,158 +29,156 @@ public class Bloons{
     tilecount = 0;
     attributeDeclarer();
   }
-  public boolean inRange(float xc, float yc, int range){
+  public boolean inRange(float xc, float yc, int range) {
     return (dist(xc, yc, x, y) < range);
   }
-  
+
   // Accessors
   public boolean getCamo() {
-    return camo; 
+    return camo;
   }
   public boolean getRegrow() {
-    return regrow; 
+    return regrow;
   }
-  public float getX(){
+  public float getX() {
     return x;
   }
-  public float getY(){
+  public float getY() {
     return y;
   }
-  public int getDamage(){
-    return damage; 
+  public int getDamage() {
+    return damage;
   }
-  public int getLayers(){
+  public int getLayers() {
     return layers;
   }
-  public PVector getDirection(){
-     onTile();
-     float x = tile.getX();
-     float y = tile.getY();
-     PVector direction = new PVector(x - getX(), y - getY());
-     direction.normalize();
-     return direction;
+  public PVector getDirection() {
+    onTile();
+    float x = tile.getX();
+    float y = tile.getY();
+    PVector direction = new PVector(x - getX(), y - getY());
+    direction.normalize();
+    return direction;
   }
-  public boolean getDraw(){
+  public boolean getDraw() {
     return drawable;
-  }  
- 
+  }
+
   // Methods
-  public void popLayers(int pop){
+  public void popLayers(int pop) {
     layers -= pop;
   }
-  public void changeSpeed(double speedFactor){
+  public void changeSpeed(double speedFactor) {
     speed = speedFactor;
   }
-  public void setDamage(int hurt){
+  public void setDamage(int hurt) {
     damage = hurt;
   }
-  public void addLayers(){
+  public void addLayers() {
     layers++;
   }
-  public void changeCoord(){
+  public void changeCoord() {
     x += getDirection().x*speed;
     y += getDirection().y*speed;
   }
-  public void onTile(){
-    if(tilecount == 0){
+  public void onTile() {
+    if (tilecount == 0) {
       tile = map.getTiles().removeFirst();
       tilecount++;
     }
-    if(x > tile.getX() - 2 && x < tile.getX() + 2 && y > tile.getY() - 2 && y < tile.getY() + 2){
-      if (map.tileCount > tilecount){
+    if (x > tile.getX() - 2 && x < tile.getX() + 2 && y > tile.getY() - 2 && y < tile.getY() + 2) {
+      if (map.tileCount > tilecount) {
         tile = map.getTiles().removeFirst();
         tilecount++;
-      }
-      else{
+      } else {
         drawable = false;
       }
     }
   }
 
-  public void changeDraw(boolean x){
+  public void changeDraw(boolean x) {
     drawable = x;
   }
-  
-  public void drawBloon(){
-    if(layers <= 0){
+
+  public void drawBloon() {
+    if (layers <= 0) {
       drawable = false;
     }
-    if(drawable){
+    if (drawable) {
       attributeDeclarer();
-      circle(x, y, 10);  
-    if (layers == 1) {
-      if (this.getCamo() && regrow) {
-        balloon = loadImage("CamoRegrowth/RedBloon.png"); 
-      } else if (this.getCamo()) {
-        balloon = loadImage("CamoBloons/RedBloon.png"); 
-      } else if (this.getRegrow()) {
-        balloon = loadImage("RegrowthBloons/RedBloon.png"); 
-      } else {
-        balloon = loadImage("BalloonImages/RedBloon.png");
+      if (layers == 1) {
+        if (this.getCamo() && regrow) {
+          balloon = loadImage("CamoRegrowth/RedBloon.png");
+        } else if (this.getCamo()) {
+          balloon = loadImage("CamoBloons/RedBloon.png");
+        } else if (this.getRegrow()) {
+          balloon = loadImage("RegrowthBloons/RedBloon.png");
+        } else {
+          balloon = loadImage("BalloonImages/RedBloon.png");
+        }
       }
-    }
-    if (layers == 2) {
-      if (this.getCamo() && regrow) {
-        balloon = loadImage("CamoRegrowth/BlueBloon.png"); 
-      } else if (this.getCamo()) {
-        balloon = loadImage("CamoBloons/BlueBloon.png"); 
-      } else if (this.getRegrow()) {
-        balloon = loadImage("RegrowthBloons/BlueBloon.png"); 
-      } else {
-        balloon = loadImage("BalloonImages/BlueBloon.png");
+      if (layers == 2) {
+        if (this.getCamo() && regrow) {
+          balloon = loadImage("CamoRegrowth/BlueBloon.png");
+        } else if (this.getCamo()) {
+          balloon = loadImage("CamoBloons/BlueBloon.png");
+        } else if (this.getRegrow()) {
+          balloon = loadImage("RegrowthBloons/BlueBloon.png");
+        } else {
+          balloon = loadImage("BalloonImages/BlueBloon.png");
+        }
       }
-    }   
-    if (layers == 3) {
-      if (this.getCamo() && regrow) {
-        balloon = loadImage("CamoRegrowth/GreenBloon.png"); 
-      } else if (this.getCamo()) {
-        balloon = loadImage("CamoBloons/GreenBloon.png"); 
-      } else if (this.getRegrow()) {
-        balloon = loadImage("RegrowthBloons/GreenBloon.png"); 
-      } else {
-        balloon = loadImage("BalloonImages/GreenBloon.png");
+      if (layers == 3) {
+        if (this.getCamo() && regrow) {
+          balloon = loadImage("CamoRegrowth/GreenBloon.png");
+        } else if (this.getCamo()) {
+          balloon = loadImage("CamoBloons/GreenBloon.png");
+        } else if (this.getRegrow()) {
+          balloon = loadImage("RegrowthBloons/GreenBloon.png");
+        } else {
+          balloon = loadImage("BalloonImages/GreenBloon.png");
+        }
       }
-    }
-    if (layers == 4) {
-      if (this.getCamo() && this.getRegrow()) {
-        balloon = loadImage("CamoRegrowth/YellowBloon.png"); 
-      } else if (this.getCamo()) {
-        balloon = loadImage("CamoBloons/YellowBloon.png"); 
-      } else if (this.getRegrow()) {
-        balloon = loadImage("RegrowthBloons/YellowBloon.png"); 
-      } else {
-        balloon = loadImage("BalloonImages/YellowBloon.png");
+      if (layers == 4) {
+        if (this.getCamo() && this.getRegrow()) {
+          balloon = loadImage("CamoRegrowth/YellowBloon.png");
+        } else if (this.getCamo()) {
+          balloon = loadImage("CamoBloons/YellowBloon.png");
+        } else if (this.getRegrow()) {
+          balloon = loadImage("RegrowthBloons/YellowBloon.png");
+        } else {
+          balloon = loadImage("BalloonImages/YellowBloon.png");
+        }
       }
-    }    
-    if (layers == 5) {
-      if (this.getCamo() && this.getRegrow()) {
-        balloon = loadImage("CamoRegrowth/PinkBloon.png"); 
-      } else if (this.getCamo()) {
-        balloon = loadImage("CamoBloons/PinkBloon.png"); 
-      } else if (this.getRegrow()) {
-        balloon = loadImage("RegrowthBloons/PinkBloon.png"); 
-      } else {
-        balloon = loadImage("BalloonImages/PinkBloon.png");
+      if (layers == 5) {
+        if (this.getCamo() && this.getRegrow()) {
+          balloon = loadImage("CamoRegrowth/PinkBloon.png");
+        } else if (this.getCamo()) {
+          balloon = loadImage("CamoBloons/PinkBloon.png");
+        } else if (this.getRegrow()) {
+          balloon = loadImage("RegrowthBloons/PinkBloon.png");
+        } else {
+          balloon = loadImage("BalloonImages/PinkBloon.png");
+        }
       }
-    }    
-    balloon.resize(70, 70);
-    image(balloon, x-35, y-35);
+      balloon.resize(70, 70);
+      image(balloon, x-35, y-35);
     }
   }
-  
+
   public void attributeDeclarer() {
     if (layers == 1) {
       damage = 1;
       speed = 1;
     } else if (layers == 2) {
-      damage = 2; 
-      speed = 1.4; 
+      damage = 2;
+      speed = 1.4;
     } else if (layers == 3) {
-      damage = 3; 
-      speed = 1.8; 
+      damage = 3;
+      speed = 1.8;
     } else if (layers == 4) {
-      damage = 4; 
-      speed = 3.2; 
+      damage = 4;
+      speed = 3.2;
     } else if (layers == 5) {
       damage = 5;
       speed = 3.5;
@@ -188,17 +186,17 @@ public class Bloons{
       damage = 47;
       speed = 2.2;
     } else if (layers == 9) {
-      damage = 104; 
+      damage = 104;
       speed = 2.5;
     } else if (layers == 10) {
-      damage = 616; 
-      speed = 1; 
+      damage = 616;
+      speed = 1;
     } else if (layers == 11) {
-      damage = 3164; 
-      speed = 0.25; 
+      damage = 3164;
+      speed = 0.25;
     } else if (layers == 12) {
-      damage = 16656; 
-      speed = 0.18; 
-    } 
-  } 
+      damage = 16656;
+      speed = 0.18;
+    }
+  }
 }
