@@ -111,11 +111,18 @@ void mouseReleased() {
   float red = red(map.get(mouseX, mouseY));
   float green = green(map.get(mouseX, mouseY));
   float blue = blue(map.get(mouseX, mouseY));
-  if (selectDart && mouseX<805 && (red < 100 || blue < 100 || green < 100)) {
-    towers.add(new Monkey("Monkeys/DartMonkey.png", 0, 1, 0, mouseX-25, mouseY+2));
+  boolean notInRange = true;
+  for (int i = 0; i < towers.size(); i++) {
+    if (towers.get(i).inRange(mouseX, mouseY)) {
+      System.out.println("I am called");
+      notInRange = false; 
+    }
+  }
+  if (selectDart && mouseX<805 && (red < 100 || blue < 100 || green < 100) && notInRange) {
+    towers.add(new Monkey("Monkeys/DartMonkey.png", 0, 1, mouseX-25, mouseY+2));
   } 
-  if (selectSuper && mouseX<805 && (red < 100 || blue < 100 || green < 100)) {
-    towers.add(new Monkey("Monkeys/SuperMonkey.png", 0, 1, 0, mouseX-25, mouseY+2));
+  if (selectSuper && mouseX<805 && (red < 100 || blue < 100 || green < 100) && notInRange) {
+    towers.add(new Monkey("Monkeys/SuperMonkey.png", 0, 1, mouseX-25, mouseY+2));
   }
   selectDart = false;
   selectSuper = false;

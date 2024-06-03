@@ -19,10 +19,9 @@ public class Monkey{
   private int reloadTimer = millis();
   
   // Constructor
-  public Monkey(String image, int money, int attack, int placement, float placeX, float placeY) {
+  public Monkey(String image, int money, int attack, float placeX, float placeY) {
     cost = money;
     damage = attack;
-    placementRadius = placement;
     x = placeX;
     y = placeY;
     link = image;
@@ -37,12 +36,14 @@ public class Monkey{
       seeCamo = false;
       land = true;
       water = false;
+      placementRadius = 50;
     } else if (link.equals("Monkeys/DartMonkey.png")) {
       reload = 400; 
       range = 100;
       seeCamo = false;
       land = true;
       water = false;
+      placementRadius = 50;
     }
   }
 
@@ -99,7 +100,11 @@ public class Monkey{
    }  
  }
 
- public void throwDart(ArrayList<Bloons> balloon){
+  public boolean inRange(float xc, float yc){
+    return (dist(xc, yc, x, y) < placementRadius);
+  }
+  
+  public void throwDart(ArrayList<Bloons> balloon){
     int index = 0;
     while(true){
     if(index >= balloon.size()){

@@ -19,15 +19,9 @@ public class Boss extends SpecialBloons{
     return stage; 
   }
 
-  
-  
-  
-  
-  
   public void drawBloon() {
     circle(this.getX(), this.getY(), 10);
-    damageDeclarer();
-    speedDeclarer();
+    attributeDeclarer();
     if (this.getLayers() == 9) {     
       if (health <= 2.5)  {
         if (this.getCamo() && this.getRegrow()) {

@@ -30,7 +30,18 @@ public class SpecialBloons extends Bloons{
     } else if ((this.getLayers() == 6) && (imunExplosion)) {
       this.changeSpeed(1.8);
     } else {
-      super.speedDeclarer(); 
+      super.attributeDeclarer(); 
+    }
+  }
+  
+  public void damageDeclarer() {
+    if (this.getLayers() == 7) {
+      this.setDamage(23);
+    }
+    else if (this.getLayers() == 6) {
+      this.setDamage(11); 
+    } else {
+      super.attributeDeclarer(); 
     }
   }
   
