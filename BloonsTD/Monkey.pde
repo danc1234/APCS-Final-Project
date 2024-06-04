@@ -105,6 +105,10 @@ public class Monkey {
       direction = darts.getAngle();
       if (darts.nearBloon(bloon)) {
         int a = bloon.getLayers();
+        if (a == 6) {
+          addBloons(new Bloons(5, bloon.getX()-5, bloon.getY()-5, false, false, new Map("Map.png"), getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon()));
+
+        }
         bloon.popLayers(damage);
         modifyCash(Math.abs(a-damage));
         darts = null;
@@ -133,7 +137,7 @@ public class Monkey {
     if (index < balloon.size()) {
       if (!isdart) {
         if (link.equals("Monkeys/SniperMonkey.png")) {
-          darts = new Dart(1, 25, x, y);
+          darts = new Dart(1, 20, x, y);
         } else {
           darts = new Dart(1, 10, x, y);
         }

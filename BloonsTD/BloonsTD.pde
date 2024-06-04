@@ -320,6 +320,22 @@ void selections() {
   }
 }
 
+public PImage[] getBloon() {
+  return BloonDisplay; 
+}
+public PImage[] getCamoBloon() {
+  return BloonCamoDisplay;
+}
+public PImage[] getRegrowBloon() {
+  return BloonRegrowDisplay;
+}
+public PImage[] getCamoRegrowBloon() {
+  return BloonCamoRegrowDisplay;
+}
+public void addBloons(Bloons a) {
+  balloon.add(a); 
+}
+
 public void modifyCash(int stonks) {
   cash+=stonks;
   fill(255);
