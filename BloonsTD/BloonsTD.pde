@@ -6,11 +6,61 @@ private static int waves=1;
 private static int barrier;
 private static boolean selectDart;
 private static boolean selectSuper;
+private static boolean selectSniper;
 private static int round = 0;
+
+private PImage RedBloon;
+private PImage RedCamoBloon;
+private PImage RedRegrowBloon;
+private PImage RedCamoRegrowBloon;
+private PImage BlueBloon;
+private PImage BlueCamoBloon;
+private PImage BlueRegrowBloon;
+private PImage BlueCamoRegrowBloon;
+private PImage GreenBloon;
+private PImage GreenCamoBloon;
+private PImage GreenRegrowBloon;
+private PImage GreenCamoRegrowBloon;
+private PImage YellowBloon;
+private PImage YellowCamoBloon;
+private PImage YellowRegrowBloon;
+private PImage YellowCamoRegrowBloon;
+private PImage PinkBloon;
+private PImage PinkCamoBloon;
+private PImage PinkRegrowBloon;
+private PImage PinkCamoRegrowBloon;
+private PImage BlackBloon;
+private PImage BlackCamoBloon; 
+private PImage BlackRegrowBloon;
+private PImage BlackCamoRegrowBloon;
+private PImage WhiteBloon; 
+private PImage WhiteCamoBloon;
+private PImage WhiteRegrowBloon;
+private PImage WhiteCamoRegrowBloon; 
+private PImage PurpleBloon; 
+private PImage PurpleCamoBloon;
+private PImage PurpleRegrowBloon; 
+private PImage PurpleCamoRegrowBloon; 
+private PImage LeadBloon;
+private PImage LeadCamoBloon;
+private PImage LeadRegrowBloon;
+private PImage LeadCamoRegrowBloon;
+private PImage ZebraBloon;
+private PImage ZebraCamoBloon;
+private PImage ZebraRegrowBloon;
+private PImage ZebraCamoRegrowBloon;
+private PImage RainbowBloon;
+private PImage RainbowCamoBloon;
+private PImage RainbowRegrowBloon ;
+private PImage RainbowCamoRegrowBloon;
+private PImage[] BloonDisplay;
+private PImage[] BloonCamoDisplay;
+private PImage[] BloonRegrowDisplay;
+private PImage[] BloonCamoRegrowDisplay;
 
 private PImage map;
 private ArrayList<Bloons> balloon = new ArrayList<Bloons>();
-private Round rounds = new Round();
+private Round rounds;
 private ArrayList<Monkey> towers = new ArrayList<Monkey>();
 private int countdown = 0;
 private boolean move = false;
@@ -32,15 +82,19 @@ void setup() {
   text("Cash: "+cash, 825, 60);
   textSize(20);
   text("Wave "+waves+" out of \n5", 825, 90);
-  fill(255);
-  rect(823, 120, 65, 70);
-  PImage dartMonkey = loadImage("Monkeys/DartMonkey.png");
-  dartMonkey.resize(60, 60);
-  image(dartMonkey, 826, 125);
-  fill(255);
-  rect(888, 120, 65, 70);
-  PImage superMonkey = loadImage("Monkeys/SuperMonkey.png");
-  image(superMonkey, 891, 125);
+    fill(255);
+    rect(823, 120, 65, 70);
+    PImage dartMonkey = loadImage("Monkeys/DartMonkey.png");
+    dartMonkey.resize(60, 60);
+    image(dartMonkey, 826, 125);
+      fill(255);
+      rect(888, 120, 65, 70);
+      PImage superMonkey = loadImage("Monkeys/SuperMonkey.png");
+      image(superMonkey, 891, 125);
+        fill(255);
+        rect(823, 190, 65, 70);
+        PImage SniperMonkey = loadImage("Monkeys/SniperMonkey.png");
+        image(SniperMonkey, 832, 185);
   fill(#ADD8E6);
   rect(823, 410, 130, 120);
   fill(0);
@@ -51,6 +105,57 @@ void setup() {
   textSize(30);
   fill(0);
   text("Continue", 830, 390);
+  
+RedBloon = loadImage("BalloonImages/RedBloon.png");
+RedCamoBloon = loadImage("RegrowthBloons/RedBloon.png");
+RedRegrowBloon = loadImage("CamoBloons/RedBloon.png");
+RedCamoRegrowBloon = loadImage("CamoRegrowth/RedBloon.png");
+BlueBloon = loadImage("BalloonImages/BlueBloon.png");
+BlueCamoBloon = loadImage("RegrowthBloons/BlueBloon.png");
+BlueRegrowBloon = loadImage("CamoBloons/BlueBloon.png");
+BlueCamoRegrowBloon = loadImage("CamoRegrowth/BlueBloon.png");
+GreenBloon = loadImage("BalloonImages/GreenBloon.png");
+GreenCamoBloon = loadImage("RegrowthBloons/GreenBloon.png");
+GreenRegrowBloon = loadImage("CamoBloons/GreenBloon.png");
+GreenCamoRegrowBloon = loadImage("CamoRegrowth/GreenBloon.png");
+YellowBloon = loadImage("BalloonImages/YellowBloon.png");
+YellowCamoBloon = loadImage("RegrowthBloons/YellowBloon.png");
+YellowRegrowBloon = loadImage("CamoBloons/YellowBloon.png");
+YellowCamoRegrowBloon = loadImage("CamoRegrowth/YellowBloon.png");
+PinkBloon = loadImage("BalloonImages/PinkBloon.png");
+PinkCamoBloon = loadImage("RegrowthBloons/PinkBloon.png");
+PinkRegrowBloon = loadImage("CamoBloons/PinkBloon.png");
+PinkCamoRegrowBloon = loadImage("CamoRegrowth/PinkBloon.png");
+BlackBloon = loadImage("BalloonImages/BlackBloon.png");
+BlackCamoBloon = loadImage("RegrowthBloons/BlackBloon.png");
+BlackRegrowBloon = loadImage("CamoBloons/BlackBloon.png");
+BlackCamoRegrowBloon = loadImage("CamoRegrowth/BlackBloon.png");
+WhiteBloon = loadImage("BalloonImages/WhiteBloon.png");
+WhiteCamoBloon = loadImage("RegrowthBloons/WhiteBloon.png");
+WhiteRegrowBloon = loadImage("CamoBloons/WhiteBloon.png");
+WhiteCamoRegrowBloon = loadImage("CamoRegrowth/WhiteBloon.png");
+PurpleBloon = loadImage("BalloonImages/PurpleBloon.png");
+PurpleCamoBloon = loadImage("RegrowthBloons/PurpleBloon.png");
+PurpleRegrowBloon = loadImage("CamoBloons/PurpleBloon.png");
+PurpleCamoRegrowBloon = loadImage("CamoRegrowth/PurpleBloon.png");
+LeadBloon = loadImage("BalloonImages/LeadBloon.png");
+LeadCamoBloon = loadImage("RegrowthBloons/LeadBloon.png");
+LeadRegrowBloon = loadImage("CamoBloons/LeadBloon.png");
+LeadCamoRegrowBloon = loadImage("CamoRegrowth/LeadBloon.png");
+ZebraBloon = loadImage("BalloonImages/ZebraBloon.png");
+ZebraCamoBloon = loadImage("RegrowthBloons/ZebraBloon.png");
+ZebraRegrowBloon = loadImage("CamoBloons/ZebraBloon.png");
+ZebraCamoRegrowBloon = loadImage("CamoRegrowth/ZebraBloon.png");
+RainbowBloon = loadImage("BalloonImages/RainbowBloon.png");
+RainbowCamoBloon = loadImage("RegrowthBloons/RainbowBloon.png");
+RainbowRegrowBloon = loadImage("CamoBloons/RainbowBloon.png");
+RainbowCamoRegrowBloon = loadImage("CamoRegrowth/RainbowBloon.png");
+BloonDisplay = new PImage[]{RedBloon, BlueBloon,GreenBloon, YellowBloon, PinkBloon, BlackBloon, WhiteBloon, PurpleBloon, LeadBloon, ZebraBloon, RainbowBloon};
+BloonCamoDisplay = new PImage[]{RedCamoBloon, BlueCamoBloon,GreenCamoBloon, YellowCamoBloon, PinkCamoBloon, BlackCamoBloon, WhiteCamoBloon, PurpleCamoBloon, LeadCamoBloon, ZebraCamoBloon, RainbowCamoBloon};
+BloonRegrowDisplay = new PImage[]{RedRegrowBloon, BlueRegrowBloon,GreenRegrowBloon, YellowRegrowBloon, PinkRegrowBloon, BlackRegrowBloon, WhiteRegrowBloon, PurpleRegrowBloon, LeadRegrowBloon, ZebraRegrowBloon, RainbowRegrowBloon};
+BloonCamoRegrowDisplay = new PImage[]{RedCamoRegrowBloon, BlueCamoRegrowBloon,GreenCamoRegrowBloon, YellowCamoRegrowBloon, PinkCamoRegrowBloon, BlackCamoRegrowBloon, WhiteCamoRegrowBloon, PurpleCamoRegrowBloon, LeadCamoRegrowBloon, ZebraCamoRegrowBloon, RainbowCamoRegrowBloon};
+
+rounds = new Round(BloonDisplay,BloonCamoDisplay, BloonRegrowDisplay, BloonCamoRegrowDisplay);
 }
 
 void draw() {
@@ -125,7 +230,7 @@ void draw() {
       rect(205.75, 225, 411.5, 100);
       fill(0);
       textSize(40);
-      text("Have your good share of \n                bananas!", 207, 265);
+      text("Have your good share of \n               bananas!", 207, 265);
     } 
   }
   selections();
@@ -137,6 +242,9 @@ void mouseClicked() {
   }
   if (((mouseX >= 888) && (mouseX < 953)) && ((mouseY > 120) && (mouseY < 190))) {
     selectSuper = true;
+  }
+  if (((mouseX < 888) && (mouseX > 823)) && ((mouseY > 190) && (mouseY < 260))) {
+    selectSniper = true;
   }
   if (((mouseX < 953) && (mouseX > 823)) && ((mouseY > 410) && (mouseY < 530))) {
     if (move) {
@@ -184,15 +292,20 @@ void mouseReleased() {
     }
   }
   if (selectDart && mouseX<805 && (red < 100 || blue < 100 || green < 100) && notInRange && (cash-170>=0)) {
-    towers.add(new Monkey("Monkeys/DartMonkey.png", 0, 1, mouseX-25, mouseY+2));
+    towers.add(new Monkey("Monkeys/DartMonkey.png", 0, mouseX-25, mouseY+2));
     modifyCash(-170);
   }
   if (selectSuper && mouseX<805 && (red < 100 || blue < 100 || green < 100) && notInRange && (cash-2750>=0)) {
-    towers.add(new Monkey("Monkeys/SuperMonkey.png", 0, 1, mouseX-25, mouseY+2));
+    towers.add(new Monkey("Monkeys/SuperMonkey.png", 0, mouseX-25, mouseY+2));
     modifyCash(-2750);
+  }
+  if (selectSniper && mouseX<805 && (red < 100 || blue < 100 || green < 100) && notInRange && (cash-300>=0)) {
+    towers.add(new Monkey("Monkeys/SniperMonkey.png", 0, mouseX-25, mouseY+2));
+    modifyCash(-300);
   }
   selectDart = false;
   selectSuper = false;
+  selectSniper = false;
 }
 
 void selections() {
@@ -202,9 +315,10 @@ void selections() {
   if (selectSuper && mouseX<785) {
     image(loadImage("Monkeys/SuperMonkey.png"), mouseX-22, mouseY-15);
   }
+  if (selectSniper && mouseX<800) {
+    image(loadImage("Monkeys/SniperMonkey.png"), mouseX-22, mouseY-15);
+  }
 }
-
-
 
 public void modifyCash(int stonks) {
   cash+=stonks;
