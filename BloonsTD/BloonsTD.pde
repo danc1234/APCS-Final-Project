@@ -204,8 +204,6 @@ void selections() {
   }
 }
 
-
-
 public void modifyCash(int stonks) {
   cash+=stonks;
   fill(255);
@@ -218,3 +216,24 @@ public void modifyCash(int stonks) {
   textSize(20);
   text("Wave "+waves+" out of \n5", 825, 90);
 }
+
+private PImage RedBloon = loadImage("BalloonImages/RedBloon.png");
+private PImage RedCamoBloon = loadImage("RegrowthBloons/RedBloon.png");
+private PImage RedRegrowBloon = loadImage("CamoBloons/RedBloon.png");
+private PImage RedCamoRegrowBloon = loadImage("CamoRegrowth/RedBloon.png");
+private PImage BlueBloon = loadImage("BalloonImages/BlueBloon.png");
+private PImage BlueCamoBloon = loadImage("RegrowthBloons/BlueBloon.png");
+private PImage BlueRegrowBloon = loadImage("CamoBloons/BlueBloon.png");
+private PImage BlueCamoRegrowBloon = loadImage("CamoRegrowth/BlueBloon.png");
+private PImage GreenBloon = loadImage("BalloonImages/GreenBloon.png");
+private PImage GreenCamoBloon = loadImage("RegrowthBloons/GreenBloon.png");
+private PImage GreenRegrowBloon = loadImage("CamoBloons/GreenBloon.png");
+private PImage GreenCamoRegrowBloon = loadImage("CamoRegrowth/GreenBloon.png");
+private PImage YellowBloon = loadImage("BalloonImages/YellowBloon.png");
+private PImage YellowCamoBloon = loadImage("RegrowthBloons/YellowBloon.png");
+private PImage YellowRegrowBloon = loadImage("CamoBloons/YellowBloon.png");
+private PImage YellowCamoRegrowBloon = loadImage("CamoRegrowth/YellowBloon.png");
+private PImage PinkBloon = loadImage("BalloonImages/PinkBloon.png");
+private PImage PinkCamoBloon = loadImage("RegrowthBloons/PinkBloon.png");
+private PImage PinkRegrowBloon = loadImage("CamoBloons/PinkBloon.png");
+private PImage PinkCamoRegrowBloon = loadImage("CamoRegrowth/PinkBloon.png");

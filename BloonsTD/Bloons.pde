@@ -15,7 +15,7 @@ public class Bloons {
   private boolean glued;
   private PImage balloon;
   
-  private PImage redBalloon;
+  PImage redBloon = loadImage("BalloonImages/RedBloon.png");
 
 
   // Constructor
@@ -30,7 +30,7 @@ public class Bloons {
     map = maps;
     tilecount = 0;
     attributeDeclarer();
-    redBalloon = loadImage("BalloonImages/RedBloon.png");
+    PImage redBalloon = loadImage("BalloonImages/RedBloon.png");
   }
   public boolean inRange(float xc, float yc, int range) {
     return (dist(xc, yc, x, y) < range);
