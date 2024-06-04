@@ -53,13 +53,13 @@ public class SpecialBloons extends Bloons {
     } else {
       if (this.getLayers() == 8) {
         if (this.getCamo() && this.getRegrow()) {
-          balloon = loadImage("CamoRegrowth/RainbowBloon.png");
+          balloon = bloonCamoRegrowDisplay[8];
         } else if (this.getCamo()) {
-          balloon = loadImage("CamoBloons/RainbowBloon.png");
+          balloon = bloonCamoDisplay[8];
         } else if (this.getRegrow()) {
-          balloon = loadImage("RegrowthBloons/RainbowBloon.png");
+          balloon = bloonRegrowDisplay[8];
         } else {
-          balloon = loadImage("BalloonImages/RainbowBloon.png");
+          balloon = bloonDisplay[8];
         }
       }
       if ((this.getLayers() == 7) && (imunExplosion) && (imunFreeze)) {
