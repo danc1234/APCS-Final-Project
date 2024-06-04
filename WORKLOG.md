@@ -31,6 +31,18 @@ Finished popping bloon and throwing dart method. Tested with only one bloon. nee
 
 Added a countdown so that the balloons are spaced out instead of clumped together.
 
+### 5/31
+
+Worked on rounds but balloons were lagging
+
+### 6/2
+
+Worked on rounds again but balloons were lagging
+
+### 6/3
+
+Finished on making balloons less laggy so now I can fully implement round system.
+
 
 
 ## Daniel Chen
