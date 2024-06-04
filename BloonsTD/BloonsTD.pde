@@ -6,6 +6,7 @@ private static int waves=1;
 private static int barrier;
 private static boolean selectDart;
 private static boolean selectSuper;
+private static boolean selectSniper;
 private static int round = 0;
 
 private PImage RedBloon;
@@ -57,15 +58,19 @@ void setup() {
   text("Cash: "+cash, 825, 60);
   textSize(20);
   text("Wave "+waves+" out of \n5", 825, 90);
-  fill(255);
-  rect(823, 120, 65, 70);
-  PImage dartMonkey = loadImage("Monkeys/DartMonkey.png");
-  dartMonkey.resize(60, 60);
-  image(dartMonkey, 826, 125);
-  fill(255);
-  rect(888, 120, 65, 70);
-  PImage superMonkey = loadImage("Monkeys/SuperMonkey.png");
-  image(superMonkey, 891, 125);
+    fill(255);
+    rect(823, 120, 65, 70);
+    PImage dartMonkey = loadImage("Monkeys/DartMonkey.png");
+    dartMonkey.resize(60, 60);
+    image(dartMonkey, 826, 125);
+      fill(255);
+      rect(888, 120, 65, 70);
+      PImage superMonkey = loadImage("Monkeys/SuperMonkey.png");
+      image(superMonkey, 891, 125);
+        fill(255);
+        rect(823, 190, 65, 70);
+        PImage SniperMonkey = loadImage("Monkeys/SniperMonkey.png");
+        image(SniperMonkey, 832, 185);
   fill(#ADD8E6);
   rect(823, 410, 130, 120);
   fill(0);
@@ -76,7 +81,8 @@ void setup() {
   textSize(30);
   fill(0);
   text("Continue", 830, 390);
-  RedBloon = loadImage("BalloonImages/RedBloon.png");
+  
+RedBloon = loadImage("BalloonImages/RedBloon.png");
 RedCamoBloon = loadImage("RegrowthBloons/RedBloon.png");
 RedRegrowBloon = loadImage("CamoBloons/RedBloon.png");
 RedCamoRegrowBloon = loadImage("CamoRegrowth/RedBloon.png");
@@ -189,6 +195,9 @@ void mouseClicked() {
   if (((mouseX >= 888) && (mouseX < 953)) && ((mouseY > 120) && (mouseY < 190))) {
     selectSuper = true;
   }
+  if (((mouseX < 888) && (mouseX > 823)) && ((mouseY > 190) && (mouseY < 260))) {
+    selectSniper = true;
+  }
   if (((mouseX < 953) && (mouseX > 823)) && ((mouseY > 410) && (mouseY < 530))) {
     if (move) {
       fill(#ADD8E6);
@@ -235,15 +244,20 @@ void mouseReleased() {
     }
   }
   if (selectDart && mouseX<805 && (red < 100 || blue < 100 || green < 100) && notInRange && (cash-170>=0)) {
-    towers.add(new Monkey("Monkeys/DartMonkey.png", 0, 1, mouseX-25, mouseY+2));
+    towers.add(new Monkey("Monkeys/DartMonkey.png", 0, mouseX-25, mouseY+2));
     modifyCash(-170);
   }
   if (selectSuper && mouseX<805 && (red < 100 || blue < 100 || green < 100) && notInRange && (cash-2750>=0)) {
-    towers.add(new Monkey("Monkeys/SuperMonkey.png", 0, 1, mouseX-25, mouseY+2));
+    towers.add(new Monkey("Monkeys/SuperMonkey.png", 0, mouseX-25, mouseY+2));
     modifyCash(-2750);
+  }
+  if (selectSniper && mouseX<805 && (red < 100 || blue < 100 || green < 100) && notInRange && (cash-300>=0)) {
+    towers.add(new Monkey("Monkeys/SniperMonkey.png", 0, mouseX-25, mouseY+2));
+    modifyCash(-300);
   }
   selectDart = false;
   selectSuper = false;
+  selectSniper = false;
 }
 
 void selections() {
@@ -252,6 +266,9 @@ void selections() {
   }
   if (selectSuper && mouseX<785) {
     image(loadImage("Monkeys/SuperMonkey.png"), mouseX-22, mouseY-15);
+  }
+  if (selectSniper && mouseX<800) {
+    image(loadImage("Monkeys/SniperMonkey.png"), mouseX-22, mouseY-15);
   }
 }
 

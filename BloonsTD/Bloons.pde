@@ -14,12 +14,11 @@ public class Bloons {
   private boolean iced;
   private boolean glued;
   private PImage balloon;
-  
+
   PImage[] bloonDisplay;
   PImage[] bloonCamoDisplay;
   PImage[] bloonRegrowDisplay;
   PImage[] bloonCamoRegrowDisplay;
-
 
   // Constructor
   public Bloons (int level, float locationX, float locationY, boolean camoflauge, boolean regenerate, Map maps, PImage[] bloondisplay, PImage[] blooncamo, PImage[] bloonregrow, PImage[] blooncamoregrow) {
@@ -34,9 +33,9 @@ public class Bloons {
     tilecount = 0;
     attributeDeclarer();
     bloonDisplay = bloondisplay;
-  bloonCamoDisplay = blooncamo;
-  bloonRegrowDisplay = bloonregrow;
-  bloonCamoRegrowDisplay = blooncamoregrow;
+    bloonCamoDisplay = blooncamo;
+    bloonRegrowDisplay = bloonregrow;
+    bloonCamoRegrowDisplay = blooncamoregrow;
   }
   public boolean inRange(float xc, float yc, int range) {
     return (dist(xc, yc, x, y) < range);
@@ -130,7 +129,7 @@ public class Bloons {
         if (this.getCamo() && regrow) {
           balloon = bloonCamoRegrowDisplay[1];
         } else if (this.getCamo()) {
-           balloon = bloonCamoDisplay[1];
+          balloon = bloonCamoDisplay[1];
         } else if (this.getRegrow()) {
           balloon = bloonRegrowDisplay[1];
         } else {
@@ -152,7 +151,7 @@ public class Bloons {
         if (this.getCamo() && this.getRegrow()) {
           balloon = bloonCamoRegrowDisplay[3];
         } else if (this.getCamo()) {
-           balloon = bloonCamoDisplay[3];
+          balloon = bloonCamoDisplay[3];
         } else if (this.getRegrow()) {
           balloon = bloonRegrowDisplay[3];
         } else {
@@ -163,7 +162,7 @@ public class Bloons {
         if (this.getCamo() && this.getRegrow()) {
           balloon = bloonCamoRegrowDisplay[4];
         } else if (this.getCamo()) {
-           balloon = bloonCamoDisplay[4];
+          balloon = bloonCamoDisplay[4];
         } else if (this.getRegrow()) {
           balloon = bloonRegrowDisplay[4];
         } else {

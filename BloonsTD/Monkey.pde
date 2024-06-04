@@ -19,9 +19,8 @@ public class Monkey {
   private int reloadTimer = millis();
 
   // Constructor
-  public Monkey(String image, int money, int attack, float placeX, float placeY) {
+  public Monkey(String image, int money, float placeX, float placeY) {
     cost = money;
-    damage = attack;
     x = placeX;
     y = placeY;
     link = image;
@@ -38,6 +37,7 @@ public class Monkey {
       water = false;
       placementRadius = 50;
       cost = 2750;
+      damage = 1;
     } else if (link.equals("Monkeys/DartMonkey.png")) {
       reload = 400;
       range = 100;
@@ -46,6 +46,16 @@ public class Monkey {
       water = false;
       placementRadius = 50;
       cost = 170;
+      damage = 1;
+    } else if (link.equals("Monkeys/SniperMonkey.png")) {
+      reload = 800;
+      range = 1000;
+      seeCamo = false;
+      land = true;
+      water = false;
+      placementRadius = 50;
+      cost = 300;
+      damage = 2;
     }
   }
 
@@ -85,7 +95,7 @@ public class Monkey {
     pushMatrix();
     imageMode(CENTER);
     translate(x+22, y-5);
-    rotate(radians(degrees(90+direction)));
+    rotate(radians(90+degrees(direction)));
     image(sprite, 0, 0);
     imageMode(CORNERS);
     popMatrix();
@@ -121,7 +131,11 @@ public class Monkey {
     }
     if (index < balloon.size()) {
       if (!isdart) {
-        darts = new Dart(1, 10, x, y);
+        if (link.equals("Monkeys/SniperMonkey.png")) {
+          darts = new Dart(1, 25, x, y);
+        } else {
+          darts = new Dart(1, 10, x, y);
+        }
         isdart = true;
       }
     }
