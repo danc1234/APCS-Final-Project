@@ -5,8 +5,8 @@ public class Boss extends SpecialBloons {
   PImage balloon;
 
   // Constructor
-  public Boss (int level, float locationX, float locationY, int healthy, int area, Map maps, boolean camo, boolean regenerate) {
-    super(level, locationX, locationY, camo, regenerate, maps);
+  public Boss (int level, float locationX, float locationY, int healthy, int area, Map maps, boolean camo, boolean regenerate, PImage[] bloondisplay, PImage[] blooncamo, PImage[] bloonregrow, PImage[] blooncamoregrow) {
+    super(level, locationX, locationY, camo, regenerate, maps, bloondisplay, blooncamo,bloonregrow,blooncamoregrow);
     health = healthy;
     stage = area;
   }

@@ -14,11 +14,14 @@ public class Bloons {
   private boolean iced;
   private boolean glued;
   private PImage balloon;
-  
 
+  PImage[] bloonDisplay;
+  PImage[] bloonCamoDisplay;
+  PImage[] bloonRegrowDisplay;
+  PImage[] bloonCamoRegrowDisplay;
 
   // Constructor
-  public Bloons (int level, float locationX, float locationY, boolean camoflauge, boolean regenerate, Map maps) {
+  public Bloons (int level, float locationX, float locationY, boolean camoflauge, boolean regenerate, Map maps, PImage[] bloondisplay, PImage[] blooncamo, PImage[] bloonregrow, PImage[] blooncamoregrow) {
     layers = level;
     x = locationX;
     y = locationY;
@@ -29,6 +32,10 @@ public class Bloons {
     map = maps;
     tilecount = 0;
     attributeDeclarer();
+    bloonDisplay = bloondisplay;
+    bloonCamoDisplay = blooncamo;
+    bloonRegrowDisplay = bloonregrow;
+    bloonCamoRegrowDisplay = blooncamoregrow;
   }
   public boolean inRange(float xc, float yc, int range) {
     return (dist(xc, yc, x, y) < range);
@@ -109,57 +116,57 @@ public class Bloons {
       attributeDeclarer();
       if (layers == 1) {
         if (this.getCamo() && regrow) {
-          balloon = loadImage("CamoRegrowth/RedBloon.png");
+          balloon = bloonCamoRegrowDisplay[0];
         } else if (this.getCamo()) {
-          balloon = loadImage("CamoBloons/RedBloon.png");
+          balloon = bloonCamoDisplay[0];
         } else if (this.getRegrow()) {
-          balloon = loadImage("RegrowthBloons/RedBloon.png");
+          balloon = bloonRegrowDisplay[0];
         } else {
-          balloon = loadImage("balloonImages/RedBloon.png");
+          balloon = bloonDisplay[0];
         }
       }
       if (layers == 2) {
         if (this.getCamo() && regrow) {
-          balloon = loadImage("CamoRegrowth/BlueBloon.png");
+          balloon = bloonCamoRegrowDisplay[1];
         } else if (this.getCamo()) {
-          balloon = loadImage("CamoBloons/BlueBloon.png");
+          balloon = bloonCamoDisplay[1];
         } else if (this.getRegrow()) {
-          balloon = loadImage("RegrowthBloons/BlueBloon.png");
+          balloon = bloonRegrowDisplay[1];
         } else {
-          balloon = loadImage("BalloonImages/BlueBloon.png");
+          balloon = bloonDisplay[1];
         }
       }
       if (layers == 3) {
         if (this.getCamo() && regrow) {
-          balloon = loadImage("CamoRegrowth/GreenBloon.png");
+          balloon = bloonCamoRegrowDisplay[2];
         } else if (this.getCamo()) {
-          balloon = loadImage("CamoBloons/GreenBloon.png");
+          balloon = bloonCamoDisplay[2];
         } else if (this.getRegrow()) {
-          balloon = loadImage("RegrowthBloons/GreenBloon.png");
+          balloon = bloonRegrowDisplay[2];
         } else {
-          balloon = loadImage("BalloonImages/GreenBloon.png");
+          balloon = bloonDisplay[2];
         }
       }
       if (layers == 4) {
         if (this.getCamo() && this.getRegrow()) {
-          balloon = loadImage("CamoRegrowth/YellowBloon.png");
+          balloon = bloonCamoRegrowDisplay[3];
         } else if (this.getCamo()) {
-          balloon = loadImage("CamoBloons/YellowBloon.png");
+          balloon = bloonCamoDisplay[3];
         } else if (this.getRegrow()) {
-          balloon = loadImage("RegrowthBloons/YellowBloon.png");
+          balloon = bloonRegrowDisplay[3];
         } else {
-          balloon = loadImage("BalloonImages/YellowBloon.png");
+          balloon = bloonDisplay[3];
         }
       }
       if (layers == 5) {
         if (this.getCamo() && this.getRegrow()) {
-          balloon = loadImage("CamoRegrowth/PinkBloon.png");
+          balloon = bloonCamoRegrowDisplay[4];
         } else if (this.getCamo()) {
-          balloon = loadImage("CamoBloons/PinkBloon.png");
+          balloon = bloonCamoDisplay[4];
         } else if (this.getRegrow()) {
-          balloon = loadImage("RegrowthBloons/PinkBloon.png");
+          balloon = bloonRegrowDisplay[4];
         } else {
-          balloon = loadImage("BalloonImages/PinkBloon.png");
+          balloon = bloonDisplay[4];
         }
       }
       balloon.resize(70, 70);

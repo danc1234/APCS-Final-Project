@@ -5,8 +5,8 @@ public class SpecialBloons extends Bloons {
   private boolean imunMagic;
   private PImage balloon;
 
-  public SpecialBloons(int level, float locationX, float locationY, boolean camoflauge, boolean regenerate, Map maps, boolean freeze, boolean explosion, boolean sharp, boolean magic) {
-    super(level, locationX, locationY, camoflauge, regenerate, maps);
+  public SpecialBloons(int level, float locationX, float locationY, boolean camoflauge, boolean regenerate, Map maps, boolean freeze, boolean explosion, boolean sharp, boolean magic, PImage[] bloondisplay, PImage[] blooncamo, PImage[] bloonregrow, PImage[] blooncamoregrow) {
+    super(level, locationX, locationY, camoflauge, regenerate, maps, bloondisplay, blooncamo,bloonregrow,blooncamoregrow);
     imunFreeze = freeze;
     imunExplosion = explosion;
     imunSharp = sharp;
@@ -14,8 +14,8 @@ public class SpecialBloons extends Bloons {
     speedDeclarer();
     damageDeclarer();
   }
-  public SpecialBloons(int level, float locationX, float locationY, boolean camoflauge, boolean regenerate, Map maps) {
-    super(level, locationX, locationY, camoflauge, regenerate, maps);
+  public SpecialBloons(int level, float locationX, float locationY, boolean camoflauge, boolean regenerate, Map maps, PImage[] bloondisplay, PImage[] blooncamo, PImage[] bloonregrow, PImage[] blooncamoregrow) {
+    super(level, locationX, locationY, camoflauge, regenerate, maps, bloondisplay, blooncamo,bloonregrow,blooncamoregrow);
   }
 
   public void speedDeclarer() {

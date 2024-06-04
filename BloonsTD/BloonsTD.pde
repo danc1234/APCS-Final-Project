@@ -9,9 +9,34 @@ private static boolean selectSuper;
 private static boolean selectSniper;
 private static int round = 0;
 
+private PImage RedBloon;
+private PImage RedCamoBloon;
+private PImage RedRegrowBloon;
+private PImage RedCamoRegrowBloon;
+private PImage BlueBloon;
+private PImage BlueCamoBloon;
+private PImage BlueRegrowBloon;
+private PImage BlueCamoRegrowBloon;
+private PImage GreenBloon;
+private PImage GreenCamoBloon;
+private PImage GreenRegrowBloon;
+private PImage GreenCamoRegrowBloon;
+private PImage YellowBloon;
+private PImage YellowCamoBloon;
+private PImage YellowRegrowBloon;
+private PImage YellowCamoRegrowBloon;
+private PImage PinkBloon;
+private PImage PinkCamoBloon;
+private PImage PinkRegrowBloon;
+private PImage PinkCamoRegrowBloon;
+private PImage[] BloonDisplay;
+private PImage[] BloonCamoDisplay;
+private PImage[] BloonRegrowDisplay;
+private PImage[] BloonCamoRegrowDisplay;
+
 private PImage map;
 private ArrayList<Bloons> balloon = new ArrayList<Bloons>();
-private Round rounds = new Round();
+private Round rounds;
 private ArrayList<Monkey> towers = new ArrayList<Monkey>();
 private int countdown = 0;
 private boolean move = false;
@@ -56,6 +81,33 @@ void setup() {
   textSize(30);
   fill(0);
   text("Continue", 830, 390);
+  
+RedBloon = loadImage("BalloonImages/RedBloon.png");
+RedCamoBloon = loadImage("RegrowthBloons/RedBloon.png");
+RedRegrowBloon = loadImage("CamoBloons/RedBloon.png");
+RedCamoRegrowBloon = loadImage("CamoRegrowth/RedBloon.png");
+BlueBloon = loadImage("BalloonImages/BlueBloon.png");
+BlueCamoBloon = loadImage("RegrowthBloons/BlueBloon.png");
+BlueRegrowBloon = loadImage("CamoBloons/BlueBloon.png");
+BlueCamoRegrowBloon = loadImage("CamoRegrowth/BlueBloon.png");
+GreenBloon = loadImage("BalloonImages/GreenBloon.png");
+GreenCamoBloon = loadImage("RegrowthBloons/GreenBloon.png");
+GreenRegrowBloon = loadImage("CamoBloons/GreenBloon.png");
+GreenCamoRegrowBloon = loadImage("CamoRegrowth/GreenBloon.png");
+YellowBloon = loadImage("BalloonImages/YellowBloon.png");
+YellowCamoBloon = loadImage("RegrowthBloons/YellowBloon.png");
+YellowRegrowBloon = loadImage("CamoBloons/YellowBloon.png");
+YellowCamoRegrowBloon = loadImage("CamoRegrowth/YellowBloon.png");
+PinkBloon = loadImage("BalloonImages/PinkBloon.png");
+PinkCamoBloon = loadImage("RegrowthBloons/PinkBloon.png");
+PinkRegrowBloon = loadImage("CamoBloons/PinkBloon.png");
+PinkCamoRegrowBloon = loadImage("CamoRegrowth/PinkBloon.png");
+BloonDisplay = new PImage[]{RedBloon, BlueBloon,GreenBloon, YellowBloon, PinkBloon};
+BloonCamoDisplay = new PImage[]{RedCamoBloon, BlueCamoBloon,GreenCamoBloon, YellowCamoBloon, PinkCamoBloon};
+BloonRegrowDisplay = new PImage[]{RedRegrowBloon, BlueRegrowBloon,GreenRegrowBloon, YellowRegrowBloon, PinkRegrowBloon};
+BloonCamoRegrowDisplay = new PImage[]{RedCamoRegrowBloon, BlueCamoRegrowBloon,GreenCamoRegrowBloon, YellowCamoRegrowBloon, PinkCamoRegrowBloon};
+
+rounds = new Round(BloonDisplay,BloonCamoDisplay, BloonRegrowDisplay, BloonCamoRegrowDisplay);
 }
 
 void draw() {
