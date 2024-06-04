@@ -87,3 +87,7 @@ Restored the health system. Updated the constructors so that it uses the layers 
 ### 6/2/2024
 
 Made the money system, placing of Monkeys, and the stop/go button. Also made sprites for the SuperMonkey.
+
+### 6/3/2024 
+
+Made the sniperMonkey tower and condensed constructors even further by setting damage in the attributeDeclarer() method for monkeys.
