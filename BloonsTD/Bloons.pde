@@ -177,34 +177,34 @@ public class Bloons {
   public void attributeDeclarer() {
     if (layers == 1) {
       damage = 1;
-      speed = 1;
+      speed = 0.5;
     } else if (layers == 2) {
       damage = 2;
-      speed = 1.4;
+      speed = 0.7;
     } else if (layers == 3) {
       damage = 3;
-      speed = 1.8;
+      speed = 0.9;
     } else if (layers == 4) {
       damage = 4;
-      speed = 3.2;
+      speed = 1.6;
     } else if (layers == 5) {
       damage = 5;
-      speed = 3.5;
+      speed = 1.75;
     } else if (layers == 8) {
       damage = 47;
-      speed = 2.2;
+      speed = 1.1;
     } else if (layers == 9) {
       damage = 104;
-      speed = 2.5;
+      speed = 1.25;
     } else if (layers == 10) {
       damage = 616;
-      speed = 1;
+      speed = 0.5;
     } else if (layers == 11) {
       damage = 3164;
-      speed = 0.25;
+      speed = 0.125;
     } else if (layers == 12) {
       damage = 16656;
-      speed = 0.18;
+      speed = 0.09;
     }
   }
 }
