@@ -8,6 +8,7 @@ public class Dart {
   boolean test = false;
   float angle = 0;
   int noChange = 0;
+  boolean hasBloon = false;
 
   public Dart(int biggy, double IAmSpeed, float floatX, float floatY) {
     size = biggy;
@@ -37,6 +38,7 @@ public class Dart {
   }
   public boolean nearBloon(Bloons p) {
     if (x > p.getX() - 10 &&  x < p.getX() + 10 && y > p.getY() - 10 &&  y < p.getY() + 10) {
+      hasBloon = false;
       return true;
     }
     return false;
@@ -46,6 +48,7 @@ public class Dart {
     y += getDirection(p).y * speed;
   }
   public PVector getDirection(Bloons p) {
+    hasBloon = true;
     float m = p.getX();
     float l = p.getY();
     PVector direction = new PVector(m-x, l-y);
