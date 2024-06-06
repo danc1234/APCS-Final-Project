@@ -1,15 +1,20 @@
 public class Boss extends SpecialBloons {
   // Fields
+  int health;
   int stage;
   PImage balloon;
 
   // Constructor
-  public Boss (int level, float locationX, float locationY, int health, Map maps, boolean camo, boolean regenerate, PImage[] bloondisplay, PImage[] blooncamo, PImage[] bloonregrow, PImage[] blooncamoregrow) {
+  public Boss (int level, float locationX, float locationY, int healthy, int area, Map maps, boolean camo, boolean regenerate, PImage[] bloondisplay, PImage[] blooncamo, PImage[] bloonregrow, PImage[] blooncamoregrow) {
     super(level, locationX, locationY, camo, regenerate, maps, bloondisplay, blooncamo,bloonregrow,blooncamoregrow);
-    stage = health;
+    health = healthy;
+    stage = area;
   }
 
   // Accessors
+  public int getHealth() {
+    return health;
+  }
   public int getStage() {
     return stage;
   }
