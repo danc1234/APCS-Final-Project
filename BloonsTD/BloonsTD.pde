@@ -179,6 +179,15 @@ void draw() {
         balloon.get(x).drawBloon();
       }
       balloon.get(x).changeCoord();
+      if (balloon.get(x).getRegrow()) {
+        if (!balloon.get(x).getHitOnce()) {
+          balloon.get(x).resetTimer(millis()+1000);
+        }
+        if ((balloon.get(x).getLayers() < balloon.get(x).getOGLayers()) && (millis() > balloon.get(x).getRegrowthTimer() + 3000)) {
+          balloon.get(x).popLayers(-1); 
+          balloon.get(x).resetTimer(millis());
+        }
+      }      
     }
     for (int i = 0; i < towers.size(); i++) {
       towers.get(i).drawMonkey();
@@ -261,7 +270,7 @@ void mouseClicked() {
       move = true;
     }
   }
-  if (((mouseX < 953) && (mouseX > 823)) && ((mouseY > 350) && (mouseY < 410)) && (balloon.size() == 0)) {
+  if (((mouseX < 953) && (mouseX > 823)) && ((mouseY > 350) && (mouseY < 410))/* && (balloon.size() == 0)*/) {
     round++;
     modifyCash(100+waves);
     waves++;

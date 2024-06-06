@@ -6,6 +6,8 @@ public class Bloons {
   private Tile tile;
   private int layers;
   private int damage;
+  private int OGLayers;
+  private int regrowthTimer = millis();
   private double speed;
   private float x;
   private float y;
@@ -13,6 +15,7 @@ public class Bloons {
   private boolean regrow;
   private boolean iced;
   private boolean glued;
+  private boolean hitOnce;
   private PImage balloon;
 
   PImage[] bloonDisplay;
@@ -23,6 +26,7 @@ public class Bloons {
   // Constructor
   public Bloons (int level, float locationX, float locationY, boolean camoflauge, boolean regenerate, Map maps, PImage[] bloondisplay, PImage[] blooncamo, PImage[] bloonregrow, PImage[] blooncamoregrow) {
     layers = level;
+    OGLayers = level;
     x = locationX;
     y = locationY;
     camo = camoflauge;
@@ -42,6 +46,15 @@ public class Bloons {
   }
 
   // Accessors
+  public boolean getHitOnce() {
+    return hitOnce; 
+  }
+  public int getOGLayers() {
+    return OGLayers;
+  }
+  public int getRegrowthTimer() {
+    return regrowthTimer;
+  }
   public boolean getCamo() {
     return camo;
   }
@@ -73,7 +86,11 @@ public class Bloons {
   }
 
   // Methods
+  public void resetTimer(int a) {
+    regrowthTimer = a;
+  }
   public void popLayers(int pop) {
+    hitOnce = true;
     layers -= pop;
     if (layers < 0) {
       layers = 0; 
