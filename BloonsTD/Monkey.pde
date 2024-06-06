@@ -35,7 +35,7 @@ public class Monkey {
       seeCamo = false;
       land = true;
       water = false;
-      placementRadius = 50;
+      placementRadius = 30;
       cost = 2750;
       damage = 1;
     } else if (link.equals("Monkeys/DartMonkey.png")) {
@@ -44,7 +44,7 @@ public class Monkey {
       seeCamo = false;
       land = true;
       water = false;
-      placementRadius = 50;
+      placementRadius = 30;
       cost = 170;
       damage = 1;
     } else if (link.equals("Monkeys/SniperMonkey.png")) {
@@ -53,7 +53,7 @@ public class Monkey {
       seeCamo = false;
       land = true;
       water = false;
-      placementRadius = 50;
+      placementRadius = 30;
       cost = 300;
       damage = 2;
     }
@@ -104,15 +104,17 @@ public class Monkey {
       darts.drawDart();
       direction = darts.getAngle();
       if (darts.nearBloon(bloon)) {
-        int a = bloon.getLayers();
-        if (a == 6) {
-          addBloons(new Bloons(5, bloon.getX()-5, bloon.getY()-5, false, false, new Map("Map.png"), getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon()));
+        if ((seeCamo && bloon.getCamo()) || (bloon.getCamo() == false)) {
+          int a = bloon.getLayers();
+          if (a == 6) {
+            addBloons(new Bloons(5, bloon.getX()-5, bloon.getY()-5, false, false, new Map("Map.png"), getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon()));
+          }
+          bloon.popLayers(damage);
+          int b = bloon.getLayers();
+          modifyCash(Math.abs(a-b));
+          darts = null;
+          isdart = false;
         }
-        bloon.popLayers(damage);
-        int b = bloon.getLayers();
-        modifyCash(Math.abs(a-b));
-        darts = null;
-        isdart = false;
       }
     }
   }

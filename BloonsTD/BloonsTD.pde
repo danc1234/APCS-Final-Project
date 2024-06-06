@@ -172,7 +172,7 @@ void draw() {
       if (temp != null) {
         balloon.add(temp);
       }
-      countdown = 10;
+      countdown = 30;
     }
     for (int x = 0; x < balloon.size(); x++) {
       if (balloon.get(x).getDraw()) {
@@ -261,10 +261,10 @@ void mouseClicked() {
       move = true;
     }
   }
-  if (((mouseX < 953) && (mouseX > 823)) && ((mouseY > 350) && (mouseY < 410))) {
+  if (((mouseX < 953) && (mouseX > 823)) && ((mouseY > 350) && (mouseY < 410)) && (balloon.size() == 0)) {
     round++;
-    waves++;
     modifyCash(100+waves);
+    waves++;
     if (waves <= totalWaves) {
       fill(255);
       rect(823, 0, 130, 120);
