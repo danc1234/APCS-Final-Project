@@ -26,4 +26,7 @@ public class Map {
   public LinkedList<Tile> getTiles() {
     return tiles;
   }
+  
+  
+  
 }

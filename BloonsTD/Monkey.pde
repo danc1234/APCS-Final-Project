@@ -49,7 +49,7 @@ public class Monkey {
       damage = 1;
     } else if (link.equals("Monkeys/SniperMonkey.png")) {
       reload = 800;
-      range = 1000;
+      range = 750;
       seeCamo = false;
       land = true;
       water = false;
@@ -104,8 +104,13 @@ public class Monkey {
       darts.drawDart();
       direction = darts.getAngle();
       if (darts.nearBloon(bloon)) {
+        int a = bloon.getLayers();
+        if (a == 6) {
+          addBloons(new Bloons(5, bloon.getX()-5, bloon.getY()-5, false, false, new Map("Map.png"), getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon()));
+
+        }
         bloon.popLayers(damage);
-        modifyCash(damage);
+        modifyCash(Math.abs(a-damage));
         darts = null;
         isdart = false;
       }
