@@ -75,6 +75,9 @@ public class Bloons {
   // Methods
   public void popLayers(int pop) {
     layers -= pop;
+    if (layers < 0) {
+      layers = 0; 
+    }
   }
   public void changeSpeed(double speedFactor) {
     speed = speedFactor;

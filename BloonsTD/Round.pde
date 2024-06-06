@@ -721,6 +721,11 @@ new Bloons(4, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonC
 new Bloons(4, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonCamoDisplay,bloonRegrowDisplay, bloonCamoRegrowDisplay),
 new Bloons(4, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonCamoDisplay,bloonRegrowDisplay, bloonCamoRegrowDisplay),
 new Bloons(4, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonCamoDisplay,bloonRegrowDisplay, bloonCamoRegrowDisplay),
+new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonCamoDisplay,bloonRegrowDisplay, bloonCamoRegrowDisplay),
+new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonCamoDisplay,bloonRegrowDisplay, bloonCamoRegrowDisplay),
+new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonCamoDisplay,bloonRegrowDisplay, bloonCamoRegrowDisplay),
+new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonCamoDisplay,bloonRegrowDisplay, bloonCamoRegrowDisplay),
+new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonCamoDisplay,bloonRegrowDisplay, bloonCamoRegrowDisplay),
 },{new Bloons(3, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonCamoDisplay,bloonRegrowDisplay, bloonCamoRegrowDisplay),
 new Bloons(3, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonCamoDisplay,bloonRegrowDisplay, bloonCamoRegrowDisplay),
 new Bloons(3, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonCamoDisplay,bloonRegrowDisplay, bloonCamoRegrowDisplay),
@@ -863,7 +868,23 @@ new Bloons(4, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonC
 new Bloons(4, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonCamoDisplay,bloonRegrowDisplay, bloonCamoRegrowDisplay),
 new Bloons(4, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonCamoDisplay,bloonRegrowDisplay, bloonCamoRegrowDisplay),
 new Bloons(4, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonCamoDisplay,bloonRegrowDisplay, bloonCamoRegrowDisplay),
+new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonCamoDisplay,bloonRegrowDisplay, bloonCamoRegrowDisplay),
+new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonCamoDisplay,bloonRegrowDisplay, bloonCamoRegrowDisplay),
+new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonCamoDisplay,bloonRegrowDisplay, bloonCamoRegrowDisplay),
+new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonCamoDisplay,bloonRegrowDisplay, bloonCamoRegrowDisplay),
+new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonCamoDisplay,bloonRegrowDisplay, bloonCamoRegrowDisplay),
+new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonCamoDisplay,bloonRegrowDisplay, bloonCamoRegrowDisplay),
+new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonCamoDisplay,bloonRegrowDisplay, bloonCamoRegrowDisplay),
+new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonCamoDisplay,bloonRegrowDisplay, bloonCamoRegrowDisplay),
+new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonCamoDisplay,bloonRegrowDisplay, bloonCamoRegrowDisplay),
+new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonCamoDisplay,bloonRegrowDisplay, bloonCamoRegrowDisplay),
+new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonCamoDisplay,bloonRegrowDisplay, bloonCamoRegrowDisplay),
+new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonCamoDisplay,bloonRegrowDisplay, bloonCamoRegrowDisplay),
+new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonCamoDisplay,bloonRegrowDisplay, bloonCamoRegrowDisplay),
+new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonCamoDisplay,bloonRegrowDisplay, bloonCamoRegrowDisplay),
+new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonCamoDisplay,bloonRegrowDisplay, bloonCamoRegrowDisplay),
 }};
+
 
   }
  
@@ -883,5 +904,8 @@ new Bloons(4, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonC
       }
       return null;
     }
+  }
+  public Bloons[][] getRound() {
+    return rounds;
   }
 }

@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 //hi oingo boingo;
 private static int lives=100;
-private static int cash=10000;
+private static int cash=2500;
 private static int waves=1;
 private static int barrier;
 private static boolean selectDart;
@@ -64,10 +64,7 @@ private Round rounds;
 private ArrayList<Monkey> towers = new ArrayList<Monkey>();
 private int countdown = 0;
 private boolean move = false;
-
-public int getRound() {
-  return round;
-}
+private int totalWaves = 19;
 
 void setup() {
   size(953, 530);
@@ -81,7 +78,7 @@ void setup() {
   textSize(25);
   text("Cash: "+cash, 825, 60);
   textSize(20);
-  text("Wave "+waves+" out of \n5", 825, 90);
+  text("Wave "+waves+" out of \n"+totalWaves, 825, 90);
     fill(255);
     rect(823, 120, 65, 70);
     PImage dartMonkey = loadImage("Monkeys/DartMonkey.png");
@@ -156,6 +153,7 @@ BloonRegrowDisplay = new PImage[]{RedRegrowBloon, BlueRegrowBloon,GreenRegrowBlo
 BloonCamoRegrowDisplay = new PImage[]{RedCamoRegrowBloon, BlueCamoRegrowBloon,GreenCamoRegrowBloon, YellowCamoRegrowBloon, PinkCamoRegrowBloon, BlackCamoRegrowBloon, WhiteCamoRegrowBloon, PurpleCamoRegrowBloon, LeadCamoRegrowBloon, ZebraCamoRegrowBloon, RainbowCamoRegrowBloon};
 
 rounds = new Round(BloonDisplay,BloonCamoDisplay, BloonRegrowDisplay, BloonCamoRegrowDisplay);
+
 }
 
 void draw() {
@@ -208,7 +206,7 @@ void draw() {
         textSize(25);
         text("Cash: "+cash, 825, 60);
         textSize(20);
-        text("Wave "+waves+" out of \n5", 825, 90);
+        text("Wave "+waves+" out of \n"+totalWaves, 825, 90);
       }
     }
     countdown--;
@@ -223,7 +221,7 @@ void draw() {
       }
     }
   }
-  if (waves > 5 && lives > 0 && balloon.size() == 0) {
+  if (waves > totalWaves && lives > 0 && balloon.size() == 0) {
     int time = millis();
     if (time > barrier + 1000) {
       fill(#90EE90);
@@ -275,7 +273,7 @@ void mouseClicked() {
       textSize(25);
       text("Cash: "+cash, 825, 60);
       textSize(20);
-      text("Wave "+waves+" out of \n5", 825, 90);
+      text("Wave "+waves+" out of \n"+totalWaves, 825, 90);
     } 
     rounds.restartBalloon();
   }
@@ -346,5 +344,5 @@ public void modifyCash(int stonks) {
   textSize(25);
   text("Cash: "+cash, 825, 60);
   textSize(20);
-  text("Wave "+waves+" out of \n5", 825, 90);
+  text("Wave "+waves+" out of \n"+totalWaves, 825, 90);
 }

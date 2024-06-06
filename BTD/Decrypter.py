@@ -47,7 +47,7 @@ while counter < 20:
             while (a < int(bloonList[0])):
                 rounds += 'new Bloons(4, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonCamoDisplay,bloonRegrowDisplay, bloonCamoRegrowDisplay),\n'
                 a+=1
-        if bloonList[1] == 'pink':
+        if bloonList[1] == 'pinks':
             a = 0
             while (a < int(bloonList[0])):
                 rounds += 'new Bloons(5, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonCamoDisplay,bloonRegrowDisplay, bloonCamoRegrowDisplay),\n'

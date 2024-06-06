@@ -107,10 +107,10 @@ public class Monkey {
         int a = bloon.getLayers();
         if (a == 6) {
           addBloons(new Bloons(5, bloon.getX()-5, bloon.getY()-5, false, false, new Map("Map.png"), getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon()));
-
         }
         bloon.popLayers(damage);
-        modifyCash(Math.abs(a-damage));
+        int b = bloon.getLayers();
+        modifyCash(Math.abs(a-b));
         darts = null;
         isdart = false;
       }
