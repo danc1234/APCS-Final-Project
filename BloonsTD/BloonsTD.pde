@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 //hi oingo boingo;
 private static int lives=100;
-private static int cash=650;
+private static int cash=3000;
 private static int waves=1;
 private static int barrier;
 private static boolean selectDart;
@@ -270,7 +270,7 @@ void mouseClicked() {
       move = true;
     }
   }
-  if (((mouseX < 953) && (mouseX > 823)) && ((mouseY > 350) && (mouseY < 410))/* && (balloon.size() == 0)*/) {
+  if (((mouseX < 953) && (mouseX > 823)) && ((mouseY > 350) && (mouseY < 410)) && (balloon.size() == 0)) {
     round++;
     modifyCash(100+waves);
     waves++;
