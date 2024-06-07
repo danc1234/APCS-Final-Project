@@ -95,3 +95,7 @@ Made the sniperMonkey tower and condensed constructors even further by setting d
 ### 6/5/2024
 
 The CSV File can be worked on using Python. I copied and pasted the output of a function into the Rounds class, thus allowing the official rounds from BTD6 to be deployed. 
+
+### 6/6/2024
+
+Added regrowth and camo bloon functionality. 
