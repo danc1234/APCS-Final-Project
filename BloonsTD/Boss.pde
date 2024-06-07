@@ -1,13 +1,15 @@
 public class Boss extends SpecialBloons {
   // Fields
-  int health;
-  int stage;
-  PImage balloon;
+  private int initialhealth;
+  private int health;
+  private int stage;
+  private PImage balloon;
 
   // Constructor
   public Boss (int level, float locationX, float locationY, int healthy, int area, Map maps, boolean camo, boolean regenerate, PImage[] bloondisplay, PImage[] blooncamo, PImage[] bloonregrow, PImage[] blooncamoregrow) {
     super(level, locationX, locationY, camo, regenerate, maps, bloondisplay, blooncamo,bloonregrow,blooncamoregrow);
     health = healthy;
+    initialhealth = healthy;
     stage = area;
   }
 
@@ -18,11 +20,32 @@ public class Boss extends SpecialBloons {
   public int getStage() {
     return stage;
   }
+   public void popLayers(int pop) {
+    health -= pop;
+    if(health <= 0){
+      changeLayers(0);
+    }
+    else if (health < initialhealth / 5) {
+      stage = 5; 
+    }
+    else if (health < 2 * initialhealth / 5) {
+      stage = 4; 
+    }
+    else if (health < 3 * initialhealth / 5) {
+      stage = 3; 
+    }
+    else if (health < 4 * initialhealth / 5) {
+      stage = 2; 
+    }
+    else if (health <= initialhealth ) {
+      stage = 1; 
+    }
+  }
 
   public void drawBloon() {
     attributeDeclarer();
     if (this.getLayers() == 9) {
-      if (health <= 2.5) {
+      if (stage == 5) {
         if (this.getCamo() && this.getRegrow()) {
           balloon = loadImage("CamoRegrowth/CeramicRegrowCamoDamage4.png");
         } else if (this.getCamo()) {
@@ -32,7 +55,7 @@ public class Boss extends SpecialBloons {
         } else {
           balloon = loadImage("BalloonImages/CeramicDamage4.png");
         }
-      } else if (health <= 5) {
+      } else if (stage == 4) {
         if (this.getCamo() && this.getRegrow()) {
           balloon = loadImage("CamoRegrowth/CeramicRegrowCamoDamage3.png");
         } else if (this.getCamo()) {
@@ -42,7 +65,7 @@ public class Boss extends SpecialBloons {
         } else {
           balloon = loadImage("BalloonImages/CeramicDamage3.png");
         }
-      } else if (health <= 7.5) {
+      } else if (stage == 3) {
         if (this.getCamo() && this.getRegrow()) {
           balloon = loadImage("CamoRegrowth/CeramicRegrowCamoDamage2.png");
         } else if (this.getCamo()) {
@@ -52,7 +75,7 @@ public class Boss extends SpecialBloons {
         } else {
           balloon = loadImage("BalloonImages/CeramicDamage2.png");
         }
-      } else if (health < 10) {
+      } else if (stage == 2) {
         if (this.getCamo() && this.getRegrow()) {
           balloon = loadImage("CamoRegrowth/CeramicRegrowCamoDamage1.png");
         } else if (this.getCamo()) {
@@ -62,7 +85,7 @@ public class Boss extends SpecialBloons {
         } else {
           balloon = loadImage("BalloonImages/CeramicDamage1.png");
         }
-      } else {
+      } else if (stage == 1){
         if (this.getCamo() && this.getRegrow()) {
           balloon = loadImage("CamoRegrowth/CeramicBloon.png");
         } else if (this.getCamo()) {

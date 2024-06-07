@@ -41,11 +41,33 @@ public class Bloons {
     bloonRegrowDisplay = bloonregrow;
     bloonCamoRegrowDisplay = blooncamoregrow;
   }
+   public Bloons (int level, float locationX, float locationY, boolean camoflauge, boolean regenerate, Map maps, PImage[] bloondisplay, PImage[] blooncamo, PImage[] bloonregrow, PImage[] blooncamoregrow, int tilenumber) {
+    layers = level;
+    OGLayers = level;
+    x = locationX;
+    y = locationY;
+    camo = camoflauge;
+    regrow = regenerate;
+    iced = false;
+    glued = false;
+    map = maps;
+    tilecount = 0;
+    attributeDeclarer();
+    bloonDisplay = bloondisplay;
+    bloonCamoDisplay = blooncamo;
+    bloonRegrowDisplay = bloonregrow;
+    bloonCamoRegrowDisplay = blooncamoregrow;
+    tilecount = tilenumber;
+  }
+  
   public boolean inRange(float xc, float yc, int range) {
     return (dist(xc, yc, x, y) < range);
   }
 
   // Accessors
+  public void changeLayers(int d){
+    layers = d;
+  }
   public boolean getHitOnce() {
     return hitOnce; 
   }
@@ -111,13 +133,13 @@ public class Bloons {
   }
   public void onTile() {
     if (tilecount == 0) {
-      tile = map.getTiles().removeFirst();
       tilecount++;
+      tile = map.getTiles().get(tilecount);
     }
     if (x > tile.getX() - 2 && x < tile.getX() + 2 && y > tile.getY() - 2 && y < tile.getY() + 2) {
       if (map.tileCount > tilecount) {
-        tile = map.getTiles().removeFirst();
         tilecount++;
+        tile = map.getTiles().get(tilecount);
       } else {
         drawable = false;
       }
