@@ -68,6 +68,9 @@ private int totalWaves = 19;
 
 void setup() {
   size(953, 530);
+  fill(0);
+  rect(823, 0, 130, 530);
+  fill(255);
   rect(823, 0, 130, 120);
   map = loadImage("Map.png");
   image(map, 0, 0);
@@ -246,12 +249,26 @@ void draw() {
 void mouseClicked() {
   if (((mouseX < 888) && (mouseX > 823)) && ((mouseY > 120) && (mouseY < 190))) {
     selectDart = true;
+    fill(#FFFF00);
+    rect(823, 310, 130, 40);
+    fill(#000000);
+    text("Cost: "+170, 830, 340);
   }
   if (((mouseX >= 888) && (mouseX < 953)) && ((mouseY > 120) && (mouseY < 190))) {
     selectSuper = true;
+    fill(#FFFF00);
+    rect(823, 310, 130, 40);
+    fill(#000000);
+    textSize(25);
+    text("Cost: "+2750, 830, 340);
   }
   if (((mouseX < 888) && (mouseX > 823)) && ((mouseY > 190) && (mouseY < 260))) {
     selectSniper = true;
+    fill(#FFFF00);
+    rect(823, 310, 130, 40);
+    fill(#000000);
+    textSize(30);
+    text("Cost: "+300, 830, 340);
   }
   if (((mouseX < 953) && (mouseX > 823)) && ((mouseY > 410) && (mouseY < 530))) {
     if (move) {
@@ -302,14 +319,20 @@ void mouseReleased() {
   if (selectDart && mouseX<805 && (red < 100 || blue < 100 || green < 100) && notInRange && (cash-170>=0)) {
     towers.add(new Monkey("Monkeys/DartMonkey.png", 0, mouseX-25, mouseY+2));
     modifyCash(-170);
+    fill(0);
+    rect(823, 310, 130, 40);     
   }
   if (selectSuper && mouseX<805 && (red < 100 || blue < 100 || green < 100) && notInRange && (cash-2750>=0)) {
     towers.add(new Monkey("Monkeys/SuperMonkey.png", 0, mouseX-25, mouseY+2));
     modifyCash(-2750);
+    fill(0);
+    rect(823, 310, 130, 40);     
   }
   if (selectSniper && mouseX<805 && (red < 100 || blue < 100 || green < 100) && notInRange && (cash-300>=0)) {
     towers.add(new Monkey("Monkeys/SniperMonkey.png", 0, mouseX-25, mouseY+2));
     modifyCash(-300);
+    fill(0);
+    rect(823, 310, 130, 40);     
   }
   selectDart = false;
   selectSuper = false;
