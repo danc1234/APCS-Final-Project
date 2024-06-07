@@ -43,6 +43,14 @@ Worked on rounds again but balloons were lagging
 
 Finished on making balloons less laggy so now I can fully implement round system.
 
+### 6/4
+
+Tried to make it so that the bloons go to the intended tiles when spawning
+
+### 6/6
+
+Made it so that bloons go to the intended tiles when spawning. Made it so that boss bloons changes sprites in phases(W.I.P)
+
 
 
 ## Daniel Chen
