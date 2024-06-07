@@ -35,7 +35,7 @@ public class Monkey {
       seeCamo = false;
       land = true;
       water = false;
-      placementRadius = 50;
+      placementRadius = 30;
       cost = 2750;
       damage = 1;
     } else if (link.equals("Monkeys/DartMonkey.png")) {
@@ -44,16 +44,16 @@ public class Monkey {
       seeCamo = false;
       land = true;
       water = false;
-      placementRadius = 50;
+      placementRadius = 30;
       cost = 170;
       damage = 1;
     } else if (link.equals("Monkeys/SniperMonkey.png")) {
       reload = 800;
-      range = 1000;
+      range = 750;
       seeCamo = false;
       land = true;
       water = false;
-      placementRadius = 50;
+      placementRadius = 30;
       cost = 300;
       damage = 2;
     }
@@ -85,6 +85,9 @@ public class Monkey {
   public PImage getSprite() {
     return sprite;
   }
+  public boolean getCamo(){
+    return seeCamo; 
+  }
 
   public void resetTimer(int a) {
     reloadTimer = a;
@@ -104,8 +107,13 @@ public class Monkey {
       darts.drawDart();
       direction = darts.getAngle();
       if (darts.nearBloon(bloon)) {
+        int a = bloon.getLayers();
+        if (a == 6) {
+          addBloons(new Bloons(5, bloon.getX()-5, bloon.getY()-5, false, false, new Map("Map.png"), getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon()));
+        }
         bloon.popLayers(damage);
-        modifyCash(damage);
+        int b = bloon.getLayers();
+        modifyCash(Math.abs(a-b));
         darts = null;
         isdart = false;
       }
@@ -123,16 +131,18 @@ public class Monkey {
         break;
       }
       if (balloon.get(index).inRange(x, y, range)) {
-        bloon = balloon.get(index);
-        //text("a", 50, 100);
-        break;
+        if ((this.getCamo() && balloon.get(index).getCamo()) || !balloon.get(index).getCamo()) {
+          bloon = balloon.get(index);
+          //text("a", 50, 100);
+          break;
+        }
       }
       index++;
     }
     if (index < balloon.size()) {
       if (!isdart) {
         if (link.equals("Monkeys/SniperMonkey.png")) {
-          darts = new Dart(1, 25, x, y);
+          darts = new Dart(1, 20, x, y);
         } else {
           darts = new Dart(1, 10, x, y);
         }

@@ -6,6 +6,8 @@ public class Bloons {
   private Tile tile;
   private int layers;
   private int damage;
+  private int OGLayers;
+  private int regrowthTimer = millis();
   private double speed;
   private float x;
   private float y;
@@ -13,6 +15,7 @@ public class Bloons {
   private boolean regrow;
   private boolean iced;
   private boolean glued;
+  private boolean hitOnce;
   private PImage balloon;
 
   PImage[] bloonDisplay;
@@ -23,6 +26,7 @@ public class Bloons {
   // Constructor
   public Bloons (int level, float locationX, float locationY, boolean camoflauge, boolean regenerate, Map maps, PImage[] bloondisplay, PImage[] blooncamo, PImage[] bloonregrow, PImage[] blooncamoregrow) {
     layers = level;
+    OGLayers = level;
     x = locationX;
     y = locationY;
     camo = camoflauge;
@@ -42,6 +46,15 @@ public class Bloons {
   }
 
   // Accessors
+  public boolean getHitOnce() {
+    return hitOnce; 
+  }
+  public int getOGLayers() {
+    return OGLayers;
+  }
+  public int getRegrowthTimer() {
+    return regrowthTimer;
+  }
   public boolean getCamo() {
     return camo;
   }
@@ -73,8 +86,15 @@ public class Bloons {
   }
 
   // Methods
+  public void resetTimer(int a) {
+    regrowthTimer = a;
+  }
   public void popLayers(int pop) {
+    hitOnce = true;
     layers -= pop;
+    if (layers < 0) {
+      layers = 0; 
+    }
   }
   public void changeSpeed(double speedFactor) {
     speed = speedFactor;
@@ -177,34 +197,34 @@ public class Bloons {
   public void attributeDeclarer() {
     if (layers == 1) {
       damage = 1;
-      speed = 1;
+      speed = 0.5;
     } else if (layers == 2) {
       damage = 2;
-      speed = 1.4;
+      speed = 0.7;
     } else if (layers == 3) {
       damage = 3;
-      speed = 1.8;
+      speed = 0.9;
     } else if (layers == 4) {
       damage = 4;
-      speed = 3.2;
+      speed = 1.6;
     } else if (layers == 5) {
       damage = 5;
-      speed = 3.5;
+      speed = 1.75;
     } else if (layers == 8) {
       damage = 47;
-      speed = 2.2;
+      speed = 1.1;
     } else if (layers == 9) {
       damage = 104;
-      speed = 2.5;
+      speed = 1.25;
     } else if (layers == 10) {
       damage = 616;
-      speed = 1;
+      speed = 0.5;
     } else if (layers == 11) {
       damage = 3164;
-      speed = 0.25;
+      speed = 0.125;
     } else if (layers == 12) {
       damage = 16656;
-      speed = 0.18;
+      speed = 0.09;
     }
   }
 }
