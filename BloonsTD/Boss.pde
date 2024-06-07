@@ -101,7 +101,7 @@ public class Boss extends SpecialBloons {
     } else {
       PVector direction = this.getDirection();
       float[] move = direction.array();
-      if (health <= 200) {
+      if (getLayers() == 10) {
         if (Math.round(move[0]) == 1 && Math.round(move[1]) == 0) {
           balloon = loadImage("BalloonIMages/MoabRight.png");
           balloon.resize(132, 86);
@@ -119,7 +119,7 @@ public class Boss extends SpecialBloons {
           balloon.resize(86, 132);
         }
         image(balloon, this.getX()-45, this.getY()-45);
-      } else if (health <= 900) {
+      } else if (getLayers() == 11) {
         if (Math.round(move[0]) == 1 && Math.round(move[1]) == 0) {
           balloon = loadImage("BalloonIMages/BFBRight.png");
           balloon.resize(202, 142);
