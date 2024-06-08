@@ -23,10 +23,12 @@ public class SpecialBloons extends Bloons {
     speedDeclarer();
     damageDeclarer();
   }
+  public SpecialBloons(int level, float locationX, float locationY, boolean camoflauge, boolean regenerate, Map maps, PImage[] bloondisplay, PImage[] blooncamo, PImage[] bloonregrow, PImage[] blooncamoregrow, int tilecount) {
+    super(level, locationX, locationY, camoflauge, regenerate, maps, bloondisplay, blooncamo, bloonregrow, blooncamoregrow, tilecount);
+  }
   public SpecialBloons(int level, float locationX, float locationY, boolean camoflauge, boolean regenerate, Map maps, PImage[] bloondisplay, PImage[] blooncamo, PImage[] bloonregrow, PImage[] blooncamoregrow) {
     super(level, locationX, locationY, camoflauge, regenerate, maps, bloondisplay, blooncamo, bloonregrow, blooncamoregrow);
   }
-
   public void speedDeclarer() {
     if ((this.getLayers() == 7) && (imunSharp)) {
       this.changeSpeed(0.51);
@@ -62,6 +64,7 @@ public class SpecialBloons extends Bloons {
     } else {
       speedDeclarer();
       damageDeclarer();
+      balloon = bloonDisplay[10];
       if (this.getLayers() == 8) {
         if (this.getCamo() && this.getRegrow()) {
           balloon = bloonCamoRegrowDisplay[10];

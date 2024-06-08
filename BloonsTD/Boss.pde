@@ -11,6 +11,15 @@ public class Boss extends SpecialBloons {
     health = healthy;
     initialhealth = healthy;
     stage = area;
+    super.setHealth(healthy);
+  }
+  
+  public Boss (int level, float locationX, float locationY, boolean camo, boolean regenerate, Map maps, int healthy, int area, PImage[] bloondisplay, PImage[] blooncamo, PImage[] bloonregrow, PImage[] blooncamoregrow, int tilecount) {
+    super(level, locationX, locationY, camo, regenerate, maps, bloondisplay, blooncamo,bloonregrow,blooncamoregrow, tilecount);
+    health = healthy;
+    initialhealth = healthy;
+    stage = area;
+    super.setHealth(healthy);
   }
 
   // Accessors
@@ -23,7 +32,15 @@ public class Boss extends SpecialBloons {
   public void popLayers(int pop) {
     health -= pop;
     if(health <= 0){
-      changeLayers(0);
+      changeLayers(1);
+      if (this.getLayers() == 10) {
+        health = 200;
+        super.setHealth(200);
+      }
+      if (this.getLayers() == 11) {
+        health = 700;
+        super.setHealth(700);
+      }
     }
     else if (health < initialhealth / 5) {
       stage = 5; 
@@ -43,8 +60,11 @@ public class Boss extends SpecialBloons {
   }
 
   public void drawBloon() {
-    attributeDeclarer();
-    if (this.getLayers() == 9) {
+    if (this.getLayers() < 9) {
+      super.drawBloon(); 
+    }
+    else if (this.getLayers() == 9) {
+      attributeDeclarer();
       if (stage == 5) {
         if (this.getCamo() && this.getRegrow()) {
           balloon = bloonCamoRegrowDisplay[15];
@@ -118,59 +138,60 @@ public class Boss extends SpecialBloons {
         image(balloon, this.getX()-35, this.getY()-35);
       }
     } else {
+      attributeDeclarer();
       PVector direction = this.getDirection();
       float[] move = direction.array();
       if (this.getLayers() == 10) {
         if (Math.round(move[0]) == 1 && Math.round(move[1]) == 0) {
-          balloon = loadImage("BalloonIMages/MoabRight.png");
+          balloon = BloonDisplay[16];
           balloon.resize(132, 86);
         }
         if (Math.round(move[0]) == 0 && Math.round(move[1]) == -1) {
-          balloon = loadImage("BalloonIMages/MoabUp.png");
+          balloon = BloonDisplay[17];
           balloon.resize(86, 132);
         }
         if (Math.round(move[0]) == -1 && Math.round(move[1]) == 0) {
-          balloon = loadImage("BalloonIMages/MoabLeft.png");
+          balloon = BloonDisplay[18];
           balloon.resize(132, 86);
         }
         if (Math.round(move[0]) == 0 && Math.round(move[1]) == 1) {
-          balloon = loadImage("BalloonIMages/MoabDown.png");
+          balloon = BloonDisplay[19];
           balloon.resize(86, 132);
         }
         image(balloon, this.getX()-45, this.getY()-45);
       } else if (this.getLayers() == 11) {
         if (Math.round(move[0]) == 1 && Math.round(move[1]) == 0) {
-          balloon = loadImage("BalloonIMages/BFBRight.png");
+          balloon = BloonDisplay[20];
           balloon.resize(202, 142);
         }
         if (Math.round(move[0]) == 0 && Math.round(move[1]) == -1) {
-          balloon = loadImage("BalloonIMages/BFBUp.png");
+          balloon = BloonDisplay[21];
           balloon.resize(142, 202);
         }
         if (Math.round(move[0]) == -1 && Math.round(move[1]) == 0) {
-          balloon = loadImage("BalloonIMages/BFBLeft.png");
+          balloon = BloonDisplay[22];
           balloon.resize(202, 142);
         }
         if (Math.round(move[0]) == 0 && Math.round(move[1]) == 1) {
-          balloon = loadImage("BalloonIMages/BFBDown.png");
+          balloon = BloonDisplay[23];
           balloon.resize(142, 202);
         }
         image(balloon, this.getX()-70, this.getY()-70);
       } else if (this.getLayers() == 12) {
         if (Math.round(move[0]) == 1 && Math.round(move[1]) == 0) {
-          balloon = loadImage("BalloonIMages/ZOMGRight.png");
+          balloon = BloonDisplay[24];
           balloon.resize(222, 141);
         }
         if (Math.round(move[0]) == 0 && Math.round(move[1]) == -1) {
-          balloon = loadImage("BalloonIMages/ZOMGUp.png");
+          balloon = BloonDisplay[25];
           balloon.resize(141, 222);
         }
         if (Math.round(move[0]) == -1 && Math.round(move[1]) == 0) {
-          balloon = loadImage("BalloonIMages/ZOMGLeft.png");
+          balloon = BloonDisplay[25];
           balloon.resize(222, 141);
         }
         if (Math.round(move[0]) == 0 && Math.round(move[1]) == 1) {
-          balloon = loadImage("BalloonIMages/ZOMGDown.png");
+          balloon = BloonDisplay[26];
           balloon.resize(141, 222);
         }
         image(balloon, this.getX()-70, this.getY()-70);

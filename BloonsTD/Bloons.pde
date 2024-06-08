@@ -17,6 +17,8 @@ public class Bloons {
   private boolean glued;
   private boolean hitOnce;
   private PImage balloon;
+  
+  private int health;
 
   PImage[] bloonDisplay;
   PImage[] bloonCamoDisplay;
@@ -66,7 +68,7 @@ public class Bloons {
 
   // Accessors
   public void changeLayers(int d){
-    layers = d;
+    layers = layers - d;
   }
   public boolean getHitOnce() {
     return hitOnce; 
@@ -117,6 +119,12 @@ public class Bloons {
   }
 
   // Methods
+  public void setHealth(int a) {
+    health = a; 
+  }
+  public int getHealth() {
+    return health; 
+  }
   public void setCoor(float a, float b) {
     x = a;
     y = b;

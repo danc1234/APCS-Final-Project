@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 //hi oingo boingo;
 private static int lives=100;
-private static int cash=3000;
+private static int cash=30000;
 private static int waves=1;
 private static int barrier;
 private static boolean selectDart;
@@ -73,6 +73,19 @@ private PImage Ceramic4;
 private PImage CeramicCamo4;
 private PImage CeramicRegrow4;
 private PImage CeramicCamoRegrow4;
+private PImage MoabRight;
+private PImage MoabUp;
+private PImage MoabLeft;
+private PImage MoabDown;
+private PImage BFBRight;
+private PImage BFBUp;
+private PImage BFBLeft;
+private PImage BFBDown;
+private PImage ZOMGRight;
+private PImage ZOMGUp;
+private PImage ZOMGLeft;
+private PImage ZOMGDown;
+
 private PImage[] BloonDisplay;
 private PImage[] BloonCamoDisplay;
 private PImage[] BloonRegrowDisplay;
@@ -190,9 +203,24 @@ Ceramic4 = loadImage("BalloonImages/CeramicDamage4.png");
 CeramicCamo4 = loadImage("CamoBloons/CeramicDamage4.png");
 CeramicRegrow4 = loadImage("RegrowthBloons/CeramicDamage4.png");
 CeramicCamoRegrow4 = loadImage("CamoRegrowth/CeramicDamage4.png");
+MoabRight = loadImage("BalloonImages/MoabRight.png");
+MoabUp = loadImage("BalloonImages/MoabUp.png");
+MoabLeft = loadImage("BalloonImages/MoabLeft.png");
+MoabDown = loadImage("BalloonImages/MoabDown.png");
+BFBRight = loadImage("BalloonImages/BFBRight.png");
+BFBUp = loadImage("BalloonImages/BFBUp.png");
+BFBLeft = loadImage("BalloonImages/BFBLeft.png");
+BFBDown = loadImage("BalloonImages/BFBDown.png");
+ZOMGRight = loadImage("BalloonImages/ZOMGRight.png");
+ZOMGUp = loadImage("BalloonImages/ZOMGUp.png");
+ZOMGLeft = loadImage("BalloonImages/ZOMGLeft.png");
+ZOMGDown = loadImage("BalloonImages/ZOMGDown.png");
+
 BloonDisplay = new PImage[]{RedBloon, BlueBloon,GreenBloon, YellowBloon, PinkBloon, BlackBloon, WhiteBloon, PurpleBloon, LeadBloon, ZebraBloon, RainbowBloon
-,CeramicBloon, Ceramic1, Ceramic2, Ceramic3, Ceramic4
-};
+,CeramicBloon, Ceramic1, Ceramic2, Ceramic3, Ceramic4,
+MoabRight, MoabUp, MoabLeft, MoabDown,
+BFBRight, BFBUp, BFBLeft, BFBDown,
+ZOMGRight, ZOMGUp, ZOMGLeft, ZOMGDown};
 BloonCamoDisplay = new PImage[]{RedCamoBloon, BlueCamoBloon,GreenCamoBloon, YellowCamoBloon, PinkCamoBloon, BlackCamoBloon, WhiteCamoBloon, PurpleCamoBloon, LeadCamoBloon, ZebraCamoBloon, RainbowCamoBloon
 ,CeramicCamoBloon, CeramicCamo1, CeramicCamo2, CeramicCamo3, CeramicCamo4};
 BloonRegrowDisplay = new PImage[]{RedRegrowBloon, BlueRegrowBloon,GreenRegrowBloon, YellowRegrowBloon, PinkRegrowBloon, BlackRegrowBloon, WhiteRegrowBloon, PurpleRegrowBloon, LeadRegrowBloon, ZebraRegrowBloon, RainbowRegrowBloon
