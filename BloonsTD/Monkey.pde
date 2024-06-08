@@ -128,7 +128,6 @@ public class Monkey {
           x = bloon.getX();
           y = bloon.getY()-30;
         }
-        System.out.println("this is speed: "+bloon.getSpeed());
         if (a == 6) {
           addBloons(new Bloons(5, x, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
         }

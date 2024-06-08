@@ -117,6 +117,10 @@ public class Bloons {
   }
 
   // Methods
+  public void setCoor(float a, float b) {
+    x = a;
+    y = b;
+  }
   public void resetTimer(int a) {
     regrowthTimer = a;
   }

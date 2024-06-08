@@ -6,7 +6,7 @@ public class Boss extends SpecialBloons {
   private PImage balloon;
 
   // Constructor
-  public Boss (int level, float locationX, float locationY, int healthy, int area, Map maps, boolean camo, boolean regenerate, PImage[] bloondisplay, PImage[] blooncamo, PImage[] bloonregrow, PImage[] blooncamoregrow) {
+  public Boss (int level, float locationX, float locationY, boolean camo, boolean regenerate, Map maps, int healthy, int area, PImage[] bloondisplay, PImage[] blooncamo, PImage[] bloonregrow, PImage[] blooncamoregrow) {
     super(level, locationX, locationY, camo, regenerate, maps, bloondisplay, blooncamo,bloonregrow,blooncamoregrow);
     health = healthy;
     initialhealth = healthy;
@@ -20,7 +20,7 @@ public class Boss extends SpecialBloons {
   public int getStage() {
     return stage;
   }
-   public void popLayers(int pop) {
+  public void popLayers(int pop) {
     health -= pop;
     if(health <= 0){
       changeLayers(0);
@@ -47,56 +47,61 @@ public class Boss extends SpecialBloons {
     if (this.getLayers() == 9) {
       if (stage == 5) {
         if (this.getCamo() && this.getRegrow()) {
-          balloon = loadImage("CamoRegrowth/CeramicRegrowCamoDamage4.png");
+          balloon = bloonCamoRegrowDisplay[15];
         } else if (this.getCamo()) {
-          balloon = loadImage("CamoBloons/CeramicCamoDamage4.png");
+          balloon = bloonCamoDisplay[15];
         } else if (this.getRegrow()) {
-          balloon = loadImage("RegrowthBloons/CeramicRegrowDamage4.png");
+          balloon = bloonRegrowDisplay[15];
         } else {
-          balloon = loadImage("BalloonImages/CeramicDamage4.png");
+          balloon = bloonDisplay[15];
+          balloon.resize(70, 70);
         }
       } else if (stage == 4) {
         if (this.getCamo() && this.getRegrow()) {
-          balloon = loadImage("CamoRegrowth/CeramicRegrowCamoDamage3.png");
+          balloon = bloonCamoRegrowDisplay[14];
         } else if (this.getCamo()) {
-          balloon = loadImage("CamoBloons/CeramicCamoDamage3.png");
+          balloon = bloonCamoDisplay[14];
         } else if (this.getRegrow()) {
-          balloon = loadImage("RegrowthBloons/CeramicRegrowDamage3.png");
+          balloon = bloonRegrowDisplay[14];
         } else {
-          balloon = loadImage("BalloonImages/CeramicDamage3.png");
+          balloon = bloonDisplay[14];
+          balloon.resize(70, 70);
         }
       } else if (stage == 3) {
         if (this.getCamo() && this.getRegrow()) {
-          balloon = loadImage("CamoRegrowth/CeramicRegrowCamoDamage2.png");
+          balloon = bloonCamoRegrowDisplay[13];
         } else if (this.getCamo()) {
-          balloon = loadImage("CamoBloons/CeramicCamoDamage2.png");
+          balloon = bloonCamoDisplay[13];
         } else if (this.getRegrow()) {
-          balloon = loadImage("RegrowthBloons/CeramicRegrowDamage2.png");
+          balloon = bloonRegrowDisplay[13];
         } else {
-          balloon = loadImage("BalloonImages/CeramicDamage2.png");
+          balloon = bloonDisplay[13];
+          balloon.resize(70, 70);
         }
       } else if (stage == 2) {
         if (this.getCamo() && this.getRegrow()) {
-          balloon = loadImage("CamoRegrowth/CeramicRegrowCamoDamage1.png");
+          balloon = bloonCamoRegrowDisplay[12];
         } else if (this.getCamo()) {
-          balloon = loadImage("CamoBloons/CeramicCamoDamage1.png");
+          balloon = bloonCamoDisplay[12];
         } else if (this.getRegrow()) {
-          balloon = loadImage("RegrowthBloons/CeramicRegrowDamage1.png");
+          balloon = bloonRegrowDisplay[12];
+
         } else {
-          balloon = loadImage("BalloonImages/CeramicDamage1.png");
+          balloon = bloonDisplay[12];
+          balloon.resize(36, 46);
         }
       } else if (stage == 1){
         if (this.getCamo() && this.getRegrow()) {
-          balloon = loadImage("CamoRegrowth/CeramicBloon.png");
+          balloon = bloonCamoRegrowDisplay[11];
         } else if (this.getCamo()) {
-          balloon = loadImage("CamoBloons/CeramicBloon.png");
+          balloon = bloonCamoDisplay[11];
         } else if (this.getRegrow()) {
-          balloon = loadImage("RegrowthBloons/CeramicBloon.png");
+          balloon = bloonRegrowDisplay[11];
         } else {
-          balloon = loadImage("BalloonImages/CeramicBloon.png");
+          balloon = bloonDisplay[11];
         }
+        balloon.resize(70, 70);
       }
-      balloon.resize(70, 70);
       image(balloon, this.getX()-35, this.getY()-35);
     } else {
       PVector direction = this.getDirection();

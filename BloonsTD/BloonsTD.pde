@@ -53,6 +53,26 @@ private PImage RainbowBloon;
 private PImage RainbowCamoBloon;
 private PImage RainbowRegrowBloon ;
 private PImage RainbowCamoRegrowBloon;
+private PImage CeramicBloon;
+private PImage CeramicCamoBloon;
+private PImage CeramicRegrowBloon ;
+private PImage CeramicCamoRegrowBloon;
+private PImage Ceramic1;
+private PImage CeramicCamo1;
+private PImage CeramicRegrow1;
+private PImage CeramicCamoRegrow1;
+private PImage Ceramic2;
+private PImage CeramicCamo2;
+private PImage CeramicRegrow2;
+private PImage CeramicCamoRegrow2;
+private PImage Ceramic3;
+private PImage CeramicCamo3;
+private PImage CeramicRegrow3;
+private PImage CeramicCamoRegrow3;
+private PImage Ceramic4;
+private PImage CeramicCamo4;
+private PImage CeramicRegrow4;
+private PImage CeramicCamoRegrow4;
 private PImage[] BloonDisplay;
 private PImage[] BloonCamoDisplay;
 private PImage[] BloonRegrowDisplay;
@@ -150,10 +170,35 @@ RainbowBloon = loadImage("BalloonImages/RainbowBloon.png");
 RainbowRegrowBloon = loadImage("RegrowthBloons/RainbowBloon.png");
 RainbowCamoBloon = loadImage("CamoBloons/RainbowBloon.png");
 RainbowCamoRegrowBloon = loadImage("CamoRegrowth/RainbowBloon.png");
-BloonDisplay = new PImage[]{RedBloon, BlueBloon,GreenBloon, YellowBloon, PinkBloon, BlackBloon, WhiteBloon, PurpleBloon, LeadBloon, ZebraBloon, RainbowBloon};
-BloonCamoDisplay = new PImage[]{RedCamoBloon, BlueCamoBloon,GreenCamoBloon, YellowCamoBloon, PinkCamoBloon, BlackCamoBloon, WhiteCamoBloon, PurpleCamoBloon, LeadCamoBloon, ZebraCamoBloon, RainbowCamoBloon};
-BloonRegrowDisplay = new PImage[]{RedRegrowBloon, BlueRegrowBloon,GreenRegrowBloon, YellowRegrowBloon, PinkRegrowBloon, BlackRegrowBloon, WhiteRegrowBloon, PurpleRegrowBloon, LeadRegrowBloon, ZebraRegrowBloon, RainbowRegrowBloon};
-BloonCamoRegrowDisplay = new PImage[]{RedCamoRegrowBloon, BlueCamoRegrowBloon,GreenCamoRegrowBloon, YellowCamoRegrowBloon, PinkCamoRegrowBloon, BlackCamoRegrowBloon, WhiteCamoRegrowBloon, PurpleCamoRegrowBloon, LeadCamoRegrowBloon, ZebraCamoRegrowBloon, RainbowCamoRegrowBloon};
+CeramicBloon = loadImage("BalloonImages/CeramicBloon.png");
+CeramicCamoBloon = loadImage("CamoBloons/CeramicBloon.png");
+CeramicRegrowBloon = loadImage("RegrowthBloons/CeramicBloon.png");
+CeramicCamoRegrowBloon = loadImage("CamoRegrowth/CeramicBloon.png");
+Ceramic1 = loadImage("BalloonImages/CeramicDamage1.png");
+CeramicCamo1 = loadImage("CamoBloons/CeramicDamage1.png"); 
+CeramicRegrow1 = loadImage("RegrowthBloons/CeramicDamage1.png");
+CeramicCamoRegrow1 = loadImage("CamoRegrowth/CeramicDamage1.png");
+Ceramic2 = loadImage("BalloonImages/CeramicDamage2.png");
+CeramicCamo2 = loadImage("CamoBloons/CeramicDamage2.png");
+CeramicRegrow2 = loadImage("RegrowthBloons/CeramicDamage2.png");;
+CeramicCamoRegrow2 = loadImage("CamoRegrowth/CeramicDamage2.png");
+Ceramic3 = loadImage("BalloonImages/CeramicDamage3.png");
+CeramicCamo3 = loadImage("CamoBloons/CeramicDamage3.png");
+CeramicRegrow3 = loadImage("RegrowthBloons/CeramicDamage3.png");
+CeramicCamoRegrow3 = loadImage("CamoRegrowth/CeramicDamage3.png");
+Ceramic4 = loadImage("BalloonImages/CeramicDamage4.png");
+CeramicCamo4 = loadImage("CamoBloons/CeramicDamage4.png");
+CeramicRegrow4 = loadImage("RegrowthBloons/CeramicDamage4.png");
+CeramicCamoRegrow4 = loadImage("CamoRegrowth/CeramicDamage4.png");
+BloonDisplay = new PImage[]{RedBloon, BlueBloon,GreenBloon, YellowBloon, PinkBloon, BlackBloon, WhiteBloon, PurpleBloon, LeadBloon, ZebraBloon, RainbowBloon
+,CeramicBloon, Ceramic1, Ceramic2, Ceramic3, Ceramic4
+};
+BloonCamoDisplay = new PImage[]{RedCamoBloon, BlueCamoBloon,GreenCamoBloon, YellowCamoBloon, PinkCamoBloon, BlackCamoBloon, WhiteCamoBloon, PurpleCamoBloon, LeadCamoBloon, ZebraCamoBloon, RainbowCamoBloon
+,CeramicCamoBloon, CeramicCamo1, CeramicCamo2, CeramicCamo3, CeramicCamo4};
+BloonRegrowDisplay = new PImage[]{RedRegrowBloon, BlueRegrowBloon,GreenRegrowBloon, YellowRegrowBloon, PinkRegrowBloon, BlackRegrowBloon, WhiteRegrowBloon, PurpleRegrowBloon, LeadRegrowBloon, ZebraRegrowBloon, RainbowRegrowBloon
+,CeramicRegrowBloon, CeramicRegrow1, CeramicRegrow2, CeramicRegrow3, CeramicRegrow4};
+BloonCamoRegrowDisplay = new PImage[]{RedCamoRegrowBloon, BlueCamoRegrowBloon,GreenCamoRegrowBloon, YellowCamoRegrowBloon, PinkCamoRegrowBloon, BlackCamoRegrowBloon, WhiteCamoRegrowBloon, PurpleCamoRegrowBloon, LeadCamoRegrowBloon, ZebraCamoRegrowBloon, RainbowCamoRegrowBloon
+,CeramicCamoRegrowBloon, CeramicCamoRegrow1, CeramicCamoRegrow2, CeramicCamoRegrow3, CeramicCamoRegrow4};
 
 rounds = new Round(BloonDisplay,BloonCamoDisplay, BloonRegrowDisplay, BloonCamoRegrowDisplay);
 
