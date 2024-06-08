@@ -7,6 +7,7 @@ private static int barrier;
 private static boolean selectDart;
 private static boolean selectSuper;
 private static boolean selectSniper;
+private static boolean selectNinja;
 private static int round = 0;
 
 private PImage RedBloon;
@@ -128,6 +129,10 @@ void setup() {
         rect(823, 190, 65, 70);
         PImage SniperMonkey = loadImage("Monkeys/SniperMonkey.png");
         image(SniperMonkey, 832, 185);
+          fill(255);
+          rect(888, 190, 65, 70);
+          PImage NinjaMonkey = loadImage("Monkeys/NinjaMonkey.png");
+          image(NinjaMonkey, 897, 199);   
   fill(#ADD8E6);
   rect(823, 410, 130, 120);
   fill(0);
@@ -296,14 +301,11 @@ void draw() {
     }
     countdown--;
     if (lives == 0) {
-      int time = millis();
-      if (time > barrier + 1000) {
-        fill(#FF0000);
-        rect(205.75, 225, 411.5, 100);
-        fill(0);
-        textSize(40);
-        text("HOW DARE YOU LET THE \n           BLOONS WIN!!!", 207, 265);
-      }
+      fill(#FF0000);
+      rect(205.75, 225, 411.5, 100);
+      fill(0);
+      textSize(40);
+      text("HOW DARE YOU LET THE \n           BLOONS WIN!!!", 207, 265);
     }
   }
   if (waves > totalWaves && lives > 0 && balloon.size() == 0) {
@@ -342,6 +344,14 @@ void mouseClicked() {
     fill(#000000);
     textSize(30);
     text("Cost: "+300, 830, 340);
+  }
+  if (((mouseX < 953) && (mouseX >= 888)) && ((mouseY > 190) && (mouseY < 260))) {
+    selectNinja = true;
+    fill(#FFFF00);
+    rect(823, 310, 130, 40);
+    fill(#000000);
+    textSize(30);
+    text("Cost: "+500, 830, 340);
   }
   if (((mouseX < 953) && (mouseX > 823)) && ((mouseY > 410) && (mouseY < 530))) {
     if (move) {
@@ -407,9 +417,16 @@ void mouseReleased() {
     fill(0);
     rect(823, 310, 130, 40);     
   }
+  if (selectNinja && mouseX<805 && (red < 100 || blue < 100 || green < 100) && notInRange && (cash-500>=0)) {
+    towers.add(new Monkey("Monkeys/NinjaMonkey.png", 0, mouseX-25, mouseY+2));
+    modifyCash(-500);
+    fill(0);
+    rect(823, 310, 130, 40);     
+  }
   selectDart = false;
   selectSuper = false;
   selectSniper = false;
+  selectNinja = false;
 }
 
 void selections() {
@@ -421,6 +438,9 @@ void selections() {
   }
   if (selectSniper && mouseX<800) {
     image(loadImage("Monkeys/SniperMonkey.png"), mouseX-22, mouseY-15);
+  }
+  if (selectNinja && mouseX<792) {
+    image(loadImage("Monkeys/NinjaMonkey.png"), mouseX-22, mouseY-15);
   }
 }
 
