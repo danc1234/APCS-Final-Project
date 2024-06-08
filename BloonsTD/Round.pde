@@ -18,7 +18,7 @@ public class Round {
     bloonCamoRegrowDisplay = blooncamoregrow;
 
     rounds = new Bloons[][]
-      {{new Boss(9, 4.6, 227.0, false, false, new Map("Map.png"), 700, 1, bloonDisplay, bloonCamoDisplay, bloonRegrowDisplay, bloonCamoRegrowDisplay),
+      {{new Boss(9, 4.6, 227.0, true, false, new Map("Map.png"), 10, 1, bloonDisplay, bloonCamoDisplay, bloonRegrowDisplay, bloonCamoRegrowDisplay),
     /*new Bloons(1, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonCamoDisplay,bloonRegrowDisplay, bloonCamoRegrowDisplay),
      new Bloons(1, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonCamoDisplay,bloonRegrowDisplay, bloonCamoRegrowDisplay),
      new Bloons(1, 4.6, 227.0, false, false, new Map("Map.png"), bloonDisplay, bloonCamoDisplay,bloonRegrowDisplay, bloonCamoRegrowDisplay),

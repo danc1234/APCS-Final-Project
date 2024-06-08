@@ -400,25 +400,25 @@ void mouseReleased() {
     }
   }
   if (selectDart && mouseX<805 && (red < 100 || blue < 100 || green < 100) && notInRange && (cash-170>=0)) {
-    towers.add(new Monkey("Monkeys/DartMonkey.png", 0, mouseX-25, mouseY+2));
+    towers.add(new Monkey("Monkeys/DartMonkey.png", mouseX-25, mouseY+2));
     modifyCash(-170);
     fill(0);
     rect(823, 310, 130, 40);     
   }
   if (selectSuper && mouseX<805 && (red < 100 || blue < 100 || green < 100) && notInRange && (cash-2750>=0)) {
-    towers.add(new Monkey("Monkeys/SuperMonkey.png", 0, mouseX-25, mouseY+2));
+    towers.add(new Monkey("Monkeys/SuperMonkey.png", mouseX-25, mouseY+2));
     modifyCash(-2750);
     fill(0);
     rect(823, 310, 130, 40);     
   }
   if (selectSniper && mouseX<805 && (red < 100 || blue < 100 || green < 100) && notInRange && (cash-300>=0)) {
-    towers.add(new Monkey("Monkeys/SniperMonkey.png", 0, mouseX-25, mouseY+2));
+    towers.add(new Monkey("Monkeys/SniperMonkey.png", mouseX-25, mouseY+2));
     modifyCash(-300);
     fill(0);
     rect(823, 310, 130, 40);     
   }
   if (selectNinja && mouseX<805 && (red < 100 || blue < 100 || green < 100) && notInRange && (cash-500>=0)) {
-    towers.add(new Monkey("Monkeys/NinjaMonkey.png", 0, mouseX-25, mouseY+2));
+    towers.add(new Monkey("Monkeys/NinjaMonkey.png", mouseX-25, mouseY+2));
     modifyCash(-500);
     fill(0);
     rect(823, 310, 130, 40);     
