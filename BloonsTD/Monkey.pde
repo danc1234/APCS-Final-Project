@@ -108,8 +108,28 @@ public class Monkey {
       direction = darts.getAngle();
       if (darts.nearBloon(bloon)) {
         int a = bloon.getLayers();
+        PVector direction = bloon.getDirection();
+        float[] move = direction.array();
+        float x;
+        float y;
+        if (Math.round(move[0]) == 1 && Math.round(move[1]) == 0) {
+          x = bloon.getX()-30;
+          y = bloon.getY();
+        }
+        if (Math.round(move[0]) == 0 && Math.round(move[1]) == -1) {
+          x = bloon.getX();
+          y = bloon.getY()+30;
+        }
+        if (Math.round(move[0]) == -1 && Math.round(move[1]) == 0) {
+          x = bloon.getX()+30;
+          y = bloon.getY();
+        }
+        if (Math.round(move[0]) == 0 && Math.round(move[1]) == 1) {
+          x = bloon.getX();
+          y = bloon.getY()-30;
+        }
         if (a == 6) {
-          addBloons(new Bloons(5, bloon.getX()-5, bloon.getY()-5, false, false, new Map("Map.png"), getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon()));
+          addBloons(new Bloons(5, x, y, false, false, new Map("Map.png"), getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
         }
         bloon.popLayers(damage);
         int b = bloon.getLayers();

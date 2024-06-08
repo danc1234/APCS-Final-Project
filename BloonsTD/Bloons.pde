@@ -106,6 +106,12 @@ public class Bloons {
   public boolean getDraw() {
     return drawable;
   }
+  public Map getMap() {
+    return map;
+  } 
+  public int getTileCount() {
+    return tilecount; 
+  }
 
   // Methods
   public void resetTimer(int a) {
@@ -136,6 +142,7 @@ public class Bloons {
       tilecount++;
       tile = map.getTiles().get(tilecount);
     }
+    tile = map.getTiles().get(tilecount);
     if (x > tile.getX() - 2 && x < tile.getX() + 2 && y > tile.getY() - 2 && y < tile.getY() + 2) {
       if (map.tileCount > tilecount) {
         tilecount++;
