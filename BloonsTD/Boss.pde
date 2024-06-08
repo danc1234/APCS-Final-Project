@@ -48,48 +48,62 @@ public class Boss extends SpecialBloons {
       if (stage == 5) {
         if (this.getCamo() && this.getRegrow()) {
           balloon = bloonCamoRegrowDisplay[15];
+          balloon.resize(50, 46);
         } else if (this.getCamo()) {
           balloon = bloonCamoDisplay[15];
+          balloon.resize(36, 46);
         } else if (this.getRegrow()) {
           balloon = bloonRegrowDisplay[15];
+          balloon.resize(50, 46);
         } else {
           balloon = bloonDisplay[15];
-          balloon.resize(70, 70);
+          balloon.resize(36, 46);
         }
+        image(balloon, this.getX()-20, this.getY()-25);
       } else if (stage == 4) {
         if (this.getCamo() && this.getRegrow()) {
           balloon = bloonCamoRegrowDisplay[14];
+          balloon.resize(50, 46);
         } else if (this.getCamo()) {
           balloon = bloonCamoDisplay[14];
+          balloon.resize(36, 46);
         } else if (this.getRegrow()) {
           balloon = bloonRegrowDisplay[14];
+          balloon.resize(50, 46);
         } else {
           balloon = bloonDisplay[14];
-          balloon.resize(70, 70);
+          balloon.resize(36, 46);
         }
+        image(balloon, this.getX()-20, this.getY()-25);
       } else if (stage == 3) {
         if (this.getCamo() && this.getRegrow()) {
           balloon = bloonCamoRegrowDisplay[13];
+          balloon.resize(50, 46);
         } else if (this.getCamo()) {
           balloon = bloonCamoDisplay[13];
+          balloon.resize(36, 46);
         } else if (this.getRegrow()) {
           balloon = bloonRegrowDisplay[13];
+          balloon.resize(50, 46);
         } else {
           balloon = bloonDisplay[13];
-          balloon.resize(70, 70);
+          balloon.resize(36, 46);
         }
+        image(balloon, this.getX()-20, this.getY()-25);
       } else if (stage == 2) {
         if (this.getCamo() && this.getRegrow()) {
           balloon = bloonCamoRegrowDisplay[12];
         } else if (this.getCamo()) {
           balloon = bloonCamoDisplay[12];
+          balloon.resize(36, 46);
         } else if (this.getRegrow()) {
           balloon = bloonRegrowDisplay[12];
-
+          balloon.resize(50, 46);
         } else {
           balloon = bloonDisplay[12];
           balloon.resize(36, 46);
         }
+        image(balloon, this.getX()-20, this.getY()-25);
       } else if (stage == 1){
         if (this.getCamo() && this.getRegrow()) {
           balloon = bloonCamoRegrowDisplay[11];
@@ -101,12 +115,12 @@ public class Boss extends SpecialBloons {
           balloon = bloonDisplay[11];
         }
         balloon.resize(70, 70);
+        image(balloon, this.getX()-35, this.getY()-35);
       }
-      image(balloon, this.getX()-35, this.getY()-35);
     } else {
       PVector direction = this.getDirection();
       float[] move = direction.array();
-      if (health <= 200) {
+      if (this.getLayers() == 10) {
         if (Math.round(move[0]) == 1 && Math.round(move[1]) == 0) {
           balloon = loadImage("BalloonIMages/MoabRight.png");
           balloon.resize(132, 86);
@@ -124,7 +138,7 @@ public class Boss extends SpecialBloons {
           balloon.resize(86, 132);
         }
         image(balloon, this.getX()-45, this.getY()-45);
-      } else if (health <= 900) {
+      } else if (this.getLayers() == 11) {
         if (Math.round(move[0]) == 1 && Math.round(move[1]) == 0) {
           balloon = loadImage("BalloonIMages/BFBRight.png");
           balloon.resize(202, 142);
@@ -142,7 +156,7 @@ public class Boss extends SpecialBloons {
           balloon.resize(142, 202);
         }
         image(balloon, this.getX()-70, this.getY()-70);
-      } else {
+      } else if (this.getLayers() == 12) {
         if (Math.round(move[0]) == 1 && Math.round(move[1]) == 0) {
           balloon = loadImage("BalloonIMages/ZOMGRight.png");
           balloon.resize(222, 141);
