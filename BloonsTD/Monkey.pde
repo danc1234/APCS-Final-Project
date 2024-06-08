@@ -110,8 +110,8 @@ public class Monkey {
         int a = bloon.getLayers();
         PVector direction = bloon.getDirection();
         float[] move = direction.array();
-        float x;
-        float y;
+        float x = bloon.getX()+5;
+        float y = bloon.getY()+5;
         if (Math.round(move[0]) == 1 && Math.round(move[1]) == 0) {
           x = bloon.getX()-30;
           y = bloon.getY();
@@ -128,8 +128,18 @@ public class Monkey {
           x = bloon.getX();
           y = bloon.getY()-30;
         }
+        System.out.println("this is speed: "+bloon.getSpeed());
         if (a == 6) {
-          addBloons(new Bloons(5, x, y, false, false, new Map("Map.png"), getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+          addBloons(new Bloons(5, x, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+        }
+        if ((a == 7) && (bloon.getSpeed() == 0.51)) {
+          addBloons(new SpecialBloons(6, x, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), false, true, false, false, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+        }
+        if ((a == 7) && (bloon.getSpeed() == 0.9)) {
+          addBloons(new SpecialBloons(6, x, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), false, true, false, false, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+        }
+        if (a == 8) {
+          addBloons(new SpecialBloons(7, x, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), true, true, false, false, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
         }
         bloon.popLayers(damage);
         int b = bloon.getLayers();

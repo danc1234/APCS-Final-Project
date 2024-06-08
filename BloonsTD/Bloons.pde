@@ -112,6 +112,9 @@ public class Bloons {
   public int getTileCount() {
     return tilecount; 
   }
+  public double getSpeed() {
+    return speed; 
+  }
 
   // Methods
   public void resetTimer(int a) {

@@ -14,6 +14,15 @@ public class SpecialBloons extends Bloons {
     speedDeclarer();
     damageDeclarer();
   }
+  public SpecialBloons(int level, float locationX, float locationY, boolean camoflauge, boolean regenerate, Map maps, boolean freeze, boolean explosion, boolean sharp, boolean magic, PImage[] bloondisplay, PImage[] blooncamo, PImage[] bloonregrow, PImage[] blooncamoregrow, int tilenumber) {
+    super(level, locationX, locationY, camoflauge, regenerate, maps, bloondisplay, blooncamo, bloonregrow, blooncamoregrow, tilenumber);
+    imunFreeze = freeze;
+    imunExplosion = explosion;
+    imunSharp = sharp;
+    imunMagic = magic;
+    speedDeclarer();
+    damageDeclarer();
+  }
   public SpecialBloons(int level, float locationX, float locationY, boolean camoflauge, boolean regenerate, Map maps, PImage[] bloondisplay, PImage[] blooncamo, PImage[] bloonregrow, PImage[] blooncamoregrow) {
     super(level, locationX, locationY, camoflauge, regenerate, maps, bloondisplay, blooncamo, bloonregrow, blooncamoregrow);
   }
@@ -51,18 +60,9 @@ public class SpecialBloons extends Bloons {
     if (this.getLayers() < 6) {
       super.drawBloon();
     } else {
+      speedDeclarer();
+      damageDeclarer();
       if (this.getLayers() == 8) {
-        if (this.getCamo() && this.getRegrow()) {
-          balloon = bloonCamoRegrowDisplay[8];
-        } else if (this.getCamo()) {
-          balloon = bloonCamoDisplay[8];
-        } else if (this.getRegrow()) {
-          balloon = bloonRegrowDisplay[8];
-        } else {
-          balloon = bloonDisplay[8];
-        }
-      }
-      if ((this.getLayers() == 7) && (imunExplosion) && (imunFreeze)) {
         if (this.getCamo() && this.getRegrow()) {
           balloon = bloonCamoRegrowDisplay[10];
         } else if (this.getCamo()) {
@@ -73,7 +73,7 @@ public class SpecialBloons extends Bloons {
           balloon = bloonDisplay[10];
         }
       }
-      if ((this.getLayers() == 7) && (imunSharp)) {
+      if ((this.getLayers() == 7) && (imunExplosion) && (imunFreeze)) {
         if (this.getCamo() && this.getRegrow()) {
           balloon = bloonCamoRegrowDisplay[9];
         } else if (this.getCamo()) {
@@ -84,18 +84,29 @@ public class SpecialBloons extends Bloons {
           balloon = bloonDisplay[9];
         }
       }
-      if ((this.getLayers() == 6) && (imunFreeze)) {
+      if ((this.getLayers() == 7) && (imunSharp)) {
         if (this.getCamo() && this.getRegrow()) {
-          balloon = bloonCamoRegrowDisplay[7];
+          balloon = bloonCamoRegrowDisplay[8];
         } else if (this.getCamo()) {
-          balloon = bloonCamoDisplay[7];
+          balloon = bloonCamoDisplay[8];
         } else if (this.getRegrow()) {
-          balloon = bloonRegrowDisplay[7];
+          balloon = bloonRegrowDisplay[8];
         } else {
-          balloon = bloonDisplay[7];
+          balloon = bloonDisplay[8];
         }
       }
       if ((this.getLayers() == 6) && (imunExplosion)) {
+        if (this.getCamo() && this.getRegrow()) {
+          balloon = bloonCamoRegrowDisplay[5];
+        } else if (this.getCamo()) {
+          balloon = bloonCamoDisplay[5];
+        } else if (this.getRegrow()) {
+          balloon = bloonRegrowDisplay[5];
+        } else {
+          balloon = bloonDisplay[5];
+        }
+      }
+      if ((this.getLayers() == 6) && (imunFreeze)) {
         if (this.getCamo() && this.getRegrow()) {
           balloon = bloonCamoRegrowDisplay[6];
         } else if (this.getCamo()) {
@@ -108,16 +119,16 @@ public class SpecialBloons extends Bloons {
       }
       if ((this.getLayers() == 6) && (imunMagic)) {
         if (this.getCamo() && this.getRegrow()) {
-          balloon = bloonCamoRegrowDisplay[8];
+          balloon = bloonCamoRegrowDisplay[7];
         } else if (this.getCamo()) {
-          balloon = bloonCamoDisplay[8];
+          balloon = bloonCamoDisplay[7];
         } else if (this.getRegrow()) {
-          balloon = bloonRegrowDisplay[8];
+          balloon = bloonRegrowDisplay[7];
         } else {
-          balloon = bloonDisplay[8];
+          balloon = bloonDisplay[7];
         }
       }
-      balloon.resize(70, 70);
+      balloon.resize(60, 60);
       image(balloon, this.getX()-35, this.getY()-35);
     }
   }
