@@ -107,3 +107,7 @@ The CSV File can be worked on using Python. I copied and pasted the output of a 
 ### 6/6/2024
 
 Added regrowth and camo bloon functionality. 
+
+### 6/8/2024
+
+Figured out how splitting works. Also worked on ceramics and Moab class bloons.
