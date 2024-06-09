@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 //hi oingo boingo;
 private static int lives=100;
-private static int cash=3000;
+private static int cash=50000;
 private static int waves=1;
 private static int barrier;
 private static boolean selectDart;
@@ -98,7 +98,7 @@ private Round rounds;
 private ArrayList<Monkey> towers = new ArrayList<Monkey>();
 private int countdown = 0;
 private boolean move = false;
-private int totalWaves = 19;
+private int totalWaves = 18;
 
 void setup() {
   size(953, 530);
@@ -209,17 +209,29 @@ CeramicCamo4 = loadImage("CamoBloons/CeramicDamage4.png");
 CeramicRegrow4 = loadImage("RegrowthBloons/CeramicDamage4.png");
 CeramicCamoRegrow4 = loadImage("CamoRegrowth/CeramicDamage4.png");
 MoabRight = loadImage("BalloonImages/MoabRight.png");
+MoabRight.resize(132, 86);
 MoabUp = loadImage("BalloonImages/MoabUp.png");
+MoabUp.resize(86, 132);
 MoabLeft = loadImage("BalloonImages/MoabLeft.png");
+MoabLeft.resize(132, 86);
 MoabDown = loadImage("BalloonImages/MoabDown.png");
+MoabDown.resize(86, 132);
 BFBRight = loadImage("BalloonImages/BFBRight.png");
+BFBRight.resize(202, 142);
 BFBUp = loadImage("BalloonImages/BFBUp.png");
+BFBUp.resize(142, 202);
 BFBLeft = loadImage("BalloonImages/BFBLeft.png");
+BFBLeft.resize(202, 142);
 BFBDown = loadImage("BalloonImages/BFBDown.png");
+BFBDown.resize(142, 202);
 ZOMGRight = loadImage("BalloonImages/ZOMGRight.png");
+ZOMGRight.resize(222, 141);
 ZOMGUp = loadImage("BalloonImages/ZOMGUp.png");
+ZOMGUp.resize(141, 222);
 ZOMGLeft = loadImage("BalloonImages/ZOMGLeft.png");
+ZOMGLeft.resize(222, 141);
 ZOMGDown = loadImage("BalloonImages/ZOMGDown.png");
+ZOMGDown.resize(141, 222);
 
 BloonDisplay = new PImage[]{RedBloon, BlueBloon,GreenBloon, YellowBloon, PinkBloon, BlackBloon, WhiteBloon, PurpleBloon, LeadBloon, ZebraBloon, RainbowBloon
 ,CeramicBloon, Ceramic1, Ceramic2, Ceramic3, Ceramic4,
@@ -232,6 +244,19 @@ BloonRegrowDisplay = new PImage[]{RedRegrowBloon, BlueRegrowBloon,GreenRegrowBlo
 ,CeramicRegrowBloon, CeramicRegrow1, CeramicRegrow2, CeramicRegrow3, CeramicRegrow4};
 BloonCamoRegrowDisplay = new PImage[]{RedCamoRegrowBloon, BlueCamoRegrowBloon,GreenCamoRegrowBloon, YellowCamoRegrowBloon, PinkCamoRegrowBloon, BlackCamoRegrowBloon, WhiteCamoRegrowBloon, PurpleCamoRegrowBloon, LeadCamoRegrowBloon, ZebraCamoRegrowBloon, RainbowCamoRegrowBloon
 ,CeramicCamoRegrowBloon, CeramicCamoRegrow1, CeramicCamoRegrow2, CeramicCamoRegrow3, CeramicCamoRegrow4};
+for (int i = 0; i < 5; i++) {
+  BloonDisplay[i].resize(70, 70);
+  BloonCamoDisplay[i].resize(70, 70);
+  BloonRegrowDisplay[i].resize(70, 70);
+  BloonCamoRegrowDisplay[i].resize(70, 70);
+}
+for (int i = 5; i < 11; i++) {
+  BloonDisplay[i].resize(60, 60);
+  BloonCamoDisplay[i].resize(60, 60);
+  BloonRegrowDisplay[i].resize(60, 60);
+  BloonCamoRegrowDisplay[i].resize(60, 60);
+}
+
 
 rounds = new Round(BloonDisplay,BloonCamoDisplay, BloonRegrowDisplay, BloonCamoRegrowDisplay);
 
@@ -427,6 +452,22 @@ void mouseReleased() {
   selectSuper = false;
   selectSniper = false;
   selectNinja = false;
+}
+
+void keyPressed() {
+  if (key == ' ') {
+    round++;
+    waves++;
+    fill(255);
+    rect(823, 0, 130, 120);
+    fill(0);
+    textSize(30);
+    text("Lives: "+lives, 825, 30);
+    textSize(25);
+    text("Cash: "+cash, 825, 60);
+    textSize(20);
+    text("Wave "+waves+" out of \n"+totalWaves, 825, 90);
+  }
 }
 
 void selections() {

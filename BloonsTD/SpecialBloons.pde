@@ -11,6 +11,12 @@ public class SpecialBloons extends Bloons {
     imunExplosion = explosion;
     imunSharp = sharp;
     imunMagic = magic;
+    if (sharp) {
+      setSharp(); 
+    }
+    if (magic) {
+      setMagic(); 
+    }
     speedDeclarer();
     damageDeclarer();
   }
@@ -54,9 +60,6 @@ public class SpecialBloons extends Bloons {
       super.attributeDeclarer();
     }
   }
-
-
-
 
   public void drawBloon() {
     if (this.getLayers() < 6) {
@@ -131,7 +134,6 @@ public class SpecialBloons extends Bloons {
           balloon = bloonDisplay[7];
         }
       }
-      balloon.resize(60, 60);
       image(balloon, this.getX()-35, this.getY()-35);
     }
   }
