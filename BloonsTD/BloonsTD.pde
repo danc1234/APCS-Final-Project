@@ -101,7 +101,9 @@ private boolean move = false;
 private int totalWaves = 18;
 
 void setup() {
-  size(953, 530);
+  size(953, 600);
+  fill(#000000);
+  rect(0, 530, 823, 70);
   fill(0);
   rect(823, 0, 130, 530);
   fill(255);
@@ -412,6 +414,66 @@ void mouseClicked() {
     } 
     rounds.restartBalloon();
   }
+  for (int i = 0; i < towers.size(); i++) {
+    if (towers.get(i).inRange(mouseX, mouseY)) {
+      if (towers.get(i).getWasPlaced()) {
+        towers.get(i).setUpgradeMode();
+        fill(#964B00);
+        rect(0, 530, 823, 70); 
+        fill(#000000);
+        rect(290, 530, 150, 70);
+        // DChoe, this is where you start placing the upgrades of the other monkeys
+        if (towers.get(i).getLink().equals("Monkeys/NinjaMonkey.png")) {
+           if (!towers.get(i).getUpgrade1a()) {
+             fill(#FFA500);
+             textSize(20);
+             text("Ninja Discipline: Increase \nRange and Attack Speed", 5, 560);       
+           } else if (!towers.get(i).getUpgrade2a()) {
+             fill(#FFA500);
+             textSize(20);
+             text("Burning Shurikens: Ninja's \nshurikens can burn through lead", 5, 560);
+           } else {
+             fill(#FFA500);
+             textSize(20);
+             text("This path is done", 5, 560); 
+           }
+           if (!towers.get(i).getUpgrade1b()) {
+             fill(#FFA500);
+             textSize(20);
+             text("Sharp Shurikens: Shurikens \ndo 2 Damage", 450, 560);
+           } else if (!towers.get(i).getUpgrade2b()) {
+             fill(#FFA500);
+             textSize(20);
+             text("Sharper Shurikens: Shurikens \ndo 4 Damage", 450, 560); 
+           } else {
+             fill(#FFA500);
+             textSize(20);
+             text("This path is done", 450, 560); 
+           }
+        } 
+        // DChoe, this is NinjaMonkey done. Copy and paste the above block of code and seperate with comments to make easier reading
+      } else { 
+        towers.get(i).setPlaced(); 
+      }
+    }
+    if (((mouseX < 290) && (mouseX > 0)) && ((mouseY > 530) && (mouseY < 600)) && towers.get(i).getUpgradeMode() && !towers.get(i).getUpgrade1a()) {
+      towers.get(i).activateUpgrade1a();
+        
+    }/*
+    else if (((mouseX < 290) && (mouseX > 0)) && ((mouseY > 530) && (mouseY < 600)) && towers.get(i).getUpgradeMode() && towers.get(i).getUpgrade1a()) {
+      println("called");
+      towers.get(i).setReload(300);
+      towers.get(i).setRange(175);
+      towers.get(i).setUpgrade1a();
+      fill(#FFA500);
+      textSize(25);
+      text("Burning Shurikens: Ninja's \nshurikens can burn through lead", 5, 560);     
+    }*/ else {
+      towers.get(i).setUpgradeMode(); /*
+      fill(#000000);
+      rect(0, 530, 823, 70);*/
+    }
+  }
 }
 
 void mouseReleased() {
@@ -452,6 +514,9 @@ void mouseReleased() {
   selectSuper = false;
   selectSniper = false;
   selectNinja = false;
+ 
+  
+  
 }
 
 void keyPressed() {
