@@ -430,11 +430,11 @@ void mouseClicked() {
            if (!towers.get(i).getUpgrade1a()) {
              fill(#FFA500);
              textSize(20);
-             text("Ninja Discipline: Increase \nRange and Attack Speed", 5, 560);       
+             text("Ninja Discipline: Increase \nRange and Attack Speed (300)", 5, 560);       
            } else if (!towers.get(i).getUpgrade2a()) {
              fill(#FFA500);
              textSize(20);
-             text("Burning Shurikens: Ninja's \nshurikens can burn through lead", 5, 560);
+             text("Flamed: Ninja's shurikens can \nburn through lead (500)", 5, 560);
            } else {
              fill(#FFA500);
              textSize(40);
@@ -443,11 +443,11 @@ void mouseClicked() {
            if (!towers.get(i).getUpgrade1b()) {
              fill(#FFA500);
              textSize(20);
-             text("Sharp Shurikens: Shurikens \ndo 2 Damage", 450, 560);
+             text("Sharp Shurikens: Shurikens \ndo 2 Damage (200)", 450, 560);
            } else if (!towers.get(i).getUpgrade2b()) {
              fill(#FFA500);
              textSize(20);
-             text("Sharper Shurikens: Shurikens \ndo 4 Damage", 450, 560); 
+             text("Sharper Shurikens: Shurikens \ndo 4 Damage (400)", 450, 560); 
            } else {
              fill(#FFA500);
              textSize(40);
@@ -457,11 +457,11 @@ void mouseClicked() {
            if (!towers.get(i).getUpgrade1a()) {
              fill(#FFA500);
              textSize(20);
-             text("Super Range: Increase \nRange", 5, 560);       
+             text("Super Range: Increase \nRange (1000)", 5, 560);       
            } else if (!towers.get(i).getUpgrade2a()) {
              fill(#FFA500);
              textSize(20);
-             text("Epic Range: Why settle for Super \n when you can have epic?", 5, 560);
+             text("Epic Range: Why settle for Super \n when you can have epic? (1500)", 5, 560);
            } else {
              fill(#FFA500);
              textSize(40);
@@ -470,11 +470,11 @@ void mouseClicked() {
            if (!towers.get(i).getUpgrade1b()) {
              fill(#FFA500);
              textSize(20);
-             text("Camo: Grants Camo Sight to \n SuperMonkey",450, 560);
+             text("Camo: Grants Camo Sight to \n SuperMonkey (500)",450, 560);
            } else if (!towers.get(i).getUpgrade2b()) {
              fill(#FFA500);
-             textSize(20);
-             text("Plasma Beams: Plasma beams do \na whopping 7 damage per hit!", 450, 560); 
+             textSize(18);
+             text("Plasma Beams: Plasma beams do \na whopping 7 damage per hit! (2500)", 450, 560); 
            } else {
              fill(#FFA500);
              textSize(40);
