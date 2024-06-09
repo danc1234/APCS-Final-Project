@@ -48,7 +48,7 @@ public class Monkey {
       cost = 2750;
       damage = 1;
       lead = false;
-      magic = false;
+      magic = true;
     } else if (link.equals("Monkeys/DartMonkey.png")) {
       reload = 400;
       range = 100;
@@ -59,7 +59,7 @@ public class Monkey {
       cost = 170;
       damage = 1;
       lead = false;
-      magic = false;
+      magic = true;
     } else if (link.equals("Monkeys/SniperMonkey.png")) {
       reload = 800;
       range = 750;
@@ -70,7 +70,7 @@ public class Monkey {
       cost = 300;
       damage = 2;
       lead = false;
-      magic = false;
+      magic = true;
     } else if (link.equals("Monkeys/NinjaMonkey.png")) {
       reload = 400;
       range = 150;
@@ -81,7 +81,7 @@ public class Monkey {
       cost = 500;
       damage = 1;
       lead = false;
-      magic = false;
+      magic = true;
     }
   }
 
@@ -162,17 +162,45 @@ public class Monkey {
     UpgradeMode = !UpgradeMode; 
   }
   
-  public boolean activateUpgrade2b() {
-    return upgrade2b;
+  public void activateUpgrade2b() {
+    if (link.equals("Monkeys/NinjaMonkey.png")) {
+      modifyCash(-400);
+      damage = 4;
+      fill(#964B00);
+      rect(440, 530, 290, 70); 
+      fill(#FFA500);
+      textSize(40);
+      text("Path Closed", 445, 580); 
+    }
+    upgrade2b = true;
   }
-  public boolean activateUpgrade2a() {
-    return upgrade2a;
+  public void activateUpgrade2a() {
+    if (link.equals("Monkeys/NinjaMonkey.png")) {
+      modifyCash(-500);
+      lead = true;
+      fill(#964B00);
+      rect(0, 530, 290, 70); 
+      fill(#FFA500);
+      textSize(40);
+      text("Path Closed", 5, 580); 
+    }
+    upgrade2a = true;
   }
-  public boolean activateUpgrade1b() {
-    return upgrade1b;
+  public void activateUpgrade1b() {
+    if (link.equals("Monkeys/NinjaMonkey.png")) {
+      modifyCash(-200);
+      damage = 2;
+      fill(#964B00);
+      rect(440, 530, 290, 70); 
+      fill(#FFA500);
+      textSize(20);
+      text("Sharper Shurikens: Shurikens \ndo 4 Damage", 450, 560);
+    }
+    upgrade1b = true;
   }
   public void activateUpgrade1a() {
     if (link.equals("Monkeys/NinjaMonkey.png")) {
+      modifyCash(-300);
       reload = 200;
       range = 175;
       upgrade1a = true;
@@ -180,8 +208,9 @@ public class Monkey {
       rect(0, 530, 290, 70); 
       fill(#FFA500);
       textSize(20);
-      text("Burning Shurikens: Ninja's \nshurikens can burn through lead", 5, 560);   
+      text("Burning Shurikens: Ninja's \nshurikens can burn through lead", 5, 560);  
     }
+    upgrade1a = true;
   }
   
   // Methods

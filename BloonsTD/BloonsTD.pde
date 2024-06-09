@@ -457,18 +457,16 @@ void mouseClicked() {
       }
     }
     if (((mouseX < 290) && (mouseX > 0)) && ((mouseY > 530) && (mouseY < 600)) && towers.get(i).getUpgradeMode() && !towers.get(i).getUpgrade1a()) {
-      towers.get(i).activateUpgrade1a();
-        
-    }/*
-    else if (((mouseX < 290) && (mouseX > 0)) && ((mouseY > 530) && (mouseY < 600)) && towers.get(i).getUpgradeMode() && towers.get(i).getUpgrade1a()) {
-      println("called");
-      towers.get(i).setReload(300);
-      towers.get(i).setRange(175);
-      towers.get(i).setUpgrade1a();
-      fill(#FFA500);
-      textSize(25);
-      text("Burning Shurikens: Ninja's \nshurikens can burn through lead", 5, 560);     
-    }*/ else {
+      towers.get(i).activateUpgrade1a();        
+    } else if (((mouseX < 290) && (mouseX > 0)) && ((mouseY > 530) && (mouseY < 600)) && towers.get(i).getUpgradeMode() && !towers.get(i).getUpgrade2a()) {
+      towers.get(i).activateUpgrade2a();        
+    } else if (((mouseX < 720) && (mouseX > 440)) && ((mouseY > 530) && (mouseY < 600)) && towers.get(i).getUpgradeMode() && !towers.get(i).getUpgrade1b()) {
+      towers.get(i).activateUpgrade1b();        
+    } else if (((mouseX < 720) && (mouseX > 440)) && ((mouseY > 530) && (mouseY < 600)) && towers.get(i).getUpgradeMode() && !towers.get(i).getUpgrade2b()) {
+      towers.get(i).activateUpgrade2b();        
+    } 
+    
+    else {
       towers.get(i).setUpgradeMode(); /*
       fill(#000000);
       rect(0, 530, 823, 70);*/
