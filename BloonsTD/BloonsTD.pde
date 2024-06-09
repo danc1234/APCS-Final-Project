@@ -422,7 +422,10 @@ void mouseClicked() {
         rect(0, 530, 823, 70); 
         fill(#000000);
         rect(290, 530, 150, 70);
-        // DChoe, this is where you start placing the upgrades of the other monkeys
+        rect(730, 530, 93, 70);
+        // DChoe, this is where you start placing the upgrades of the other monkeys so that it shows up in the screen
+        // The actual effects of the monkeys, you place in the Monkey class, where there are a bunch of void functions
+        // modifying the variables based off what type of monkey it is.
         if (towers.get(i).getLink().equals("Monkeys/NinjaMonkey.png")) {
            if (!towers.get(i).getUpgrade1a()) {
              fill(#FFA500);
@@ -434,8 +437,8 @@ void mouseClicked() {
              text("Burning Shurikens: Ninja's \nshurikens can burn through lead", 5, 560);
            } else {
              fill(#FFA500);
-             textSize(20);
-             text("This path is done", 5, 560); 
+             textSize(40);
+             text("Path Closed", 5, 580); 
            }
            if (!towers.get(i).getUpgrade1b()) {
              fill(#FFA500);
@@ -447,8 +450,8 @@ void mouseClicked() {
              text("Sharper Shurikens: Shurikens \ndo 4 Damage", 450, 560); 
            } else {
              fill(#FFA500);
-             textSize(20);
-             text("This path is done", 450, 560); 
+             textSize(40);
+             text("Path Closed", 445, 580); 
            }
         } 
         // DChoe, this is NinjaMonkey done. Copy and paste the above block of code and seperate with comments to make easier reading
@@ -464,12 +467,12 @@ void mouseClicked() {
       towers.get(i).activateUpgrade1b();        
     } else if (((mouseX < 720) && (mouseX > 440)) && ((mouseY > 530) && (mouseY < 600)) && towers.get(i).getUpgradeMode() && !towers.get(i).getUpgrade2b()) {
       towers.get(i).activateUpgrade2b();        
-    } 
+    }
     
-    else {
-      towers.get(i).setUpgradeMode(); /*
+    else if (mouseY <= 530 && !towers.get(i).inRange(mouseX, mouseY)) {
+      towers.get(i).setUpgradeMode(); 
       fill(#000000);
-      rect(0, 530, 823, 70);*/
+      rect(0, 530, 823, 70);
     }
   }
 }
