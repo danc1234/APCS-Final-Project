@@ -1,0 +1,80 @@
+20 reds
+35 reds
+25 reds / 5 blues
+35 reds / 18 blues
+5 reds / 27 blues
+15 reds / 15 blues / 4 greens
+20 reds / 20 blues / 5 greens
+10 reds / 20 blues / 14 greens
+30 greens
+102 blues
+10 reds / 10 blues / 12 greens / 3 yellows
+15 blues / 10 greens / 5 yellows
+50 blues / 23 greens
+49 reds / 15 blues / 10 greens / 9 yellows
+20 reds / 15 blues / 12 greens / 10 yellows / 5 pinks
+40 greens / 8 yellows
+12 regen yellows
+80 greens
+10 greens / 4 yellows / 5 regen yellows / 15 pinks
+6 blacks
+40 yellows / 14 pinks
+16 whites
+7 blacks / 7 whites
+20 blues / 1 camo green
+25 regen yellows / 10 purples
+23 pinks / 4 zebras
+100 reds / 60 blues / 45 greens / 45 yellows
+6 leads
+50 yellows / 15 regen yellows
+9 leads
+8 blacks / 8 whites / 8 zebras / 2 regen zebras
+15 blacks / 20 whites / 10 purples
+20 camo reds / 13 camo yellows
+160 yellows / 6 zebras
+35 pinks / 30 blacks / 25 whites / 5 rainbows
+20 camoregen greens / 140 pinks
+25 blacks / 25 whites / 7 camo whites / 15 leads / 10 zebras
+42 pinks / 17 whites / 14 leads / 10 zebras / 2 ceramics
+10 blacks / 10 whites / 20 zebras / 18 rainbows / 2 regen rainbows
+1 MOAB
+60 blacks / 60 zebras
+6 regen rainbows / 5 camo rainbows
+10 rainbows / 7 ceramics
+50 zebras
+180 pinks / 10 camo purples / 4  leads / 25 rainbows
+6  ceramics
+70 camo pinks / 12 ceramics
+40 regen pinks / 30 camoregen purples / 40 rainbows / 3  ceramics
+343? green / 20? zebra / 20 rainbows / 10 regen rainbows / 18 ceramics
+20 reds / 8  leads / 20 ceramics / 2 MOAB
+10 regen rainbows / 15 camo ceramics
+25 rainbows / 10 ceramics / 2 MOAB
+80 camo pinks / 3 MOAB
+35 ceramics / 2 MOAB
+45 ceramics / 1 MOAB
+40 camo rainbows / 1 MOAB
+40 rainbows / 4 MOAB
+15 ceramics / 10  ceramics / 5 MOAB
+50 camo leads / 20 ceramics / 10 regen ceramics
+1 BFB
+150 regen zebras / 5 MOAB
+250 purples / 15 camoregen rainbows / 5 MOAB / 2  MOAB
+75 leads / 122 ceramics
+6 MOAB / 3  MOAB
+100 zebras / 70 rainbows / 50 ceramics / 3 MOAB / 2 BFB
+8 MOAB / 3  MOAB
+13 camoregen  ceramics / 8 MOAB
+4 MOAB / 1 BFB
+40 regen blacks / 40  leads / 50 ceramics
+120 camoregen whites / 200 rainbows / 4 MOAB
+30 ceramics / 10 MOAB
+38 regen ceramics / 2 BFB
+8 MOAB / 2 BFB
+50 ceramics / 60  ceramics / 25 camoregen  ceramics / 1 BFB
+14 leads / 14  leads / 3  MOAB / 7 BFB
+60 regen ceramics
+11 MOAB / 5 BFB
+80 purples / 150 rainbows / 75 ceramics / 72 camo ceramics / 1 BFB
+500 regen rainbows / 4 BFB / 2  BFB
+1 ZOMG

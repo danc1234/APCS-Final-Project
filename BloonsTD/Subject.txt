@@ -1,0 +1,5 @@
+20 reds
+35 reds
+25 reds / 5 blues
+35 reds / 18 blues
+5 reds / 27 blues
