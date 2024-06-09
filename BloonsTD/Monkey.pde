@@ -8,8 +8,6 @@ public class Monkey {
   private float direction = 0;
   private float x;
   private float y;
-  private boolean land;
-  private boolean water;
   private boolean seeCamo;
   private boolean lead;
   private boolean magic;
@@ -19,6 +17,14 @@ public class Monkey {
   private PImage sprite;
   private String link;
   private int reloadTimer = millis();
+  
+  private boolean upgrade1a = false;
+  private boolean upgrade1b = false;
+  private boolean upgrade2a = false;
+  private boolean upgrade2b = false;
+  private boolean wasPlaced = false;
+  private boolean UpgradeMode = false;
+  
 
   // Constructor
   public Monkey(String image, float placeX, float placeY) {
@@ -34,9 +40,7 @@ public class Monkey {
       reload = 0;
       range = 200;
       seeCamo = false;
-      land = true;
-      water = false;
-      placementRadius = 30;
+      placementRadius = 40;
       cost = 2750;
       damage = 1;
       lead = false;
@@ -45,8 +49,6 @@ public class Monkey {
       reload = 400;
       range = 100;
       seeCamo = false;
-      land = true;
-      water = false;
       placementRadius = 30;
       cost = 170;
       damage = 1;
@@ -56,9 +58,7 @@ public class Monkey {
       reload = 800;
       range = 750;
       seeCamo = false;
-      land = true;
-      water = false;
-      placementRadius = 30;
+      placementRadius = 50;
       cost = 300;
       damage = 2;
       lead = false;
@@ -67,9 +67,7 @@ public class Monkey {
       reload = 400;
       range = 150;
       seeCamo = true;
-      land = true;
-      water = false;
-      placementRadius = 30;
+      placementRadius = 40;
       cost = 500;
       damage = 1;
       lead = false;
@@ -79,23 +77,23 @@ public class Monkey {
 
 
   // Accessors
+  public String getLink() {
+    return link; 
+  }
   public Dart getDart() {
     return darts;
   }
   public int getCost() {
     return cost;
   }
+  public int getReload() {
+    return reload;
+  } 
   public float getX() {
     return x;
   }
   public float getY() {
     return y;
-  }
-  public int getRange() {
-    return range;
-  }
-  public int getReload() {
-    return reload;
   }
   public int getReloadTimer() {
     return reloadTimer;
@@ -106,11 +104,105 @@ public class Monkey {
   public boolean getCamo() {
     return seeCamo;
   }
+  public boolean getUpgrade2b() {
+    return upgrade2b;
+  }
+  public boolean getUpgrade2a() {
+    return upgrade2a;
+  }
+  public boolean getUpgrade1b() {
+    return upgrade1b;
+  }
+  public boolean getUpgrade1a() {
+    return upgrade1a;
+  }
+  public boolean getWasPlaced() {
+    return wasPlaced; 
+  }
+  public boolean getUpgradeMode() {
+    return UpgradeMode; 
+  }
 
+  public void setPlaced() {
+    wasPlaced = true; 
+  }
   public void resetTimer(int a) {
     reloadTimer = a;
   }
-
+  public void setReload(int a) {
+    reload = a; 
+  }
+  public void setRange(int a){
+    range = a;
+  } 
+  
+  public void setUpgrade2b() {
+    upgrade2b = true; 
+  }
+  public void setUpgrade2a() {
+    upgrade2a = true;
+  }
+  public void setUpgrade1b() {
+    upgrade1b = true;
+  }
+  public void setUpgrade1a() {
+    upgrade1a = true;
+  }
+  public void setUpgradeMode(boolean a) {
+    UpgradeMode = a; 
+  }
+  
+  public void activateUpgrade2b() {
+    if (link.equals("Monkeys/NinjaMonkey.png")) {
+      modifyCash(-400);
+      damage = 4;
+      fill(#964B00);
+      rect(440, 530, 290, 70); 
+      fill(#FFA500);
+      textSize(40);
+      text("Path Closed", 445, 580); 
+    }
+    upgrade2b = true;
+  }
+  public void activateUpgrade2a() {
+    if (link.equals("Monkeys/NinjaMonkey.png")) {
+      modifyCash(-500);
+      lead = true;
+      fill(#964B00);
+      rect(0, 530, 290, 70); 
+      fill(#FFA500);
+      textSize(40);
+      text("Path Closed", 5, 580); 
+    }
+    upgrade2a = true;
+  }
+  public void activateUpgrade1b() {
+    if (link.equals("Monkeys/NinjaMonkey.png")) {
+      modifyCash(-200);
+      damage = 2;
+      fill(#964B00);
+      rect(440, 530, 290, 70); 
+      fill(#FFA500);
+      textSize(20);
+      text("Sharper Shurikens: Shurikens \ndo 4 Damage", 450, 560);
+    }
+    upgrade1b = true;
+  }
+  public void activateUpgrade1a() {
+    if (link.equals("Monkeys/NinjaMonkey.png")) {
+      modifyCash(-300);
+      reload = 200;
+      range = 175;
+      upgrade1a = true;
+      fill(#964B00);
+      rect(0, 530, 290, 70); 
+      fill(#FFA500);
+      textSize(20);
+      text("Burning Shurikens: Ninja's \nshurikens can burn through lead", 5, 560);  
+    }
+    upgrade1a = true;
+  }
+  
   // Methods
   public void drawMonkey() {
     pushMatrix();
