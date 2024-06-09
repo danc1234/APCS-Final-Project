@@ -453,7 +453,34 @@ void mouseClicked() {
              textSize(40);
              text("Path Closed", 445, 580); 
            }
-        } 
+        } else if (towers.get(i).getLink().equals("Monkeys/SuperMonkey.png")) {
+           if (!towers.get(i).getUpgrade1a()) {
+             fill(#FFA500);
+             textSize(20);
+             text("Super Range: Increase \nRange", 5, 560);       
+           } else if (!towers.get(i).getUpgrade2a()) {
+             fill(#FFA500);
+             textSize(20);
+             text("Epic Range: Why settle for Super \n when you can have epic?", 5, 560);
+           } else {
+             fill(#FFA500);
+             textSize(40);
+             text("Path Closed", 5, 580); 
+           }
+           if (!towers.get(i).getUpgrade1b()) {
+             fill(#FFA500);
+             textSize(20);
+             text("Camo: Grants Camo Sight to \n SuperMonkey",450, 560);
+           } else if (!towers.get(i).getUpgrade2b()) {
+             fill(#FFA500);
+             textSize(20);
+             text("Plasma Beams: Plasma beams do \na whopping 7 damage per hit!", 450, 560); 
+           } else {
+             fill(#FFA500);
+             textSize(40);
+             text("Path Closed", 445, 580); 
+           }
+        }
         // DChoe, this is NinjaMonkey done. Copy and paste the above block of code and seperate with comments to make easier reading
       } else { 
         towers.get(i).setPlaced(); 
@@ -572,4 +599,8 @@ public void modifyCash(int stonks) {
   text("Cash: "+cash, 825, 60);
   textSize(20);
   text("Wave "+waves+" out of \n"+totalWaves, 825, 90);
+}
+
+public int getCash() {
+  return cash; 
 }

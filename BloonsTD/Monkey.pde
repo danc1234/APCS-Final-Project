@@ -44,7 +44,7 @@ public class Monkey {
       cost = 2750;
       damage = 1;
       lead = false;
-      magic = false;
+      magic = true;
     } else if (link.equals("Monkeys/DartMonkey.png")) {
       reload = 400;
       range = 100;
@@ -53,7 +53,7 @@ public class Monkey {
       cost = 170;
       damage = 1;
       lead = false;
-      magic = false;
+      magic = true;
     } else if (link.equals("Monkeys/SniperMonkey.png")) {
       reload = 800;
       range = 750;
@@ -62,7 +62,7 @@ public class Monkey {
       cost = 300;
       damage = 2;
       lead = false;
-      magic = false;
+      magic = true;
     } else if (link.equals("Monkeys/NinjaMonkey.png")) {
       reload = 400;
       range = 150;
@@ -71,7 +71,7 @@ public class Monkey {
       cost = 500;
       damage = 1;
       lead = false;
-      magic = false;
+      magic = true;
     }
   }
 
@@ -153,9 +153,20 @@ public class Monkey {
   }
   
   public void activateUpgrade2b() {
-    if (link.equals("Monkeys/NinjaMonkey.png")) {
+    if (link.equals("Monkeys/NinjaMonkey.png") && getCash()>=400) {
       modifyCash(-400);
       damage = 4;
+      fill(#964B00);
+      rect(440, 530, 290, 70); 
+      fill(#FFA500);
+      textSize(40);
+      text("Path Closed", 445, 580); 
+    }
+    if (link.equals("Monkeys/SuperMonkey.png") && getCash()>=2500) {
+      modifyCash(-2500);
+      damage = 7;
+      magic = false;
+      lead = true;
       fill(#964B00);
       rect(440, 530, 290, 70); 
       fill(#FFA500);
@@ -165,9 +176,18 @@ public class Monkey {
     upgrade2b = true;
   }
   public void activateUpgrade2a() {
-    if (link.equals("Monkeys/NinjaMonkey.png")) {
+    if (link.equals("Monkeys/NinjaMonkey.png") && getCash()>=500) {
       modifyCash(-500);
       lead = true;
+      fill(#964B00);
+      rect(0, 530, 290, 70); 
+      fill(#FFA500);
+      textSize(40);
+      text("Path Closed", 5, 580); 
+    }
+    if (link.equals("Monkeys/SuperMonkey.png") && getCash()>=1500) {
+      modifyCash(-1500);
+      range = 320;
       fill(#964B00);
       rect(0, 530, 290, 70); 
       fill(#FFA500);
@@ -177,7 +197,7 @@ public class Monkey {
     upgrade2a = true;
   }
   public void activateUpgrade1b() {
-    if (link.equals("Monkeys/NinjaMonkey.png")) {
+    if (link.equals("Monkeys/NinjaMonkey.png") && getCash()>=200) {
       modifyCash(-200);
       damage = 2;
       fill(#964B00);
@@ -185,11 +205,20 @@ public class Monkey {
       fill(#FFA500);
       textSize(20);
       text("Sharper Shurikens: Shurikens \ndo 4 Damage", 450, 560);
+    } 
+    if (link.equals("Monkeys/SuperMonkey.png") && getCash()>=500) {
+      modifyCash(-500);
+      seeCamo = true;
+      fill(#964B00);
+      rect(440, 530, 290, 70); 
+      fill(#FFA500);
+      textSize(20);
+      text("Plasma Beams: Plasma beams do \na whopping 7 damage per hit!", 450, 560); 
     }
     upgrade1b = true;
   }
   public void activateUpgrade1a() {
-    if (link.equals("Monkeys/NinjaMonkey.png")) {
+    if (link.equals("Monkeys/NinjaMonkey.png") && getCash()>=300) {
       modifyCash(-300);
       reload = 200;
       range = 175;
@@ -199,6 +228,16 @@ public class Monkey {
       fill(#FFA500);
       textSize(20);
       text("Burning Shurikens: Ninja's \nshurikens can burn through lead", 5, 560);  
+    }
+    if (link.equals("Monkeys/SuperMonkey.png") && getCash()>=1000) {
+      modifyCash(-1000);
+      range = 260;
+      upgrade1a = true;
+      fill(#964B00);
+      rect(0, 530, 290, 70); 
+      fill(#FFA500);
+      textSize(20);
+      text("Epic Range: Why settle for Super \n when you can have epic?", 5, 560);
     }
     upgrade1a = true;
   }
@@ -240,7 +279,7 @@ public class Monkey {
         }
         if (!magic && bloon.getMagic()) {
           bloon.popLayers(0);
-        } else if (!magic && bloon.getSharp()) {
+        } else if (!lead && bloon.getSharp()) {
           bloon.popLayers(0);
         } else {
           bloon.popLayers(damage);
@@ -358,7 +397,7 @@ public class Monkey {
       if (!isdart) {
         if (link.equals("Monkeys/SniperMonkey.png")) {
           darts = new Dart(5, 20, x, y, color(#000000));
-        } else if (link.equals("Monkeys/SuperMonkey.png") && magic) {
+        } else if (link.equals("Monkeys/SuperMonkey.png") && !magic) {
           darts = new Dart(30, 10, x, y, color(#c321a5));
         } else {
           darts = new Dart(5, 10, x, y, color(#000000));
