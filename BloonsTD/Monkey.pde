@@ -164,7 +164,7 @@ public class Monkey {
     }
     if (link.equals("Monkeys/SuperMonkey.png") && getCash()>=2500) {
       modifyCash(-2500);
-      damage = 7;
+      damage = 6;
       magic = false;
       lead = true;
       fill(#964B00);
@@ -213,7 +213,7 @@ public class Monkey {
       rect(440, 530, 290, 70); 
       fill(#FFA500);
       textSize(18);
-      text("Plasma Beams: Plasma beams do \na whopping 7 damage per hit! (2500)", 450, 560); 
+      text("Plasma Beams: Plasma beams do \na whopping 6 damage per hit! (2500)", 450, 560); 
     }
     upgrade1b = true;
   }

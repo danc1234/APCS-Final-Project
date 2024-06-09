@@ -474,7 +474,7 @@ void mouseClicked() {
            } else if (!towers.get(i).getUpgrade2b()) {
              fill(#FFA500);
              textSize(18);
-             text("Plasma Beams: Plasma beams do \na whopping 7 damage per hit! (2500)", 450, 560); 
+             text("Plasma Beams: Plasma beams do \na whopping 6 damage per hit! (2500)", 450, 560); 
            } else {
              fill(#FFA500);
              textSize(40);
