@@ -265,9 +265,11 @@ public class Monkey {
     if (index < balloon.size()) {
       if (!isdart) {
         if (link.equals("Monkeys/SniperMonkey.png")) {
-          darts = new Dart(1, 20, x, y);
+          darts = new Dart(5, 20, x, y, color(#000000));
+        } else if (link.equals("Monkeys/SuperMonkey.png") && magic) {
+          darts = new Dart(30, 10, x, y, color(#c321a5));
         } else {
-          darts = new Dart(1, 10, x, y);
+          darts = new Dart(5, 10, x, y, color(#000000));
         }
         isdart = true;
       }
