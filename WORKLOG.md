@@ -111,3 +111,7 @@ Added regrowth and camo bloon functionality.
 ### 6/8/2024
 
 Figured out how splitting works. Also worked on ceramics and Moab class bloons.
+
+### 6/9/2024
+
+Figured out how to make the upgrades for Ninja Monkey and Super Monkey. 
