@@ -8,12 +8,14 @@ public class Dart {
   boolean test = false;
   float angle = 0;
   int noChange = 0;
-
-  public Dart(int biggy, double IAmSpeed, float floatX, float floatY) {
+  color colored;
+  
+  public Dart(int biggy, double IAmSpeed, float floatX, float floatY, color coloring) {
     size = biggy;
     speed = IAmSpeed;
     x = floatX;
     y = floatY;
+    colored = coloring;
   }
 
   // Accessors
@@ -32,7 +34,8 @@ public class Dart {
       text("a", 60, 100);
     }
     if (drawable) {
-      circle(x, y, 5);
+      fill(colored);
+      circle(x, y, size);
     }
   }
   public boolean nearBloon(Bloons p) {

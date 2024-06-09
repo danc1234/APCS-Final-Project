@@ -11,6 +11,8 @@ public class Monkey {
   private boolean land;
   private boolean water;
   private boolean seeCamo;
+  private boolean lead;
+  private boolean magic;
   private Dart darts;
   private Bloons bloon;
   private boolean isdart = false;
@@ -37,6 +39,8 @@ public class Monkey {
       placementRadius = 30;
       cost = 2750;
       damage = 1;
+      lead = false;
+      magic = false;
     } else if (link.equals("Monkeys/DartMonkey.png")) {
       reload = 400;
       range = 100;
@@ -46,6 +50,8 @@ public class Monkey {
       placementRadius = 30;
       cost = 170;
       damage = 1;
+      lead = false;
+      magic = false;
     } else if (link.equals("Monkeys/SniperMonkey.png")) {
       reload = 800;
       range = 750;
@@ -55,6 +61,8 @@ public class Monkey {
       placementRadius = 30;
       cost = 300;
       damage = 2;
+      lead = false;
+      magic = false;
     } else if (link.equals("Monkeys/NinjaMonkey.png")) {
       reload = 400;
       range = 150;
@@ -64,8 +72,9 @@ public class Monkey {
       placementRadius = 30;
       cost = 500;
       damage = 1;
-    }  
-    
+      lead = false;
+      magic = false;
+    }
   }
 
 
@@ -94,8 +103,8 @@ public class Monkey {
   public PImage getSprite() {
     return sprite;
   }
-  public boolean getCamo(){
-    return seeCamo; 
+  public boolean getCamo() {
+    return seeCamo;
   }
 
   public void resetTimer(int a) {
@@ -137,88 +146,95 @@ public class Monkey {
           x = bloon.getX();
           y = bloon.getY()-30;
         }
-        if (a == 6) {
-          addBloons(new Bloons(5, x, y, bloon.getCamo(), bloon.getRegrow(), new Map("Map.png"), getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+        if (!magic && bloon.getMagic()) {
+          bloon.popLayers(0);
+        } else if (!magic && bloon.getSharp()) {
+          bloon.popLayers(0);
+        } else {
+          bloon.popLayers(damage);
+
+          if (a == 6) {
+            addBloons(new Bloons(5, x, y, bloon.getCamo(), bloon.getRegrow(), new Map("Map.png"), getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+          }
+          if ((a == 7) && (bloon.getSpeed() == 0.51)) {
+            addBloons(new SpecialBloons(6, x, y, bloon.getCamo(), bloon.getRegrow(), new Map("Map.png"), false, true, false, false, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+          }
+          if ((a == 7) && (bloon.getSpeed() == 0.9)) {
+            addBloons(new SpecialBloons(6, x, y, bloon.getCamo(), bloon.getRegrow(), new Map("Map.png"), false, true, false, false, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+          }
+          if (a == 8) {
+            addBloons(new SpecialBloons(7, x, y, bloon.getCamo(), bloon.getRegrow(), new Map("Map.png"), true, true, false, false, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+          }
+          if (a == 9 && bloon.getHealth() <= 1) {
+            addBloons(new SpecialBloons(8, x, y, bloon.getCamo(), bloon.getRegrow(), new Map("Map.png"), true, true, false, false, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+          }
+          if (a == 10 && bloon.getHealth() <= 1) {
+            if (Math.round(move[0]) == 1 && Math.round(move[1]) == 0) {
+              addBloons(new Boss(9, x-30, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 10, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+              addBloons(new Boss(9, x+30, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 10, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+              addBloons(new Boss(9, x+60, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 10, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+            }
+            if (Math.round(move[0]) == 0 && Math.round(move[1]) == -1) {
+              addBloons(new Boss(9, x, y+30, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 10, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+              addBloons(new Boss(9, x, y-30, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 10, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+              addBloons(new Boss(9, x, y-60, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 10, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+            }
+            if (Math.round(move[0]) == -1 && Math.round(move[1]) == 0) {
+              addBloons(new Boss(9, x+30, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 10, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+              addBloons(new Boss(9, x-30, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 10, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+              addBloons(new Boss(9, x-60, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 10, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+            }
+            if (Math.round(move[0]) == 0 && Math.round(move[1]) == 1) {
+              addBloons(new Boss(9, x, y-30, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 10, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+              addBloons(new Boss(9, x, y+30, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 10, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+              addBloons(new Boss(9, x, y+60, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 10, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+            }
+          }
+          if (a == 11 && bloon.getHealth() <= 1) {
+            if (Math.round(move[0]) == 1 && Math.round(move[1]) == 0) {
+              addBloons(new Boss(10, x-30, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 200, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+              addBloons(new Boss(10, x+30, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 200, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+              addBloons(new Boss(10, x+60, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 200, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+            }
+            if (Math.round(move[0]) == 0 && Math.round(move[1]) == -1) {
+              addBloons(new Boss(10, x, y+30, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 200, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+              addBloons(new Boss(10, x, y-30, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 200, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+              addBloons(new Boss(10, x, y-60, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 200, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+            }
+            if (Math.round(move[0]) == -1 && Math.round(move[1]) == 0) {
+              addBloons(new Boss(10, x+30, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 200, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+              addBloons(new Boss(10, x-30, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 200, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+              addBloons(new Boss(10, x-60, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 200, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+            }
+            if (Math.round(move[0]) == 0 && Math.round(move[1]) == 1) {
+              addBloons(new Boss(10, x, y-30, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 200, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+              addBloons(new Boss(10, x, y+30, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 200, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+              addBloons(new Boss(10, x, y+60, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 200, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+            }
+          }
+          if (a == 12 && bloon.getHealth() <= 1) {
+            if (Math.round(move[0]) == 1 && Math.round(move[1]) == 0) {
+              addBloons(new Boss(11, x-30, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 700, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+              addBloons(new Boss(11, x+30, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 700, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+              addBloons(new Boss(11, x+60, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 700, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+            }
+            if (Math.round(move[0]) == 0 && Math.round(move[1]) == -1) {
+              addBloons(new Boss(11, x, y+30, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 700, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+              addBloons(new Boss(11, x, y-30, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 700, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+              addBloons(new Boss(11, x, y-60, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 700, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+            }
+            if (Math.round(move[0]) == -1 && Math.round(move[1]) == 0) {
+              addBloons(new Boss(11, x+30, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 700, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+              addBloons(new Boss(11, x-30, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 700, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+              addBloons(new Boss(11, x-60, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 700, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+            }
+            if (Math.round(move[0]) == 0 && Math.round(move[1]) == 1) {
+              addBloons(new Boss(11, x, y-30, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 700, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+              addBloons(new Boss(11, x, y+30, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 700, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+              addBloons(new Boss(11, x, y+60, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 700, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
+            }
+          }
         }
-        if ((a == 7) && (bloon.getSpeed() == 0.51)) {
-          addBloons(new SpecialBloons(6, x, y, bloon.getCamo(), bloon.getRegrow(), new Map("Map.png"), false, true, false, false, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
-        }
-        if ((a == 7) && (bloon.getSpeed() == 0.9)) {
-          addBloons(new SpecialBloons(6, x, y, bloon.getCamo(), bloon.getRegrow(), new Map("Map.png"), false, true, false, false, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
-        }
-        if (a == 8) {
-          addBloons(new SpecialBloons(7, x, y, bloon.getCamo(), bloon.getRegrow(), new Map("Map.png"), true, true, false, false, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
-        }
-        if (a == 9 && bloon.getHealth() <= 1) {
-          addBloons(new SpecialBloons(8, x, y, bloon.getCamo(), bloon.getRegrow(), new Map("Map.png"), true, true, false, false, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));  
-        } 
-        if (a == 10 && bloon.getHealth() <= 1) {
-          if (Math.round(move[0]) == 1 && Math.round(move[1]) == 0) {
-            addBloons(new Boss(9, x-30, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 10, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
-            addBloons(new Boss(9, x+30, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 10, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));  
-            addBloons(new Boss(9, x+60, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 10, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
-          }
-          if (Math.round(move[0]) == 0 && Math.round(move[1]) == -1) {
-            addBloons(new Boss(9, x, y+30, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 10, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
-            addBloons(new Boss(9, x, y-30, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 10, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));  
-            addBloons(new Boss(9, x, y-60, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 10, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
-          }
-          if (Math.round(move[0]) == -1 && Math.round(move[1]) == 0) {
-            addBloons(new Boss(9, x+30, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 10, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
-            addBloons(new Boss(9, x-30, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 10, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));  
-            addBloons(new Boss(9, x-60, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 10, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));        
-          }
-          if (Math.round(move[0]) == 0 && Math.round(move[1]) == 1) {
-            addBloons(new Boss(9, x, y-30, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 10, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
-            addBloons(new Boss(9, x, y+30, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 10, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));  
-            addBloons(new Boss(9, x, y+60, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 10, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
-          }  
-        }
-        if (a == 11 && bloon.getHealth() <= 1) {
-          if (Math.round(move[0]) == 1 && Math.round(move[1]) == 0) {
-            addBloons(new Boss(10, x-30, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 200, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
-            addBloons(new Boss(10, x+30, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 200, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));  
-            addBloons(new Boss(10, x+60, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 200, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
-          }
-          if (Math.round(move[0]) == 0 && Math.round(move[1]) == -1) {
-            addBloons(new Boss(10, x, y+30, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 200, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
-            addBloons(new Boss(10, x, y-30, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 200, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));  
-            addBloons(new Boss(10, x, y-60, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 200, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
-          }
-          if (Math.round(move[0]) == -1 && Math.round(move[1]) == 0) {
-            addBloons(new Boss(10, x+30, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 200, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
-            addBloons(new Boss(10, x-30, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 200, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));  
-            addBloons(new Boss(10, x-60, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 200, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));        
-          }
-          if (Math.round(move[0]) == 0 && Math.round(move[1]) == 1) {
-            addBloons(new Boss(10, x, y-30, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 200, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
-            addBloons(new Boss(10, x, y+30, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 200, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));  
-            addBloons(new Boss(10, x, y+60, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 200, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
-          }  
-        }
-        if (a == 12 && bloon.getHealth() <= 1) {
-          if (Math.round(move[0]) == 1 && Math.round(move[1]) == 0) {
-            addBloons(new Boss(11, x-30, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 700, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
-            addBloons(new Boss(11, x+30, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 700, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));  
-            addBloons(new Boss(11, x+60, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 700, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
-          }
-          if (Math.round(move[0]) == 0 && Math.round(move[1]) == -1) {
-            addBloons(new Boss(11, x, y+30, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 700, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
-            addBloons(new Boss(11, x, y-30, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 700, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));  
-            addBloons(new Boss(11, x, y-60, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 700, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
-          }
-          if (Math.round(move[0]) == -1 && Math.round(move[1]) == 0) {
-            addBloons(new Boss(11, x+30, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 700, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
-            addBloons(new Boss(11, x-30, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 700, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));  
-            addBloons(new Boss(11, x-60, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 700, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));        
-          }
-          if (Math.round(move[0]) == 0 && Math.round(move[1]) == 1) {
-            addBloons(new Boss(11, x, y-30, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 700, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
-            addBloons(new Boss(11, x, y+30, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 700, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));  
-            addBloons(new Boss(11, x, y+60, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 700, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
-          }  
-        }
-        bloon.popLayers(damage);
         int b = bloon.getLayers();
         modifyCash(Math.abs(a-b));
         darts = null;
@@ -249,9 +265,11 @@ public class Monkey {
     if (index < balloon.size()) {
       if (!isdart) {
         if (link.equals("Monkeys/SniperMonkey.png")) {
-          darts = new Dart(1, 20, x, y);
+          darts = new Dart(5, 20, x, y, color(#000000));
+        } else if (link.equals("Monkeys/SuperMonkey.png") && magic) {
+          darts = new Dart(30, 10, x, y, color(#c321a5));
         } else {
-          darts = new Dart(1, 10, x, y);
+          darts = new Dart(5, 10, x, y, color(#000000));
         }
         isdart = true;
       }

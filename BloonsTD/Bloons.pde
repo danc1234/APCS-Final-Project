@@ -16,6 +16,8 @@ public class Bloons {
   private boolean iced;
   private boolean glued;
   private boolean hitOnce;
+  private boolean imunSharp = false;
+  private boolean imunMagic = false;
   private PImage balloon;
   
   private int health;
@@ -73,6 +75,12 @@ public class Bloons {
   public boolean getHitOnce() {
     return hitOnce; 
   }
+  public boolean getSharp() {
+    return imunSharp;
+  }
+  public boolean getMagic() {
+    return imunMagic;
+  }
   public int getOGLayers() {
     return OGLayers;
   }
@@ -119,8 +127,17 @@ public class Bloons {
   }
 
   // Methods
+  public void setSharp() {
+    imunSharp = true;
+  }
+  public void setMagic() {
+    imunMagic = true;
+  }
   public void setHealth(int a) {
     health = a; 
+  }
+  public void setHitOnce() {
+     hitOnce = true;
   }
   public int getHealth() {
     return health; 
@@ -147,6 +164,9 @@ public class Bloons {
   }
   public void addLayers() {
     layers++;
+  }
+  public void setLayers(int a) {
+    layers = a;
   }
   public void changeCoord() {
     x += getDirection().x*speed;
@@ -233,7 +253,6 @@ public class Bloons {
           balloon = bloonDisplay[4];
         }
       }
-      balloon.resize(70, 70);
       image(balloon, x-35, y-35);
     }
   }

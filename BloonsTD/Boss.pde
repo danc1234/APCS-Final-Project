@@ -144,55 +144,43 @@ public class Boss extends SpecialBloons {
       if (this.getLayers() == 10) {
         if (Math.round(move[0]) == 1 && Math.round(move[1]) == 0) {
           balloon = BloonDisplay[16];
-          balloon.resize(132, 86);
         }
         if (Math.round(move[0]) == 0 && Math.round(move[1]) == -1) {
           balloon = BloonDisplay[17];
-          balloon.resize(86, 132);
         }
         if (Math.round(move[0]) == -1 && Math.round(move[1]) == 0) {
           balloon = BloonDisplay[18];
-          balloon.resize(132, 86);
         }
         if (Math.round(move[0]) == 0 && Math.round(move[1]) == 1) {
           balloon = BloonDisplay[19];
-          balloon.resize(86, 132);
         }
         image(balloon, this.getX()-45, this.getY()-45);
       } else if (this.getLayers() == 11) {
         if (Math.round(move[0]) == 1 && Math.round(move[1]) == 0) {
           balloon = BloonDisplay[20];
-          balloon.resize(202, 142);
         }
         if (Math.round(move[0]) == 0 && Math.round(move[1]) == -1) {
           balloon = BloonDisplay[21];
-          balloon.resize(142, 202);
         }
         if (Math.round(move[0]) == -1 && Math.round(move[1]) == 0) {
           balloon = BloonDisplay[22];
-          balloon.resize(202, 142);
         }
         if (Math.round(move[0]) == 0 && Math.round(move[1]) == 1) {
           balloon = BloonDisplay[23];
-          balloon.resize(142, 202);
         }
         image(balloon, this.getX()-70, this.getY()-70);
       } else if (this.getLayers() == 12) {
         if (Math.round(move[0]) == 1 && Math.round(move[1]) == 0) {
           balloon = BloonDisplay[24];
-          balloon.resize(222, 141);
         }
         if (Math.round(move[0]) == 0 && Math.round(move[1]) == -1) {
           balloon = BloonDisplay[25];
-          balloon.resize(141, 222);
         }
         if (Math.round(move[0]) == -1 && Math.round(move[1]) == 0) {
           balloon = BloonDisplay[25];
-          balloon.resize(222, 141);
         }
         if (Math.round(move[0]) == 0 && Math.round(move[1]) == 1) {
           balloon = BloonDisplay[26];
-          balloon.resize(141, 222);
         }
         image(balloon, this.getX()-70, this.getY()-70);
       }
