@@ -417,7 +417,7 @@ void mouseClicked() {
   for (int i = 0; i < towers.size(); i++) {
     if (towers.get(i).inRange(mouseX, mouseY)) {
       if (towers.get(i).getWasPlaced()) {
-        towers.get(i).setUpgradeMode();
+        towers.get(i).setUpgradeMode(true);
         fill(#964B00);
         rect(0, 530, 823, 70); 
         fill(#000000);
@@ -467,13 +467,7 @@ void mouseClicked() {
       towers.get(i).activateUpgrade1b();        
     } else if (((mouseX < 720) && (mouseX > 440)) && ((mouseY > 530) && (mouseY < 600)) && towers.get(i).getUpgradeMode() && !towers.get(i).getUpgrade2b()) {
       towers.get(i).activateUpgrade2b();        
-    }
-    
-    else if (mouseY <= 530 && !towers.get(i).inRange(mouseX, mouseY)) {
-      towers.get(i).setUpgradeMode(); 
-      fill(#000000);
-      rect(0, 530, 823, 70);
-    }
+    } 
   }
 }
 

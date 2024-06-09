@@ -8,8 +8,6 @@ public class Monkey {
   private float direction = 0;
   private float x;
   private float y;
-  private boolean land;
-  private boolean water;
   private boolean seeCamo;
   private boolean lead;
   private boolean magic;
@@ -42,46 +40,38 @@ public class Monkey {
       reload = 0;
       range = 200;
       seeCamo = false;
-      land = true;
-      water = false;
       placementRadius = 40;
       cost = 2750;
       damage = 1;
       lead = false;
-      magic = true;
+      magic = false;
     } else if (link.equals("Monkeys/DartMonkey.png")) {
       reload = 400;
       range = 100;
       seeCamo = false;
-      land = true;
-      water = false;
       placementRadius = 30;
       cost = 170;
       damage = 1;
       lead = false;
-      magic = true;
+      magic = false;
     } else if (link.equals("Monkeys/SniperMonkey.png")) {
       reload = 800;
       range = 750;
       seeCamo = false;
-      land = true;
-      water = false;
       placementRadius = 50;
       cost = 300;
       damage = 2;
       lead = false;
-      magic = true;
+      magic = false;
     } else if (link.equals("Monkeys/NinjaMonkey.png")) {
       reload = 400;
       range = 150;
       seeCamo = true;
-      land = true;
-      water = false;
       placementRadius = 40;
       cost = 500;
       damage = 1;
       lead = false;
-      magic = true;
+      magic = false;
     }
   }
 
@@ -158,8 +148,8 @@ public class Monkey {
   public void setUpgrade1a() {
     upgrade1a = true;
   }
-  public void setUpgradeMode() {
-    UpgradeMode = !UpgradeMode; 
+  public void setUpgradeMode(boolean a) {
+    UpgradeMode = a; 
   }
   
   public void activateUpgrade2b() {
