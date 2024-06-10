@@ -21,6 +21,12 @@ Amount of cash needed is told on the screen
 Press stop and go button if you want to stop the game or continue the game.
 Press continue once you finished a wave and want to do the next wave.
 
+Bloons:
+
+Purple: immune to supermonkey plasma beams 
+Lead: Immune to all regular darts.
+Moab: Blimp that has a lot more health than a regular bloon and splits into more bloons
+Red Blimp: A bigger and meaner blimp that has more health than a moab and splits into a moab
 
 Cheats
 
@@ -28,3 +34,12 @@ Use space bar to increase your wave. Only use it when a wave is over or else the
 Or you can press continue before you start to start at any wave you want
 
 Press "m" key to give yourself 1000000 money.
+
+
+
+Round 9: purple and lead bloons
+
+Round 12: Moab
+
+Round 17: Red blimp
+
