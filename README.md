@@ -45,6 +45,14 @@ Round 12: Moab
 
 Round 17: Red blimp
 
-video link:
+### Video link:
 https://drive.google.com/file/d/1oKgBf6HMPGeXU9epcQKxM9o7OkuZ0Ic9/view?usp=sharing
+
+### One Bug:
+The towers may draw over the upgrade tab. Deal with this by pressing a tower for upgrades. 
+
+### Updated UML Diagram:
+
+https://docs.google.com/document/d/17aT2iHjX8vbZS5DT8_2dOFLbIo_ZXl15dkU7tXXZ2wM/edit 
+
 
