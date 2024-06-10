@@ -191,6 +191,16 @@ public class Monkey {
       textSize(40);
       text("Path Closed", 445, 580); 
     }
+            if (link.equals("Monkeys/DartMonkey.png") && getCash()>=1000) {
+      modifyCash(-1000);
+      magic = false;
+      lead = true;
+      fill(#964B00);
+      rect(440, 530, 290, 70); 
+      fill(#FFA500);
+      textSize(40);
+      text("Path Closed", 445, 580); 
+    }
     upgrade2b = true;
   }
   public void activateUpgrade2a() {
