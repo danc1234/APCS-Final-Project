@@ -271,7 +271,7 @@ public class Monkey {
       textSize(18);
       text("Sniper does 14 damage!!! \n   (3000)", 450, 560); 
     }
-            if (link.equals("Monkeys/DartMonkey.png") && getCash()>=500) {
+    if (link.equals("Monkeys/DartMonkey.png") && getCash()>=500) {
       modifyCash(-500);
       damage = 3;
       fill(#964B00);
@@ -405,7 +405,7 @@ public class Monkey {
               addBloons(new Boss(9, x, y+60, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 10, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
             }
           }
-          if (a == 11 && bloon.getHealth() <= 1) {
+          if (a == 11 && bloon.getHealth() <= 4) {
             if (Math.round(move[0]) == 1 && Math.round(move[1]) == 0) {
               addBloons(new Boss(10, x-30, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 200, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
               addBloons(new Boss(10, x+30, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 200, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
@@ -427,7 +427,7 @@ public class Monkey {
               addBloons(new Boss(10, x, y+60, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 200, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
             }
           }
-          if (a == 12 && bloon.getHealth() <= 1) {
+          if (a == 12 && bloon.getHealth() <= 4) {
             if (Math.round(move[0]) == 1 && Math.round(move[1]) == 0) {
               addBloons(new Boss(11, x-30, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 700, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
               addBloons(new Boss(11, x+30, y, bloon.getRegrow(), bloon.getCamo(), new Map("Map.png"), 700, 1, getBloon(), getCamoBloon(), getRegrowBloon(), getCamoRegrowBloon(), bloon.getTileCount()));
