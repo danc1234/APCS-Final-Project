@@ -173,6 +173,17 @@ public class Monkey {
       textSize(40);
       text("Path Closed", 445, 580); 
     }
+        if (link.equals("Monkeys/SniperMonkey.png") && getCash()>=3000) {
+      modifyCash(-3000);
+      damage = 14;
+      magic = false;
+      lead = true;
+      fill(#964B00);
+      rect(440, 530, 290, 70); 
+      fill(#FFA500);
+      textSize(40);
+      text("Path Closed", 445, 580); 
+    }
     upgrade2b = true;
   }
   public void activateUpgrade2a() {
@@ -188,6 +199,15 @@ public class Monkey {
     if (link.equals("Monkeys/SuperMonkey.png") && getCash()>=1500) {
       modifyCash(-1500);
       range = 320;
+      fill(#964B00);
+      rect(0, 530, 290, 70); 
+      fill(#FFA500);
+      textSize(40);
+      text("Path Closed", 5, 580); 
+    }
+    if (link.equals("Monkeys/SniperMonkey.png") && getCash()>=3000) {
+      modifyCash(-3000);
+      setReload(200);
       fill(#964B00);
       rect(0, 530, 290, 70); 
       fill(#FFA500);
@@ -215,6 +235,16 @@ public class Monkey {
       textSize(18);
       text("Plasma Beams: Plasma beams do \na whopping 6 damage per hit! (2500)", 450, 560); 
     }
+        if (link.equals("Monkeys/SniperMonkey.png") && getCash()>=1000) {
+      modifyCash(-1000);
+      damage = 10;
+      seeCamo = true;
+      fill(#964B00);
+      rect(440, 530, 290, 70); 
+      fill(#FFA500);
+      textSize(18);
+      text("Sniper does 14 damage!!! \n   (3000)", 450, 560); 
+    }
     upgrade1b = true;
   }
   public void activateUpgrade1a() {
@@ -238,6 +268,16 @@ public class Monkey {
       fill(#FFA500);
       textSize(20);
       text("Epic Range: Why settle for Super \n when you can have epic? (1500)", 5, 560);
+    }
+    if (link.equals("Monkeys/SniperMonkey.png") && getCash()>=1000) {
+      modifyCash(-1000);
+      setReload(400);
+      upgrade1a = true;
+      fill(#964B00);
+      rect(0, 530, 290, 70); 
+      fill(#FFA500);
+      textSize(20);
+      text("Shoot faster than the fast(3000)", 5, 560);
     }
     upgrade1a = true;
   }

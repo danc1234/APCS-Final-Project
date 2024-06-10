@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 //hi oingo boingo;
 private static int lives=100;
-private static int cash=50000;
+private static int cash=5000;
 private static int waves=1;
 private static int barrier;
 private static boolean selectDart;
@@ -475,6 +475,34 @@ void mouseClicked() {
              fill(#FFA500);
              textSize(18);
              text("Plasma Beams: Plasma beams do \na whopping 6 damage per hit! (2500)", 450, 560); 
+           } else {
+             fill(#FFA500);
+             textSize(40);
+             text("Path Closed", 445, 580); 
+           }
+        }
+        else if (towers.get(i).getLink().equals("Monkeys/SniperMonkey.png")) {
+           if (!towers.get(i).getUpgrade1a()) {
+             fill(#FFA500);
+             textSize(20);
+             text("Shoot faster (1000)", 5, 560);       
+           } else if (!towers.get(i).getUpgrade2a()) {
+             fill(#FFA500);
+             textSize(20);
+             text("Shoot faster than the fast(3000)", 5, 560);
+           } else {
+             fill(#FFA500);
+             textSize(40);
+             text("Path Closed", 5, 580); 
+           }
+           if (!towers.get(i).getUpgrade1b()) {
+             fill(#FFA500);
+             textSize(20);
+             text("Stronger the better (1000)",450, 560);
+           } else if (!towers.get(i).getUpgrade2b()) {
+             fill(#FFA500);
+             textSize(18);
+             text("Strongest the better. Sniper does 14 damage!!! \n   (3000)", 450, 560); 
            } else {
              fill(#FFA500);
              textSize(40);
