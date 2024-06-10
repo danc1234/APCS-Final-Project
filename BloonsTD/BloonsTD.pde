@@ -639,7 +639,7 @@ void mouseReleased() {
 }
 
 void keyPressed() {
-  if (key == ' ') {
+  if (key == ' ' && waves < totalWaves) {
     round++;
     waves++;
     fill(255);
