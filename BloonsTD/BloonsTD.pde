@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 //hi oingo boingo;
 private static int lives=100;
-private static int cash=5000;
+private static int cash=99999;
 private static int waves=1;
 private static int barrier;
 private static boolean selectDart;
@@ -503,6 +503,34 @@ void mouseClicked() {
              fill(#FFA500);
              textSize(18);
              text("Strongest the better. Sniper does 14 damage!!! \n   (3000)", 450, 560); 
+           } else {
+             fill(#FFA500);
+             textSize(40);
+             text("Path Closed", 445, 580); 
+           }
+        }
+        else if (towers.get(i).getLink().equals("Monkeys/DartMonkey.png")) {
+           if (!towers.get(i).getUpgrade1a()) {
+             fill(#FFA500);
+             textSize(20);
+             text("See Camo (500)", 5, 560);       
+           } else if (!towers.get(i).getUpgrade2a()) {
+             fill(#FFA500);
+             textSize(20);
+             text("See further (1000)", 5, 560);
+           } else {
+             fill(#FFA500);
+             textSize(40);
+             text("Path Closed", 5, 580); 
+           }
+           if (!towers.get(i).getUpgrade1b()) {
+             fill(#FFA500);
+             textSize(20);
+             text("Sharper darts (500)",450, 560);
+           } else if (!towers.get(i).getUpgrade2b()) {
+             fill(#FFA500);
+             textSize(18);
+             text("Heated darts (pop lead)  (1000)", 450, 560); 
            } else {
              fill(#FFA500);
              textSize(40);

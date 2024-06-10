@@ -173,10 +173,17 @@ public class Monkey {
       textSize(40);
       text("Path Closed", 445, 580); 
     }
-        if (link.equals("Monkeys/SniperMonkey.png") && getCash()>=3000) {
+    if (link.equals("Monkeys/SniperMonkey.png") && getCash()>=3000) {
       modifyCash(-3000);
       damage = 14;
-      magic = false;
+      fill(#964B00);
+      rect(440, 530, 290, 70); 
+      fill(#FFA500);
+      textSize(40);
+      text("Path Closed", 445, 580); 
+    }
+    if (link.equals("Monkeys/DartMonkey.png") && getCash()>=1000) {
+      modifyCash(-1000);
       lead = true;
       fill(#964B00);
       rect(440, 530, 290, 70); 
@@ -214,6 +221,15 @@ public class Monkey {
       textSize(40);
       text("Path Closed", 5, 580); 
     }
+    if (link.equals("Monkeys/DartMonkey.png") && getCash()>=1000) {
+      modifyCash(-1000);
+      range = 290;
+      fill(#964B00);
+      rect(0, 530, 290, 70); 
+      fill(#FFA500);
+      textSize(40);
+      text("Path Closed", 5, 580); 
+    }
     upgrade2a = true;
   }
   public void activateUpgrade1b() {
@@ -244,6 +260,15 @@ public class Monkey {
       fill(#FFA500);
       textSize(18);
       text("Sniper does 14 damage!!! \n   (3000)", 450, 560); 
+    }
+            if (link.equals("Monkeys/DartMonkey.png") && getCash()>=500) {
+      modifyCash(-500);
+      damage = 3;
+      fill(#964B00);
+      rect(440, 530, 290, 70); 
+      fill(#FFA500);
+      textSize(18);
+      text("Heated Darts (1000)", 450, 560); 
     }
     upgrade1b = true;
   }
@@ -278,6 +303,15 @@ public class Monkey {
       fill(#FFA500);
       textSize(20);
       text("Shoot faster than the fast(3000)", 5, 560);
+    }
+    if (link.equals("Monkeys/DartMonkey.png") && getCash()>=500) {
+      modifyCash(-500);
+      seeCamo = true;
+      fill(#964B00);
+      rect(0, 530, 290, 70); 
+      fill(#FFA500);
+      textSize(20);
+      text("See further (1000)", 5, 560);
     }
     upgrade1a = true;
   }
