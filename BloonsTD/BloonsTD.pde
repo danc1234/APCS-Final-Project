@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 //hi oingo boingo;
 private static int lives=100;
-private static int cash=99999;
+private static int cash=5000;
 private static int waves=1;
 private static int barrier;
 private static boolean selectDart;
@@ -543,9 +543,31 @@ void mouseClicked() {
       }
     }
     if (((mouseX < 290) && (mouseX > 0)) && ((mouseY > 530) && (mouseY < 600)) && towers.get(i).getUpgradeMode() && !towers.get(i).getUpgrade1a()) {
-      towers.get(i).activateUpgrade1a();        
+      if (towers.get(i).getLink().equals("Monkeys/DartMonkey.png") && cash >= 500) {
+        towers.get(i).activateUpgrade1a();
+      }
+      if (towers.get(i).getLink().equals("Monkeys/SuperMonkey.png") && cash >= 1000) {
+        towers.get(i).activateUpgrade1a();
+      }
+      if (towers.get(i).getLink().equals("Monkeys/NinjaMonkey.png") && cash >= 300) {
+        towers.get(i).activateUpgrade1a();
+      }
+      if (towers.get(i).getLink().equals("Monkeys/SniperMonkey.png") && cash >= 1000) {
+        towers.get(i).activateUpgrade1a();
+      }
     } else if (((mouseX < 290) && (mouseX > 0)) && ((mouseY > 530) && (mouseY < 600)) && towers.get(i).getUpgradeMode() && !towers.get(i).getUpgrade2a()) {
-      towers.get(i).activateUpgrade2a();        
+      if (towers.get(i).getLink().equals("Monkeys/DartMonkey.png") && cash >= 1000) {
+        towers.get(i).activateUpgrade2a();
+      }
+      if (towers.get(i).getLink().equals("Monkeys/SuperMonkey.png") && cash >= 1500) {
+        towers.get(i).activateUpgrade2a();
+      }
+      if (towers.get(i).getLink().equals("Monkeys/NinjaMonkey.png") && cash >= 500) {
+        towers.get(i).activateUpgrade2a();
+      }
+      if (towers.get(i).getLink().equals("Monkeys/SniperMonkey.png") && cash >= 3000) {
+        towers.get(i).activateUpgrade2a();
+      }        
     } else if (((mouseX < 720) && (mouseX > 440)) && ((mouseY > 530) && (mouseY < 600)) && towers.get(i).getUpgradeMode() && !towers.get(i).getUpgrade1b()) {
       towers.get(i).activateUpgrade1b();        
     } else if (((mouseX < 720) && (mouseX > 440)) && ((mouseY > 530) && (mouseY < 600)) && towers.get(i).getUpgradeMode() && !towers.get(i).getUpgrade2b()) {

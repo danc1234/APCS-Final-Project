@@ -294,7 +294,7 @@ public class Monkey {
       textSize(20);
       text("Flamed: Ninja's shurikens can \nburn through lead (500)", 5, 560);  
     }
-    if (link.equals("Monkeys/SuperMonkey.png") && getCash()>=1000) {
+    if (link.equals("Monkeys/SuperMonkey.png")) {
       modifyCash(-1000);
       range = 260;
       upgrade1a = true;
@@ -304,7 +304,7 @@ public class Monkey {
       textSize(20);
       text("Epic Range: Why settle for Super \n when you can have epic? (1500)", 5, 560);
     }
-    if (link.equals("Monkeys/SniperMonkey.png") && getCash()>=1000) {
+    if (link.equals("Monkeys/SniperMonkey.png")) {
       modifyCash(-1000);
       setReload(400);
       upgrade1a = true;
@@ -314,7 +314,7 @@ public class Monkey {
       textSize(20);
       text("Shoot faster than the fast(3000)", 5, 560);
     }
-    if (link.equals("Monkeys/DartMonkey.png") && getCash()>=500) {
+    if (link.equals("Monkeys/DartMonkey.png")) {
       modifyCash(-500);
       seeCamo = true;
       fill(#964B00);
