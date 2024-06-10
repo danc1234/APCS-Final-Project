@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 //hi oingo boingo;
 private static int lives=100;
-private static int cash=5000;
+private static int cash=50000;
 private static int waves=1;
 private static int barrier;
 private static boolean selectDart;
