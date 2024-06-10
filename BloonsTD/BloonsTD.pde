@@ -265,6 +265,8 @@ rounds = new Round(BloonDisplay,BloonCamoDisplay, BloonRegrowDisplay, BloonCamoR
 }
 
 void draw() {
+  fill(#000000);
+  rect(290, 530, 150, 70);
   image(map, 0, 0);
   for (int i = 0; i < towers.size(); i++) {
     towers.get(i).drawMonkey();
