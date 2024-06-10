@@ -547,10 +547,39 @@ void mouseClicked() {
     } else if (((mouseX < 290) && (mouseX > 0)) && ((mouseY > 530) && (mouseY < 600)) && towers.get(i).getUpgradeMode() && !towers.get(i).getUpgrade2a()) {
       towers.get(i).activateUpgrade2a();        
     } else if (((mouseX < 720) && (mouseX > 440)) && ((mouseY > 530) && (mouseY < 600)) && towers.get(i).getUpgradeMode() && !towers.get(i).getUpgrade1b()) {
-      towers.get(i).activateUpgrade1b();        
-    } else if (((mouseX < 720) && (mouseX > 440)) && ((mouseY > 530) && (mouseY < 600)) && towers.get(i).getUpgradeMode() && !towers.get(i).getUpgrade2b()) {
-      towers.get(i).activateUpgrade2b();        
+      if(towers.get(i).getLink().equals("Monkeys/SuperMonkey.png") && cash >= 500){
+      towers.get(i).activateUpgrade1b();
+      }
     } 
+    else if (((mouseX < 720) && (mouseX > 440)) && ((mouseY > 530) && (mouseY < 600)) && towers.get(i).getUpgradeMode() && !towers.get(i).getUpgrade1b()) {
+      if(towers.get(i).getLink().equals("Monkeys/SniperMonkey.png") && cash >= 1000){
+      towers.get(i).activateUpgrade1b();
+      }
+    } else if (((mouseX < 720) && (mouseX > 440)) && ((mouseY > 530) && (mouseY < 600)) && towers.get(i).getUpgradeMode() && !towers.get(i).getUpgrade1b()) {
+      if(towers.get(i).getLink().equals("Monkeys/DartMonkey.png") && cash >= 500){
+      towers.get(i).activateUpgrade1b();
+      }
+    } else if (((mouseX < 720) && (mouseX > 440)) && ((mouseY > 530) && (mouseY < 600)) && towers.get(i).getUpgradeMode() && !towers.get(i).getUpgrade1b()) {
+      if(towers.get(i).getLink().equals("Monkeys/NinjaMonkey.png") && cash >= 200){
+      towers.get(i).activateUpgrade1b();
+      }
+    } else if (((mouseX < 720) && (mouseX > 440)) && ((mouseY > 530) && (mouseY < 600)) && towers.get(i).getUpgradeMode() && !towers.get(i).getUpgrade2b()) {
+      if(towers.get(i).getLink().equals("Monkeys/NinjaMonkey.png") && cash >= 400){
+      towers.get(i).activateUpgrade2b();
+      }
+    } else if (((mouseX < 720) && (mouseX > 440)) && ((mouseY > 530) && (mouseY < 600)) && towers.get(i).getUpgradeMode() && !towers.get(i).getUpgrade2b()) {
+      if(towers.get(i).getLink().equals("Monkeys/SniperMonkey.png") && cash >= 3000){
+      towers.get(i).activateUpgrade2b();
+      }
+    } else if (((mouseX < 720) && (mouseX > 440)) && ((mouseY > 530) && (mouseY < 600)) && towers.get(i).getUpgradeMode() && !towers.get(i).getUpgrade2b()) {
+      if(towers.get(i).getLink().equals("Monkeys/SuperMonkey.png") && cash >= 2500){
+      towers.get(i).activateUpgrade2b();
+      }
+    }else if (((mouseX < 720) && (mouseX > 440)) && ((mouseY > 530) && (mouseY < 600)) && towers.get(i).getUpgradeMode() && !towers.get(i).getUpgrade2b()) {
+      if(towers.get(i).getLink().equals("Monkeys/DartMonkey.png") && cash >= 1000){
+      towers.get(i).activateUpgrade2b();
+      }
+    }
   }
 }
 
