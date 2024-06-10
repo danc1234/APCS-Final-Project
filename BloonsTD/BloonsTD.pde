@@ -652,6 +652,9 @@ void keyPressed() {
     textSize(20);
     text("Wave "+waves+" out of \n"+totalWaves, 825, 90);
   }
+  if (key == 'm'){
+    modifyCash(1000000);
+  }
 }
 
 void selections() {
