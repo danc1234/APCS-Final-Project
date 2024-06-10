@@ -509,6 +509,34 @@ void mouseClicked() {
              text("Path Closed", 445, 580); 
            }
         }
+        else if (towers.get(i).getLink().equals("Monkeys/DartMonkey.png")) {
+           if (!towers.get(i).getUpgrade1a()) {
+             fill(#FFA500);
+             textSize(20);
+             text("See Camo (500)", 5, 560);       
+           } else if (!towers.get(i).getUpgrade2a()) {
+             fill(#FFA500);
+             textSize(20);
+             text("See further (1000)", 5, 560);
+           } else {
+             fill(#FFA500);
+             textSize(40);
+             text("Path Closed", 5, 580); 
+           }
+           if (!towers.get(i).getUpgrade1b()) {
+             fill(#FFA500);
+             textSize(20);
+             text("Sharper darts (500)",450, 560);
+           } else if (!towers.get(i).getUpgrade2b()) {
+             fill(#FFA500);
+             textSize(18);
+             text("Heated darts (pop lead)  (1000)", 450, 560); 
+           } else {
+             fill(#FFA500);
+             textSize(40);
+             text("Path Closed", 445, 580); 
+           }
+        }
         // DChoe, this is NinjaMonkey done. Copy and paste the above block of code and seperate with comments to make easier reading
       } else { 
         towers.get(i).setPlaced(); 
