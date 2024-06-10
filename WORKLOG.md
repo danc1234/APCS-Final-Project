@@ -51,7 +51,13 @@ Tried to make it so that the bloons go to the intended tiles when spawning
 
 Made it so that bloons go to the intended tiles when spawning. Made it so that boss bloons changes sprites in phases(W.I.P)
 
+### 6/7
 
+Worked on bloons and how the boss bloons function
+
+### 6/9
+
+Worked on fixing bugs and readme files. Changed how the upgrade system worked
 
 ## Daniel Chen
 

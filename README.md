@@ -25,6 +25,8 @@ Bloons:
 
 Purple: immune to supermonkey plasma beams 
 Lead: Immune to all regular darts.
+Camo: Only monkeys that are able to see camos are able to hit it(ninja)
+Regrow: able to layer its health up to its origin layer
 Moab: Blimp that has a lot more health than a regular bloon and splits into more bloons
 Red Blimp: A bigger and meaner blimp that has more health than a moab and splits into a moab
 
@@ -35,11 +37,14 @@ Or you can press continue before you start to start at any wave you want
 
 Press "m" key to give yourself 1000000 money.
 
-
+Round 8: Camo
 
 Round 9: purple and lead bloons
 
 Round 12: Moab
 
 Round 17: Red blimp
+
+video link:
+https://drive.google.com/file/d/1oKgBf6HMPGeXU9epcQKxM9o7OkuZ0Ic9/view?usp=sharing
 
