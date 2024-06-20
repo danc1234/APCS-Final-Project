@@ -658,16 +658,16 @@ void keyPressed() {
 }
 
 void selections() {
-  if (selectDart && mouseX<805) {
+  if (selectDart && mouseX<805  && (mouseY < 504)) {
     image(loadImage("Monkeys/DartMonkey.png"), mouseX-22, mouseY-15);
   }
-  if (selectSuper && mouseX<785) {
+  if (selectSuper && mouseX<785 && (mouseY < 485)) {
     image(loadImage("Monkeys/SuperMonkey.png"), mouseX-22, mouseY-15);
   }
-  if (selectSniper && mouseX<800) {
+  if (selectSniper && mouseX<800 && (mouseY < 465)) {
     image(loadImage("Monkeys/SniperMonkey.png"), mouseX-22, mouseY-15);
   }
-  if (selectNinja && mouseX<792) {
+  if (selectNinja && mouseX<792 && (mouseY < 490)) {
     image(loadImage("Monkeys/NinjaMonkey.png"), mouseX-22, mouseY-15);
   }
 }
